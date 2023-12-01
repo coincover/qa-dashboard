@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.df3b6d63.css",
-    "main.js": "/static/js/main.bea9bb10.js",
-    "static/js/699.f91dabc9.chunk.js": "/static/js/699.f91dabc9.chunk.js",
-    "static/js/603.6d3a5077.chunk.js": "/static/js/603.6d3a5077.chunk.js",
-    "static/js/801.3458ff95.chunk.js": "/static/js/801.3458ff95.chunk.js",
-    "static/js/573.e2ef5c71.chunk.js": "/static/js/573.e2ef5c71.chunk.js",
-    "static/js/271.e650005e.chunk.js": "/static/js/271.e650005e.chunk.js",
-    "static/js/825.251f56bb.chunk.js": "/static/js/825.251f56bb.chunk.js",
-    "static/js/971.61c8c926.chunk.js": "/static/js/971.61c8c926.chunk.js",
-    "static/js/411.b735fcbf.chunk.js": "/static/js/411.b735fcbf.chunk.js",
-    "static/js/354.e884b2dd.chunk.js": "/static/js/354.e884b2dd.chunk.js",
-    "static/js/889.54d40369.chunk.js": "/static/js/889.54d40369.chunk.js",
-    "static/js/224.517c1792.chunk.js": "/static/js/224.517c1792.chunk.js",
-    "static/js/486.96a07a86.chunk.js": "/static/js/486.96a07a86.chunk.js",
-    "static/js/970.896f9f75.chunk.js": "/static/js/970.896f9f75.chunk.js",
-    "static/media/user-round.svg": "/static/media/user-round.13b5a31bebd2cc6016d6db2cac8e92d1.svg",
-    "index.html": "/index.html",
-    "static/media/social-google.svg": "/static/media/social-google.9887eb8eb43729cb99f402cfa0de3c44.svg",
-    "static/media/earning.svg": "/static/media/earning.b019e86a7ee117bd6bb2e8cab90c0db5.svg"
+    "main.css": "/qa-dashboard/static/css/main.df3b6d63.css",
+    "main.js": "/qa-dashboard/static/js/main.2740a51d.js",
+    "static/js/699.f91dabc9.chunk.js": "/qa-dashboard/static/js/699.f91dabc9.chunk.js",
+    "static/js/603.6d3a5077.chunk.js": "/qa-dashboard/static/js/603.6d3a5077.chunk.js",
+    "static/js/801.3458ff95.chunk.js": "/qa-dashboard/static/js/801.3458ff95.chunk.js",
+    "static/js/573.e2ef5c71.chunk.js": "/qa-dashboard/static/js/573.e2ef5c71.chunk.js",
+    "static/js/271.e650005e.chunk.js": "/qa-dashboard/static/js/271.e650005e.chunk.js",
+    "static/js/825.251f56bb.chunk.js": "/qa-dashboard/static/js/825.251f56bb.chunk.js",
+    "static/js/971.61c8c926.chunk.js": "/qa-dashboard/static/js/971.61c8c926.chunk.js",
+    "static/js/411.b735fcbf.chunk.js": "/qa-dashboard/static/js/411.b735fcbf.chunk.js",
+    "static/js/354.e884b2dd.chunk.js": "/qa-dashboard/static/js/354.e884b2dd.chunk.js",
+    "static/js/889.54d40369.chunk.js": "/qa-dashboard/static/js/889.54d40369.chunk.js",
+    "static/js/224.517c1792.chunk.js": "/qa-dashboard/static/js/224.517c1792.chunk.js",
+    "static/js/486.96a07a86.chunk.js": "/qa-dashboard/static/js/486.96a07a86.chunk.js",
+    "static/js/970.896f9f75.chunk.js": "/qa-dashboard/static/js/970.896f9f75.chunk.js",
+    "static/media/user-round.svg": "/qa-dashboard/static/media/user-round.13b5a31bebd2cc6016d6db2cac8e92d1.svg",
+    "index.html": "/qa-dashboard/index.html",
+    "static/media/social-google.svg": "/qa-dashboard/static/media/social-google.9887eb8eb43729cb99f402cfa0de3c44.svg",
+    "static/media/earning.svg": "/qa-dashboard/static/media/earning.b019e86a7ee117bd6bb2e8cab90c0db5.svg"
   },
   "entrypoints": [
     "static/css/main.df3b6d63.css",
-    "static/js/main.bea9bb10.js"
+    "static/js/main.2740a51d.js"
   ]
 }
