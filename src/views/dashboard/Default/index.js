@@ -4,13 +4,15 @@ import { useEffect, useState } from 'react';
 import { Grid } from '@mui/material';
 
 // project imports
-import TotalTest from './TotalTest';
+import LargeCard from './LargeCard';
 import PopularCard from './PopularCard';
 import TotalOrderLineChartCard from './TotalOrderLineChartCard';
-import TotalIncomeDarkCard from './TotalIncomeDarkCard';
+import SmallCard from './SmallCard';
 import TotalIncomeLightCard from './TotalIncomeLightCard';
 import TotalGrowthBarChart from './TotalGrowthBarChart';
 import { gridSpacing } from 'store/constant';
+import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
+import EarningIcon from 'assets/images/icons/earning.svg';
 
 // ==============================|| DEFAULT DASHBOARD ||============================== //
 
@@ -25,18 +27,38 @@ const Dashboard = () => {
       <Grid item xs={12}>
         <Grid container spacing={gridSpacing}>
           <Grid item lg={4} md={6} sm={6} xs={12}>
-            <TotalTest isLoading={isLoading} />
+            <LargeCard isLoading={isLoading} title="304 Tests" subtitle=" Total E2E Tests" icon={EarningIcon} backgroundColor="secondary" />
           </Grid>
           <Grid item lg={4} md={6} sm={6} xs={12}>
-            <TotalOrderLineChartCard isLoading={isLoading} />
+            <LargeCard
+              isLoading={isLoading}
+              title="130 Tests"
+              subtitle=" Total Unit Tests"
+              icon={EarningIcon}
+              backgroundColor="secondary"
+            />
           </Grid>
           <Grid item lg={4} md={12} sm={12} xs={12}>
             <Grid container spacing={gridSpacing}>
               <Grid item sm={6} xs={12} md={6} lg={12}>
-                <TotalIncomeDarkCard isLoading={isLoading} />
+                <SmallCard
+                  isLoading={isLoading}
+                  title="Identity Service"
+                  subtitle="Code Coverage"
+                  result="90%"
+                  icon={<TableChartOutlinedIcon fontSize="inherit" />}
+                  backgroundColor="primary"
+                />
               </Grid>
               <Grid item sm={6} xs={12} md={6} lg={12}>
-                <TotalIncomeLightCard isLoading={isLoading} />
+                <SmallCard
+                  isLoading={isLoading}
+                  title="Recovery as a service"
+                  subtitle="Code Coverage"
+                  result="78%"
+                  icon={<TableChartOutlinedIcon fontSize="inherit" />}
+                  backgroundColor="secondary"
+                />
               </Grid>
             </Grid>
           </Grid>

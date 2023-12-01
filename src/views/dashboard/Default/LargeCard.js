@@ -7,7 +7,7 @@ import { Avatar, Box, Grid, Menu, MenuItem, Typography } from '@mui/material';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
-import SkeletonEarningCard from 'ui-component/cards/Skeleton/TotalTest';
+import SkeletonEarningCard from 'ui-component/cards/Skeleton/LargeCard';
 
 // assets
 import EarningIcon from 'assets/images/icons/earning.svg';
@@ -18,8 +18,8 @@ import FileCopyTwoToneIcon from '@mui/icons-material/FileCopyOutlined';
 import PictureAsPdfTwoToneIcon from '@mui/icons-material/PictureAsPdfOutlined';
 import ArchiveTwoToneIcon from '@mui/icons-material/ArchiveOutlined';
 
-const CardWrapper = styled(MainCard)(({ theme }) => ({
-  backgroundColor: theme.palette.secondary.dark,
+const CardWrapper = styled(MainCard)(({ theme, backgroundColor }) => ({
+  backgroundColor: theme.palette[backgroundColor].dark,
   color: '#fff',
   overflow: 'hidden',
   position: 'relative',
@@ -28,7 +28,7 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
     position: 'absolute',
     width: 210,
     height: 210,
-    background: theme.palette.secondary[800],
+    background: theme.palette[backgroundColor][800],
     borderRadius: '50%',
     top: -85,
     right: -95,
@@ -42,7 +42,7 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
     position: 'absolute',
     width: 210,
     height: 210,
-    background: theme.palette.secondary[800],
+    background: theme.palette[backgroundColor][800],
     borderRadius: '50%',
     top: -125,
     right: -15,
@@ -56,7 +56,7 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
 
 // ===========================|| DASHBOARD DEFAULT - EARNING CARD ||=========================== //
 
-const TotalTest = ({ isLoading }) => {
+const LargeCard = ({ isLoading, title, subtitle, icon, backgroundColor }) => {
   const theme = useTheme();
 
   return (
@@ -64,7 +64,7 @@ const TotalTest = ({ isLoading }) => {
       {isLoading ? (
         <SkeletonEarningCard />
       ) : (
-        <CardWrapper border={false} content={false}>
+        <CardWrapper border={false} content={false} backgroundColor={backgroundColor}>
           <Box sx={{ p: 2.25 }}>
             <Grid container direction="column">
               <Grid item>
@@ -75,11 +75,11 @@ const TotalTest = ({ isLoading }) => {
                       sx={{
                         ...theme.typography.commonAvatar,
                         ...theme.typography.largeAvatar,
-                        backgroundColor: theme.palette.secondary[800],
+                        backgroundColor: theme.palette[backgroundColor][800],
                         mt: 1
                       }}
                     >
-                      <img src={EarningIcon} alt="Notification" />
+                      <img src={icon} alt="Notification" />
                     </Avatar>
                   </Grid>
                 </Grid>
@@ -87,7 +87,7 @@ const TotalTest = ({ isLoading }) => {
               <Grid item>
                 <Grid container alignItems="center">
                   <Grid item>
-                    <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>304 Tests</Typography>
+                    <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>{title}</Typography>
                   </Grid>
                   {/* <Grid item>
                     <Avatar
@@ -108,10 +108,10 @@ const TotalTest = ({ isLoading }) => {
                   sx={{
                     fontSize: '1rem',
                     fontWeight: 500,
-                    color: theme.palette.secondary[200]
+                    color: theme.palette[backgroundColor][200]
                   }}
                 >
-                  Total E2E Tests
+                  {subtitle}
                 </Typography>
               </Grid>
             </Grid>
@@ -122,8 +122,13 @@ const TotalTest = ({ isLoading }) => {
   );
 };
 
-TotalTest.propTypes = {
-  isLoading: PropTypes.bool
+LargeCard.propTypes = {
+  isLoading: PropTypes.bool,
+  title: PropTypes.string,
+  value: PropTypes.string,
+  subtitle: PropTypes.string,
+  icon: PropTypes.node,
+  backgroundColor: PropTypes.string
 };
 
-export default TotalTest;
+export default LargeCard;
