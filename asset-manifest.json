@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/qa-dashboard/static/css/main.df3b6d63.css",
-    "main.js": "/qa-dashboard/static/js/main.dffe76b9.js",
+    "main.js": "/qa-dashboard/static/js/main.e3b238e5.js",
     "static/js/699.f91dabc9.chunk.js": "/qa-dashboard/static/js/699.f91dabc9.chunk.js",
     "static/js/603.6d3a5077.chunk.js": "/qa-dashboard/static/js/603.6d3a5077.chunk.js",
     "static/js/801.3458ff95.chunk.js": "/qa-dashboard/static/js/801.3458ff95.chunk.js",
@@ -22,6 +22,6 @@
   },
   "entrypoints": [
     "static/css/main.df3b6d63.css",
-    "static/js/main.dffe76b9.js"
+    "static/js/main.e3b238e5.js"
   ]
 }
