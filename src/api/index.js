@@ -67,7 +67,7 @@ app.get('/e2e/status', async (req, res) => {
         const overallStatus = lastResult.fail > 0 ? 'fail' : 'pass';
         const totalTests = lastResult.pass + lastResult.fail + lastResult.skip;
 
-        const passPercentage = ((lastResult.pass / totalTests) * 100).toFixed(0);
+        const passPercentage = ((lastResult.pass + lastResult.skip / totalTests) * 100).toFixed(0);
         const overallResult = `${passPercentage}% test pass`;
 
         results[product] = { status: overallStatus, result: overallResult };
