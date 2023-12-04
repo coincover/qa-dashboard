@@ -2,15 +2,109 @@ const db = require('./db');
 
 (async () => {
   try {
-    await db.schema.dropTableIfExists('identity_service');
-    await db.schema.createTable('identity_service', (table) => {
+    // Drop existing tables
+    await db.schema.dropTableIfExists('e2e_disaster_recovery');
+    await db.schema.dropTableIfExists('unit_disaster_recovery');
+    await db.schema.dropTableIfExists('e2e_identity_service');
+    await db.schema.dropTableIfExists('unit_identity_service');
+    await db.schema.dropTableIfExists('e2e_ledger_support_tool');
+    await db.schema.dropTableIfExists('unit_ledger_support_tool');
+    await db.schema.dropTableIfExists('e2e_recovery_as_a_service');
+    await db.schema.dropTableIfExists('unit_recovery_as_a_service');
+    await db.schema.dropTableIfExists('e2e_transaction_protection');
+    await db.schema.dropTableIfExists('unit_transaction_protection');
+    await db.schema.dropTableIfExists('e2e_status');
+
+    // Create e2e_disaster_recovery table
+    await db.schema.createTable('e2e_disaster_recovery', (table) => {
       table.increments('id').primary();
-      table.date('test_date'); // Renamed from 'Date'
+      table.date('test_date');
       table.integer('Pass');
       table.integer('Fail');
       table.integer('Skip');
     });
-    console.log('Created identity_service table!');
+
+    // Create unit_disaster_recovery table
+    await db.schema.createTable('unit_disaster_recovery', (table) => {
+      table.increments('id').primary();
+      table.date('test_date');
+      table.integer('Percentage');
+    });
+
+    // Create e2e_identity_service table
+    // Create e2e_identity_service table
+    await db.schema.createTable('e2e_identity_service', (table) => {
+      table.increments('id').primary();
+      table.date('test_date');
+      table.integer('Pass');
+      table.integer('Fail');
+      table.integer('Skip');
+    });
+
+    // Create unit_identity_service table
+    await db.schema.createTable('unit_identity_service', (table) => {
+      table.increments('id').primary();
+      table.date('test_date');
+      table.integer('Percentage');
+    });
+
+    // Create e2e_ledger_support_tool table
+    await db.schema.createTable('e2e_ledger_support_tool', (table) => {
+      table.increments('id').primary();
+      table.date('test_date');
+      table.integer('Pass');
+      table.integer('Fail');
+      table.integer('Skip');
+    });
+
+    // Create unit_ledger_support_tool table
+    await db.schema.createTable('unit_ledger_support_tool', (table) => {
+      table.increments('id').primary();
+      table.date('test_date');
+      table.integer('Percentage');
+    });
+
+    // Create e2e_recovery_as_a_service table
+    await db.schema.createTable('e2e_recovery_as_a_service', (table) => {
+      table.increments('id').primary();
+      table.date('test_date');
+      table.integer('Pass');
+      table.integer('Fail');
+      table.integer('Skip');
+    });
+
+    // Create unit_recovery_as_a_service table
+    await db.schema.createTable('unit_recovery_as_a_service', (table) => {
+      table.increments('id').primary();
+      table.date('test_date');
+      table.integer('Percentage');
+    });
+
+    // Create e2e_transaction_protection table
+    await db.schema.createTable('e2e_transaction_protection', (table) => {
+      table.increments('id').primary();
+      table.date('test_date');
+      table.integer('Pass');
+      table.integer('Fail');
+      table.integer('Skip');
+    });
+
+    // Create unit_transaction_protection table
+    await db.schema.createTable('unit_transaction_protection', (table) => {
+      table.increments('id').primary();
+      table.date('test_date');
+      table.integer('Percentage');
+    });
+
+    // Create e2e_status table
+    await db.schema.createTable('e2e_status', (table) => {
+      table.increments('id').primary();
+      table.string('product'); // The name of the product
+      table.string('status'); // Status for the product (pass/fail/unknown)
+      table.string('result'); // Result description
+    });
+
+    console.log('Created tables for all test types and products!');
     process.exit(0);
   } catch (err) {
     console.error(err);
