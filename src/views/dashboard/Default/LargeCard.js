@@ -61,7 +61,7 @@ const LargeCard = ({ isLoading, title, subtitle, icon, backgroundColor }) => {
 
   return (
     <>
-      {isLoading ? (
+      {isLoading && title ? (
         <SkeletonEarningCard />
       ) : (
         <CardWrapper border={false} content={false} backgroundColor={backgroundColor}>

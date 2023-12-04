@@ -13,13 +13,27 @@ import TotalGrowthBarChart from './TotalGrowthBarChart';
 import { gridSpacing } from 'store/constant';
 import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
 import EarningIcon from 'assets/images/icons/earning.svg';
-
+import { getE2eTotalTest } from '../../../services/E2eGetTotalTest';
 // ==============================|| DEFAULT DASHBOARD ||============================== //
 
 const Dashboard = () => {
+  const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(false);
+    const fetchData = async () => {
+      try {
+        const result = await getE2eTotalTest();
+        setData(result);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
@@ -27,7 +41,13 @@ const Dashboard = () => {
       <Grid item xs={12}>
         <Grid container spacing={gridSpacing}>
           <Grid item lg={4} md={6} sm={6} xs={12}>
-            <LargeCard isLoading={isLoading} title="304 Tests" subtitle=" Total E2E Tests" icon={EarningIcon} backgroundColor="secondary" />
+            <LargeCard
+              isLoading={isLoading}
+              title={data.totalTests}
+              subtitle=" Total E2E Tests"
+              icon={EarningIcon}
+              backgroundColor="secondary"
+            />
           </Grid>
           <Grid item lg={4} md={6} sm={6} xs={12}>
             <LargeCard
@@ -67,7 +87,7 @@ const Dashboard = () => {
       <Grid item xs={12}>
         <Grid container spacing={gridSpacing}>
           <Grid item xs={12} md={8}>
-            <TotalGrowthBarChart isLoading={isLoading} />
+            {/* <TotalGrowthBarChart isLoading={isLoading} /> */}
           </Grid>
           <Grid item xs={12} md={4}>
             <PopularCard isLoading={isLoading} />

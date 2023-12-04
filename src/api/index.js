@@ -20,30 +20,28 @@ const getTableName = (type, product) => {
 
 const validatePostData = (req, res, next) => {
   const { type } = req.params;
-  const { date, pass, fail, skip, percentage } = req.body;
 
-  if (!date || !pass || !fail || !skip) {
-    return res.status(400).json({ error: 'For e2e, all fields are required (date, pass, fail, skip)' });
+  const { date, pass, fail, skip, percentage, commit, pull_request } = req.body;
+
+  if (type === 'e2e') {
+    if (!date || !pass || !fail || !skip) {
+      return res.status(400).json({ error: 'For e2e, all fields are required (date, pass, fail, skip)' });
+    }
+    if (typeof date !== 'string' || typeof pass !== 'string' || typeof fail !== 'string' || typeof skip !== 'string') {
+      return res.status(400).json({ error: 'For e2e, all fields must be a string (date, pass, fail, skip)' });
+    }
+  }
+  if (type === 'unit' && typeof percentage !== 'number') {
+    return res.status(400).json({ error: 'For unit, date is required, and percentage must be a number' });
   }
 
-  if (type === 'unit' && !percentage) {
-    return res.status(400).json({ error: 'For unit, the field percentage is required' });
-  }
-
-  if (
-    typeof date !== 'string' ||
-    typeof pass !== 'string' ||
-    typeof fail !== 'string' ||
-    typeof skip !== 'string' ||
-    (type === 'unit' && typeof percentage !== 'string')
-  ) {
-    return res.status(400).json({ error: 'All fields must be of type string' });
+  // If commit or pull_request is present, ensure they are of type string
+  if ((commit || pull_request) && (typeof commit !== 'string' || typeof pull_request !== 'string')) {
+    return res.status(400).json({ error: 'If present, commit and pull_request must be of type string' });
   }
 
   next();
 };
-
-app.get('/', (req, res) => res.send('Hello World!'));
 
 app.get('/e2e/status', async (req, res) => {
   try {
@@ -59,7 +57,7 @@ app.get('/e2e/status', async (req, res) => {
       }
 
       // Get the last dated result for the product
-      const lastResult = await db(tableName).select().orderBy('test_date', 'desc').first();
+      const lastResult = await db(tableName).select().orderBy('id', 'desc').first();
 
       // Check if there's data for the product
       if (!lastResult) {
@@ -68,8 +66,8 @@ app.get('/e2e/status', async (req, res) => {
         // Calculate the overall status based on pass and fail
         const overallStatus = lastResult.Fail > 0 ? 'fail' : 'pass';
         const totalTests = lastResult.Pass + lastResult.Fail + lastResult.Skip;
-        const passPercentage = ((lastResult.Pass / totalTests) * 100).toFixed(0);
 
+        const passPercentage = ((lastResult.Pass / totalTests) * 100).toFixed(0);
         const overallResult = `${passPercentage}% test pass`;
 
         results[product] = { status: overallStatus, result: overallResult };
@@ -96,8 +94,7 @@ app.get('/e2e/totalTests', async (req, res) => {
       }
 
       // Get the latest test result for the product
-      const latestTestResult = await db(tableName).select('Pass', 'Fail', 'Skip').orderBy('test_date', 'desc').first();
-
+      const latestTestResult = await db(tableName).select('Pass', 'Fail', 'Skip').orderBy('id', 'desc').first();
       // If there are test results, add to the total
       if (latestTestResult) {
         totalTests += latestTestResult.Pass + latestTestResult.Fail + latestTestResult.Skip;
@@ -113,7 +110,6 @@ app.get('/e2e/totalTests', async (req, res) => {
 
 app.get('/:type/:product', async (req, res) => {
   const { type, product } = req.params;
-  console.log('sdsd');
   try {
     const tableName = getTableName(type, product);
 
@@ -131,7 +127,7 @@ app.get('/:type/:product', async (req, res) => {
 
 app.post('/:type/:product', validatePostData, async (req, res) => {
   const { type, product } = req.params;
-  const { date, pass, fail, skip, percentage } = req.body;
+  const { date, pass, fail, skip, percentage, commit, pull_request } = req.body;
 
   try {
     const tableName = getTableName(type, product);
@@ -140,8 +136,13 @@ app.post('/:type/:product', validatePostData, async (req, res) => {
       return res.status(400).json({ error: 'Invalid type or product' });
     }
 
-    const dataToInsert =
-      type === 'e2e' ? { test_date: date, Pass: pass, Fail: fail, Skip: skip } : { test_date: date, Percentage: percentage };
+    let dataToInsert;
+
+    if (type === 'e2e') {
+      dataToInsert = { test_date: date, Pass: pass, Fail: fail, Skip: skip };
+    } else if (type === 'unit') {
+      dataToInsert = { test_date: date, percentage, commit, pull_request };
+    }
 
     await db(tableName).insert(dataToInsert);
     res.status(201).json({ message: 'Data added successfully' });

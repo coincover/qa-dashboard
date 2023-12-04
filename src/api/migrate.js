@@ -28,10 +28,11 @@ const db = require('./db');
     await db.schema.createTable('unit_disaster_recovery', (table) => {
       table.increments('id').primary();
       table.date('test_date');
-      table.integer('Percentage');
+      table.integer('percentage');
+      table.string('commit');
+      table.string('pull_request');
     });
 
-    // Create e2e_identity_service table
     // Create e2e_identity_service table
     await db.schema.createTable('e2e_identity_service', (table) => {
       table.increments('id').primary();
@@ -45,7 +46,9 @@ const db = require('./db');
     await db.schema.createTable('unit_identity_service', (table) => {
       table.increments('id').primary();
       table.date('test_date');
-      table.integer('Percentage');
+      table.integer('percentage');
+      table.string('commit');
+      table.string('pull_request');
     });
 
     // Create e2e_ledger_support_tool table
@@ -61,7 +64,9 @@ const db = require('./db');
     await db.schema.createTable('unit_ledger_support_tool', (table) => {
       table.increments('id').primary();
       table.date('test_date');
-      table.integer('Percentage');
+      table.integer('percentage');
+      table.string('commit');
+      table.string('pull_request');
     });
 
     // Create e2e_recovery_as_a_service table
@@ -77,7 +82,9 @@ const db = require('./db');
     await db.schema.createTable('unit_recovery_as_a_service', (table) => {
       table.increments('id').primary();
       table.date('test_date');
-      table.integer('Percentage');
+      table.integer('percentage');
+      table.string('commit');
+      table.string('pull_request');
     });
 
     // Create e2e_transaction_protection table
@@ -93,7 +100,9 @@ const db = require('./db');
     await db.schema.createTable('unit_transaction_protection', (table) => {
       table.increments('id').primary();
       table.date('test_date');
-      table.integer('Percentage');
+      table.integer('percentage');
+      table.string('commit');
+      table.string('pull_request');
     });
 
     // Create e2e_status table
