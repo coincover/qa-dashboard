@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { getData } from '../../../services/get';
+import * as moment from 'moment';
 
 const TestDataTable = () => {
   const [testData, setTestData] = useState([]);
@@ -37,7 +38,7 @@ const TestDataTable = () => {
         <TableBody>
           {testData.map((data) => (
             <TableRow key={data.id}>
-              <TableCell>{data.Date}</TableCell>
+              <TableCell>{moment(data.Date).format('DD/MM/YY')}</TableCell>
               <TableCell>{data.Pass}</TableCell>
               <TableCell>{data.Fail}</TableCell>
               <TableCell>{data.Skip}</TableCell>
