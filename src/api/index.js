@@ -64,10 +64,10 @@ app.get('/e2e/status', async (req, res) => {
         results[product] = { status: 'unknown', result: 'No results available' };
       } else {
         // Calculate the overall status based on pass and fail
-        const overallStatus = lastResult.Fail > 0 ? 'fail' : 'pass';
-        const totalTests = lastResult.Pass + lastResult.Fail + lastResult.Skip;
+        const overallStatus = lastResult.fail > 0 ? 'fail' : 'pass';
+        const totalTests = lastResult.pass + lastResult.fail + lastResult.skip;
 
-        const passPercentage = ((lastResult.Pass / totalTests) * 100).toFixed(0);
+        const passPercentage = ((lastResult.pass / totalTests) * 100).toFixed(0);
         const overallResult = `${passPercentage}% test pass`;
 
         results[product] = { status: overallStatus, result: overallResult };
@@ -94,10 +94,10 @@ app.get('/e2e/totalTests', async (req, res) => {
       }
 
       // Get the latest test result for the product
-      const latestTestResult = await db(tableName).select('Pass', 'Fail', 'Skip').orderBy('id', 'desc').first();
+      const latestTestResult = await db(tableName).select('pass', 'fail', 'skip').orderBy('id', 'desc').first();
       // If there are test results, add to the total
       if (latestTestResult) {
-        totalTests += latestTestResult.Pass + latestTestResult.Fail + latestTestResult.Skip;
+        totalTests += latestTestResult.pass + latestTestResult.fail + latestTestResult.skip;
       }
     }
 
@@ -139,9 +139,9 @@ app.post('/:type/:product', validatePostData, async (req, res) => {
     let dataToInsert;
 
     if (type === 'e2e') {
-      dataToInsert = { test_date: date, Pass: pass, Fail: fail, Skip: skip };
+      dataToInsert = { date, pass, fail, skip };
     } else if (type === 'unit') {
-      dataToInsert = { test_date: date, percentage, commit, pull_request };
+      dataToInsert = { date, percentage, commit, pull_request };
     }
 
     await db(tableName).insert(dataToInsert);

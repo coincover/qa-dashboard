@@ -24,10 +24,10 @@ const TestDataTable = ({ isLoading, data }) => {
         <TableBody>
           {data.map((d) => (
             <TableRow key={d.id}>
-              <TableCell>{moment(d.Date).format('DD/MM/YY')}</TableCell>
-              <TableCell>{d.Pass}</TableCell>
-              <TableCell>{d.Fail}</TableCell>
-              <TableCell>{d.Skip}</TableCell>
+              <TableCell>{moment(d.date).format('DD/MM/YY')}</TableCell>
+              <TableCell>{d.pass}</TableCell>
+              <TableCell>{d.fail}</TableCell>
+              <TableCell>{d.skip}</TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -18,16 +18,16 @@ const db = require('./db');
     // Create e2e_disaster_recovery table
     await db.schema.createTable('e2e_disaster_recovery', (table) => {
       table.increments('id').primary();
-      table.date('test_date');
-      table.integer('Pass');
-      table.integer('Fail');
-      table.integer('Skip');
+      table.date('date');
+      table.integer('pass');
+      table.integer('fail');
+      table.integer('skip');
     });
 
     // Create unit_disaster_recovery table
     await db.schema.createTable('unit_disaster_recovery', (table) => {
       table.increments('id').primary();
-      table.date('test_date');
+      table.date('date');
       table.integer('percentage');
       table.string('commit');
       table.string('pull_request');
@@ -36,16 +36,16 @@ const db = require('./db');
     // Create e2e_identity_service table
     await db.schema.createTable('e2e_identity_service', (table) => {
       table.increments('id').primary();
-      table.date('test_date');
-      table.integer('Pass');
-      table.integer('Fail');
-      table.integer('Skip');
+      table.date('date');
+      table.integer('pass');
+      table.integer('fail');
+      table.integer('skip');
     });
 
     // Create unit_identity_service table
     await db.schema.createTable('unit_identity_service', (table) => {
       table.increments('id').primary();
-      table.date('test_date');
+      table.date('date');
       table.integer('percentage');
       table.string('commit');
       table.string('pull_request');
@@ -54,16 +54,16 @@ const db = require('./db');
     // Create e2e_ledger_support_tool table
     await db.schema.createTable('e2e_ledger_support_tool', (table) => {
       table.increments('id').primary();
-      table.date('test_date');
-      table.integer('Pass');
-      table.integer('Fail');
-      table.integer('Skip');
+      table.date('date');
+      table.integer('pass');
+      table.integer('fail');
+      table.integer('skip');
     });
 
     // Create unit_ledger_support_tool table
     await db.schema.createTable('unit_ledger_support_tool', (table) => {
       table.increments('id').primary();
-      table.date('test_date');
+      table.date('date');
       table.integer('percentage');
       table.string('commit');
       table.string('pull_request');
@@ -72,16 +72,16 @@ const db = require('./db');
     // Create e2e_recovery_as_a_service table
     await db.schema.createTable('e2e_recovery_as_a_service', (table) => {
       table.increments('id').primary();
-      table.date('test_date');
-      table.integer('Pass');
-      table.integer('Fail');
-      table.integer('Skip');
+      table.date('date');
+      table.integer('pass');
+      table.integer('fail');
+      table.integer('skip');
     });
 
     // Create unit_recovery_as_a_service table
     await db.schema.createTable('unit_recovery_as_a_service', (table) => {
       table.increments('id').primary();
-      table.date('test_date');
+      table.date('date');
       table.integer('percentage');
       table.string('commit');
       table.string('pull_request');
@@ -90,16 +90,16 @@ const db = require('./db');
     // Create e2e_transaction_protection table
     await db.schema.createTable('e2e_transaction_protection', (table) => {
       table.increments('id').primary();
-      table.date('test_date');
-      table.integer('Pass');
-      table.integer('Fail');
-      table.integer('Skip');
+      table.date('date');
+      table.integer('pass');
+      table.integer('fail');
+      table.integer('skip');
     });
 
     // Create unit_transaction_protection table
     await db.schema.createTable('unit_transaction_protection', (table) => {
       table.increments('id').primary();
-      table.date('test_date');
+      table.date('date');
       table.integer('percentage');
       table.string('commit');
       table.string('pull_request');
