@@ -1,12 +1,13 @@
 // assets
 import { IconTypography, IconPalette, IconShadow, IconWindmill } from '@tabler/icons';
-
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 // constant
 const icons = {
   IconTypography,
   IconPalette,
   IconShadow,
-  IconWindmill
+  IconWindmill,
+  SupportAgentIcon
 };
 
 // ==============================|| UTILITIES MENU ITEMS ||============================== //
@@ -47,6 +48,14 @@ const e2e = {
       type: 'item',
       url: '/e2e/disaster-recovery',
       icon: icons.IconWindmill,
+      breadcrumbs: false
+    },
+    {
+      id: 'ledger_support_tool',
+      title: 'Ledger Support Tool',
+      type: 'item',
+      url: '/e2e/ledger_support_tool',
+      icon: icons.SupportAgentIcon,
       breadcrumbs: false
     }
   ]

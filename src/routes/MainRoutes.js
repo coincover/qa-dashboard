@@ -41,7 +41,7 @@ const MainRoutes = {
       children: [
         {
           path: 'identity-service',
-          element: <E2E />
+          element: <E2E title="Identity Service" />
         }
       ]
     },
@@ -50,7 +50,7 @@ const MainRoutes = {
       children: [
         {
           path: 'recovery-as-a-service',
-          element: <UtilsColor />
+          element: <E2E title="Recovery As A Service" />
         }
       ]
     },
@@ -59,7 +59,7 @@ const MainRoutes = {
       children: [
         {
           path: 'transaction-protection',
-          element: <UtilsShadow />
+          element: <E2E title="Transaction Protection" />
         }
       ]
     },
@@ -68,7 +68,16 @@ const MainRoutes = {
       children: [
         {
           path: 'disaster-recovery',
-          element: <UtilsShadow />
+          element: <E2E title="Disaster Recovery" />
+        }
+      ]
+    },
+    {
+      path: 'e2e',
+      children: [
+        {
+          path: 'ledger_support_tool',
+          element: <E2E title="Ledger Support Tool" />
         }
       ]
     },

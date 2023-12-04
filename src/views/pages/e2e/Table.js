@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -6,24 +7,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { getData } from '../../../services/get';
 import * as moment from 'moment';
 
-const TestDataTable = () => {
-  const [testData, setTestData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getData();
-        setTestData(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
+const TestDataTable = ({ isLoading, data }) => {
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -36,18 +22,23 @@ const TestDataTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {testData.map((data) => (
-            <TableRow key={data.id}>
-              <TableCell>{moment(data.Date).format('DD/MM/YY')}</TableCell>
-              <TableCell>{data.Pass}</TableCell>
-              <TableCell>{data.Fail}</TableCell>
-              <TableCell>{data.Skip}</TableCell>
+          {data.map((d) => (
+            <TableRow key={d.id}>
+              <TableCell>{moment(d.Date).format('DD/MM/YY')}</TableCell>
+              <TableCell>{d.Pass}</TableCell>
+              <TableCell>{d.Fail}</TableCell>
+              <TableCell>{d.Skip}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
   );
+};
+
+TestDataTable.propTypes = {
+  isLoading: PropTypes.bool,
+  data: PropTypes.array
 };
 
 export default TestDataTable;

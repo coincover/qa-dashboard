@@ -5,7 +5,7 @@ import { Grid } from '@mui/material';
 
 // project imports
 import LargeCard from './LargeCard';
-import PopularCard from './PopularCard';
+import PopularCard from './E2ETestStatusCard';
 import TotalOrderLineChartCard from './TotalOrderLineChartCard';
 import SmallCard from './SmallCard';
 import TotalIncomeLightCard from './TotalIncomeLightCard';
