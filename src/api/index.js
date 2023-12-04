@@ -82,6 +82,34 @@ app.get('/e2e/status', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+app.get('/e2e/totalTests', async (req, res) => {
+  try {
+    const products = ['disaster_recovery', 'identity_service', 'ledger_support_tool', 'recovery_as_a_service', 'transaction_protection'];
+    let totalTests = 0;
+
+    // Loop through each product
+    for (const product of products) {
+      const tableName = getTableName('e2e', product);
+
+      if (!tableName) {
+        return res.status(400).json({ error: 'Invalid type or product' });
+      }
+
+      // Get the latest test result for the product
+      const latestTestResult = await db(tableName).select('Pass', 'Fail', 'Skip').orderBy('test_date', 'desc').first();
+
+      // If there are test results, add to the total
+      if (latestTestResult) {
+        totalTests += latestTestResult.Pass + latestTestResult.Fail + latestTestResult.Skip;
+      }
+    }
+
+    res.json({ totalTests });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 app.get('/:type/:product', async (req, res) => {
   const { type, product } = req.params;
