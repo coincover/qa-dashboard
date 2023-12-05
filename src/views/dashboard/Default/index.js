@@ -14,6 +14,7 @@ import { gridSpacing } from 'store/constant';
 import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
 import EarningIcon from 'assets/images/icons/earning.svg';
 import { getE2eTotalTest } from '../../../services/E2eGetTotalTest';
+import BajajAreaChartCard from './BajajAreaChartCard';
 // ==============================|| DEFAULT DASHBOARD ||============================== //
 
 const Dashboard = () => {
@@ -52,8 +53,8 @@ const Dashboard = () => {
           <Grid item lg={4} md={6} sm={6} xs={12}>
             <LargeCard
               isLoading={isLoading}
-              title="130 Tests"
-              subtitle=" Total Unit Tests"
+              title="2 Defects"
+              subtitle="Total Number of open Defects"
               icon={EarningIcon}
               backgroundColor="secondary"
             />
@@ -77,6 +78,15 @@ const Dashboard = () => {
                   subtitle="Code Coverage"
                   result="78%"
                   icon={<TableChartOutlinedIcon fontSize="inherit" />}
+                  backgroundColor="secondary"
+                />
+              </Grid>
+              <Grid item sm={6} xs={12} md={6} lg={12}>
+                <LargeCard
+                  isLoading={isLoading}
+                  title="4 Bugs"
+                  subtitle="Total Number of open Bug"
+                  icon={EarningIcon}
                   backgroundColor="secondary"
                 />
               </Grid>
