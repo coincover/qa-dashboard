@@ -33,8 +33,9 @@ const E2E = ({ title }) => {
   }, [title]);
 
   useEffect(() => {
-    setData(e2eIdentityService);
-  }, [e2eIdentityService]);
+    const modifiedData = e2eIdentityService.map((item) => ({ ...item, title }));
+    setData(modifiedData);
+  }, [e2eIdentityService, title]);
 
   return (
     <MainCard title={title}>

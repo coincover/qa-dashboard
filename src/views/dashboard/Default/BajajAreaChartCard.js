@@ -10,12 +10,13 @@ import ApexCharts from 'apexcharts';
 import Chart from 'react-apexcharts';
 
 // project imports
-import chartData from './chart-data/bajaj-area-chart';
+import generateChartData from './chart-data/bajaj-area-chart';
 
 // ===========================|| DASHBOARD DEFAULT - BAJAJ AREA CHART CARD ||=========================== //
 
-const BajajAreaChartCard = () => {
+const BajajAreaChartCard = ({ testResults }) => {
   const theme = useTheme();
+  console.log(testResults);
   const customization = useSelector((state) => state.customization);
   const { navType } = customization;
 
@@ -23,14 +24,14 @@ const BajajAreaChartCard = () => {
 
   useEffect(() => {
     const newSupportChart = {
-      ...chartData.options,
+      ...generateChartData(testResults),
       colors: [orangeDark],
       tooltip: {
         theme: 'light'
       }
     };
     ApexCharts.exec(`support-chart`, 'updateOptions', newSupportChart);
-  }, [navType, orangeDark]);
+  }, [navType, orangeDark, testResults]);
 
   return (
     <Card sx={{ bgcolor: 'secondary.light' }}>
@@ -55,7 +56,7 @@ const BajajAreaChartCard = () => {
           </Typography>
         </Grid>
       </Grid>
-      <Chart {...chartData} />
+      <Chart {...generateChartData(testResults)} />
     </Card>
   );
 };

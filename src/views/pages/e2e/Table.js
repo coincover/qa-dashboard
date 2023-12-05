@@ -28,7 +28,22 @@ const style = {
 const TestDataTable = ({ isLoading, data }) => {
   const [selectedRowData, setSelectedRowData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const titleToValue = (value) => {
+    switch (value) {
+      case 'Identity Service':
+        return 'identity-service';
+      case 'Disaster Recovery':
+        return 'disaster-recovery';
+      case 'Ledger Support Tool':
+        return 'ledger';
+      case 'Transaction Protection':
+        return 'transaction-protection';
+      case 'Recovery As A Service':
+        return 'recovery-as-a-service';
+      default:
+        return value;
+    }
+  };
   const handleRowClick = (rowData) => {
     setSelectedRowData(rowData);
     setIsModalOpen(true);
@@ -70,15 +85,17 @@ const TestDataTable = ({ isLoading, data }) => {
 
       <Modal open={isModalOpen} onClose={handleModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            {selectedRowData?.date}
+          <Typography id="modal-modal-title" variant="h3" component="h2">
+            {selectedRowData?.title} Test Run at {moment(selectedRowData?.date).format('DD/MM/YY')}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             <iframe
-              src={`https://coincover.github.io/coincover-amt/ledger/functional/2023-12-05/index.html`}
+              src={`https://coincover.github.io/coincover-amt/${titleToValue(selectedRowData?.title)}/functional/${moment(
+                selectedRowData?.date
+              ).format('YYYY-MM-DD')}/index.html`}
               title="Modal Iframe"
               width="100%"
-              height="400px"
+              height="600px"
             ></iframe>
           </Typography>
         </Box>
