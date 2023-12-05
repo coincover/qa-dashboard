@@ -2,14 +2,35 @@ require('dotenv').config();
 const db = require('./db');
 const express = require('express');
 const cors = require('cors');
-const app = express();
 const bodyParser = require('body-parser');
+const proxy = require('http-proxy-middleware');
+const helmet = require('helmet');
+const app = express();
 
 const PORT = process.env.PORT || 5001;
+const jira_instance = 'https://coincover.atlassian.net/';
+const jsonPlaceholderProxy = proxy({
+  target: jira_instance,
+  changeOrigin: true, // for vhosted sites, changes host header to match to target's host
+  logLevel: 'debug',
+  onProxyReq: (proxyReq, req, res) => {
+    proxyReq.setHeader('Accept', 'application/json');
+    proxyReq.setHeader('X-Atlassian-Token', 'no-check');
+    proxyReq.setHeader('cookie', '');
+    proxyReq.setHeader('User-Agent', '');
+  },
+  onProxyRes: function (proxyRes, req, res) {
+    proxyRes.headers['Access-Control-Allow-Origin'] = '*';
+    proxyRes.headers['Access-Control-Allow-Headers'] = '*';
+    proxyRes.headers['Access-Control-Max-Age'] = '600';
+  }
+});
 
+app.use(helmet());
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+app.use('/rest/api', jsonPlaceholderProxy);
 
 const getTableName = (type, product) => {
   if (type === 'e2e' || type === 'unit') {
