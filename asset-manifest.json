@@ -1,21 +1,22 @@
 {
   "files": {
     "main.css": "/qa-dashboard/static/css/main.df3b6d63.css",
-    "main.js": "/qa-dashboard/static/js/main.31e1fb86.js",
-    "static/js/479.79317499.chunk.js": "/qa-dashboard/static/js/479.79317499.chunk.js",
-    "static/js/603.6d3a5077.chunk.js": "/qa-dashboard/static/js/603.6d3a5077.chunk.js",
-    "static/js/801.3458ff95.chunk.js": "/qa-dashboard/static/js/801.3458ff95.chunk.js",
-    "static/js/573.e2ef5c71.chunk.js": "/qa-dashboard/static/js/573.e2ef5c71.chunk.js",
-    "static/js/271.e650005e.chunk.js": "/qa-dashboard/static/js/271.e650005e.chunk.js",
-    "static/js/602.18a0c0b8.chunk.js": "/qa-dashboard/static/js/602.18a0c0b8.chunk.js",
-    "static/js/347.835cb4ff.chunk.js": "/qa-dashboard/static/js/347.835cb4ff.chunk.js",
+    "main.js": "/qa-dashboard/static/js/main.1a07e00e.js",
+    "static/js/479.63d3add0.chunk.js": "/qa-dashboard/static/js/479.63d3add0.chunk.js",
+    "static/js/603.2e89101b.chunk.js": "/qa-dashboard/static/js/603.2e89101b.chunk.js",
+    "static/js/801.fc36baa1.chunk.js": "/qa-dashboard/static/js/801.fc36baa1.chunk.js",
+    "static/js/573.c8f54ca1.chunk.js": "/qa-dashboard/static/js/573.c8f54ca1.chunk.js",
+    "static/js/271.94a9c6ca.chunk.js": "/qa-dashboard/static/js/271.94a9c6ca.chunk.js",
+    "static/js/602.a8d0a943.chunk.js": "/qa-dashboard/static/js/602.a8d0a943.chunk.js",
+    "static/js/347.99312085.chunk.js": "/qa-dashboard/static/js/347.99312085.chunk.js",
     "static/js/971.61c8c926.chunk.js": "/qa-dashboard/static/js/971.61c8c926.chunk.js",
-    "static/js/411.a4280bee.chunk.js": "/qa-dashboard/static/js/411.a4280bee.chunk.js",
-    "static/js/354.0504bce8.chunk.js": "/qa-dashboard/static/js/354.0504bce8.chunk.js",
+    "static/js/411.1b5db770.chunk.js": "/qa-dashboard/static/js/411.1b5db770.chunk.js",
+    "static/js/354.f7227385.chunk.js": "/qa-dashboard/static/js/354.f7227385.chunk.js",
+    "static/js/219.4d0642be.chunk.js": "/qa-dashboard/static/js/219.4d0642be.chunk.js",
     "static/js/662.6d34488b.chunk.js": "/qa-dashboard/static/js/662.6d34488b.chunk.js",
-    "static/js/149.40071d50.chunk.js": "/qa-dashboard/static/js/149.40071d50.chunk.js",
+    "static/js/135.8aef3e4e.chunk.js": "/qa-dashboard/static/js/135.8aef3e4e.chunk.js",
     "static/js/57.2dbf7e4c.chunk.js": "/qa-dashboard/static/js/57.2dbf7e4c.chunk.js",
-    "static/js/802.4aca32dd.chunk.js": "/qa-dashboard/static/js/802.4aca32dd.chunk.js",
+    "static/js/802.0076e27d.chunk.js": "/qa-dashboard/static/js/802.0076e27d.chunk.js",
     "static/js/67.42e4c38f.chunk.js": "/qa-dashboard/static/js/67.42e4c38f.chunk.js",
     "static/media/user-round.svg": "/qa-dashboard/static/media/user-round.13b5a31bebd2cc6016d6db2cac8e92d1.svg",
     "static/media/social-google.svg": "/qa-dashboard/static/media/social-google.9887eb8eb43729cb99f402cfa0de3c44.svg",
@@ -24,6 +25,6 @@
   },
   "entrypoints": [
     "static/css/main.df3b6d63.css",
-    "static/js/main.31e1fb86.js"
+    "static/js/main.1a07e00e.js"
   ]
 }
