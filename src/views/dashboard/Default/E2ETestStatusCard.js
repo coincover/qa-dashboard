@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 // material-ui
 import { CardContent, Divider, Grid, Typography } from '@mui/material';
-
+import { useTheme } from '@mui/material/styles';
 // project imports
 import Row from 'ui-component/Row';
 import MainCard from 'ui-component/cards/MainCard';
@@ -15,6 +15,7 @@ import { getStatus } from '../../../services/E2eStatus';
 const E2ETestStatusCard = ({ isLoading }) => {
   const [data, setData] = useState([]);
   const [isDataLoading, setIsDataLoading] = useState(true);
+  const theme = useTheme();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +26,7 @@ const E2ETestStatusCard = ({ isLoading }) => {
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
-        setIsDataLoading(false); // Set isDataLoading to false after data is fetched or failed to fetch
+        setIsDataLoading(false);
       }
     };
 
@@ -34,10 +35,10 @@ const E2ETestStatusCard = ({ isLoading }) => {
 
   return (
     <>
-      {isLoading && isDataLoading && data !== null ? (
+      {isLoading || isDataLoading || data.identity_service === undefined ? (
         <SkeletonPopularCard />
       ) : (
-        <MainCard content={false}>
+        <MainCard content={false} sx={{ boxShadow: theme.shadows[10] }}>
           <CardContent>
             <Grid container spacing={gridSpacing}>
               <Grid item xs={12}>

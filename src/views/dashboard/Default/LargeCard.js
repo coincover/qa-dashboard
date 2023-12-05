@@ -58,13 +58,14 @@ const CardWrapper = styled(MainCard)(({ theme, backgroundColor }) => ({
 
 const LargeCard = ({ isLoading, title, subtitle, icon, backgroundColor }) => {
   const theme = useTheme();
+  const Icon = icon;
 
   return (
     <>
-      {isLoading && title ? (
+      {isLoading || String(title).includes('undefined') ? (
         <SkeletonEarningCard />
       ) : (
-        <CardWrapper border={false} content={false} backgroundColor={backgroundColor}>
+        <CardWrapper border={false} content={false} backgroundColor={backgroundColor} sx={{ boxShadow: theme.shadows[10] }}>
           <Box sx={{ p: 2.25 }}>
             <Grid container direction="column">
               <Grid item>
@@ -79,7 +80,11 @@ const LargeCard = ({ isLoading, title, subtitle, icon, backgroundColor }) => {
                         mt: 1
                       }}
                     >
-                      <img src={icon} alt="Notification" />
+                      {typeof Icon === 'string' ? (
+                        <img src={icon} alt="Notification" />
+                      ) : (
+                        <Icon stroke={1.5} size="1.3rem" color="#ffffff" />
+                      )}
                     </Avatar>
                   </Grid>
                 </Grid>

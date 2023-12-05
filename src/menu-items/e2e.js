@@ -1,21 +1,16 @@
 // assets
-import { IconTypography, IconPalette, IconShadow, IconWindmill } from '@tabler/icons';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
-// constant
-const icons = {
-  IconTypography,
-  IconPalette,
-  IconShadow,
-  IconWindmill,
-  SupportAgentIcon
-};
+import FingerprintIcon from '@mui/icons-material/Fingerprint';
+import PaidIcon from '@mui/icons-material/Paid';
+import SosIcon from '@mui/icons-material/Sos';
+import SupportIcon from '@mui/icons-material/Support';
 
 // ==============================|| UTILITIES MENU ITEMS ||============================== //
 
 const e2e = {
   id: 'e2e',
   title: 'E2E Test',
-  caption: 'Pages Caption',
+  caption: 'List of Products/Services',
   type: 'group',
   children: [
     {
@@ -23,7 +18,7 @@ const e2e = {
       title: 'Identity Service',
       type: 'item',
       url: '/e2e/identity-service',
-      icon: icons.IconTypography,
+      icon: FingerprintIcon,
       breadcrumbs: false
     },
     {
@@ -31,7 +26,7 @@ const e2e = {
       title: 'Recovery as a service',
       type: 'item',
       url: '/e2e/recovery-as-a-service',
-      icon: icons.IconPalette,
+      icon: SupportIcon,
       breadcrumbs: false
     },
     {
@@ -39,7 +34,7 @@ const e2e = {
       title: 'Transaction Protection',
       type: 'item',
       url: '/e2e/transaction-protection',
-      icon: icons.IconShadow,
+      icon: PaidIcon,
       breadcrumbs: false
     },
     {
@@ -47,7 +42,7 @@ const e2e = {
       title: 'Disaster Recovery',
       type: 'item',
       url: '/e2e/disaster-recovery',
-      icon: icons.IconWindmill,
+      icon: SosIcon,
       breadcrumbs: false
     },
     {
@@ -55,7 +50,7 @@ const e2e = {
       title: 'Ledger Support Tool',
       type: 'item',
       url: '/e2e/ledger_support_tool',
-      icon: icons.SupportAgentIcon,
+      icon: SupportAgentIcon,
       breadcrumbs: false
     }
   ]

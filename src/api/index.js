@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5001;
 const jira_instance = 'https://coincover.atlassian.net/';
 const jsonPlaceholderProxy = proxy({
   target: jira_instance,
-  changeOrigin: true, // for vhosted sites, changes host header to match to target's host
+  changeOrigin: true,
   logLevel: 'debug',
   onProxyReq: (proxyReq, req, res) => {
     proxyReq.setHeader('Accept', 'application/json');

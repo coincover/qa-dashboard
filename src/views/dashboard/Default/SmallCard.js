@@ -45,10 +45,10 @@ const SmallCard = ({ isLoading, title, subtitle, result, icon, backgroundColor }
 
   return (
     <>
-      {isLoading ? (
+      {isLoading || String(title).includes('undefined') ? (
         <TotalIncomeCard />
       ) : (
-        <CardWrapper border={false} content={false} backgroundColor={backgroundColor}>
+        <CardWrapper border={false} content={false} backgroundColor={backgroundColor} sx={{ boxShadow: theme.shadows[10] }}>
           <Box sx={{ p: 2 }}>
             <List sx={{ py: 0 }}>
               <ListItem alignItems="center" disableGutters sx={{ py: 0 }}>

@@ -14,6 +14,7 @@ const UtilsShadow = Loadable(lazy(() => import('views/utilities/Shadow')));
 const UtilsMaterialIcons = Loadable(lazy(() => import('views/utilities/MaterialIcons')));
 const UtilsTablerIcons = Loadable(lazy(() => import('views/utilities/TablerIcons')));
 const E2E = Loadable(lazy(() => import('views/pages/e2e/index')));
+const Jira = Loadable(lazy(() => import('views/pages/jira/index')));
 // sample page routing
 const SamplePage = Loadable(lazy(() => import('views/sample-page')));
 
@@ -114,6 +115,33 @@ const MainRoutes = {
         {
           path: 'disaster-recovery',
           element: <UtilsShadow />
+        }
+      ]
+    },
+    {
+      path: 'jira',
+      children: [
+        {
+          path: 'bug',
+          element: <Jira title="List of Open bugs" />
+        }
+      ]
+    },
+    {
+      path: 'jira',
+      children: [
+        {
+          path: 'defect',
+          element: <Jira title="List of Open Defects" />
+        }
+      ]
+    },
+    {
+      path: 'jira',
+      children: [
+        {
+          path: 'security',
+          element: <Jira title="List of Open Security Issues" />
         }
       ]
     }
