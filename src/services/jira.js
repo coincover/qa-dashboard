@@ -9,8 +9,7 @@ const auth = {
 export async function getJiraBug() {
   try {
     const req = await axios(`${host}/rest/api/2/search?jql=project=PRODENG AND type=bug AND status not in (Done)`, {
-      method: 'GET',
-      auth
+      method: 'GET'
     });
     return req.data;
   } catch (error) {

@@ -10,6 +10,10 @@ module.exports = {
       proxyReq.setHeader('X-Atlassian-Token', 'no-check');
       proxyReq.setHeader('cookie', '');
       proxyReq.setHeader('User-Agent', '');
+      proxyReq.setHeader(
+        'Authorization',
+        'Basic ' + Buffer.from(`${process.env.REACT_APP_USERNAME}:${process.env.REACT_APP_PASSWORD}`).toString('base64')
+      );
     },
     onProxyRes: function (proxyRes, req, res) {
       proxyRes.headers['Access-Control-Allow-Origin'] = '*';
