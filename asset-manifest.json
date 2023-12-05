@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/qa-dashboard/static/css/main.df3b6d63.css",
-    "main.js": "/qa-dashboard/static/js/main.1a07e00e.js",
-    "static/js/479.63d3add0.chunk.js": "/qa-dashboard/static/js/479.63d3add0.chunk.js",
+    "main.js": "/qa-dashboard/static/js/main.62802e82.js",
+    "static/js/832.c3508858.chunk.js": "/qa-dashboard/static/js/832.c3508858.chunk.js",
     "static/js/603.2e89101b.chunk.js": "/qa-dashboard/static/js/603.2e89101b.chunk.js",
     "static/js/801.fc36baa1.chunk.js": "/qa-dashboard/static/js/801.fc36baa1.chunk.js",
     "static/js/573.c8f54ca1.chunk.js": "/qa-dashboard/static/js/573.c8f54ca1.chunk.js",
     "static/js/271.94a9c6ca.chunk.js": "/qa-dashboard/static/js/271.94a9c6ca.chunk.js",
-    "static/js/602.a8d0a943.chunk.js": "/qa-dashboard/static/js/602.a8d0a943.chunk.js",
+    "static/js/602.bbb81cfa.chunk.js": "/qa-dashboard/static/js/602.bbb81cfa.chunk.js",
     "static/js/347.99312085.chunk.js": "/qa-dashboard/static/js/347.99312085.chunk.js",
     "static/js/971.61c8c926.chunk.js": "/qa-dashboard/static/js/971.61c8c926.chunk.js",
     "static/js/411.1b5db770.chunk.js": "/qa-dashboard/static/js/411.1b5db770.chunk.js",
@@ -25,6 +25,6 @@
   },
   "entrypoints": [
     "static/css/main.df3b6d63.css",
-    "static/js/main.1a07e00e.js"
+    "static/js/main.62802e82.js"
   ]
 }
