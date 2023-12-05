@@ -1,16 +1,5 @@
 // assets
-import { IconTypography, IconPalette, IconShadow, IconWindmill, IconShieldCheck, IconLifebuoy, IconIdBadge2 } from '@tabler/icons';
-
-// constant
-const icons = {
-  IconTypography,
-  IconPalette,
-  IconShadow,
-  IconShieldCheck,
-  IconWindmill,
-  IconLifebuoy,
-  IconIdBadge2
-};
+import { IconPalette, IconShieldCheck, IconLifebuoy, IconIdBadge2 } from '@tabler/icons';
 
 // ==============================|| UTILITIES MENU ITEMS ||============================== //
 
@@ -24,7 +13,7 @@ const unit = {
       title: 'Identity Service',
       type: 'item',
       url: '/unit/identity-service',
-      icon: icons.IconIdBadge2,
+      icon: IconIdBadge2,
       breadcrumbs: false
     },
     {
@@ -32,7 +21,7 @@ const unit = {
       title: 'Recovery as a service',
       type: 'item',
       url: '/unit/recovery-as-a-service',
-      icon: icons.IconPalette,
+      icon: IconPalette,
       breadcrumbs: false
     },
     {
@@ -40,7 +29,7 @@ const unit = {
       title: 'Transaction Protection',
       type: 'item',
       url: '/unit/transaction-protection',
-      icon: icons.IconShieldCheck,
+      icon: IconShieldCheck,
       breadcrumbs: false
     },
     {
@@ -48,7 +37,7 @@ const unit = {
       title: 'Disaster Recovery',
       type: 'item',
       url: '/unit/disaster-recovery',
-      icon: icons.IconLifebuoy,
+      icon: IconLifebuoy,
       breadcrumbs: false
     }
   ]
