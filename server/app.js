@@ -7,7 +7,7 @@ const helmet = require('helmet');
 const app = express();
 
 const e2e = require('./routes/e2e.routes');
-const jira = require('./routes/jira.routes');
+const proxy = require('./routes/proxy.routes');
 const shared = require('./routes/shared.routes');
 
 const error404 = require('./errors/404');
@@ -20,7 +20,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/e2e', e2e);
-app.use('/', jira, shared);
+app.use('/', proxy, shared);
 
 app.use(error404);
 app.use(error500);
