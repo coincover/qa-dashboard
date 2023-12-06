@@ -1,7 +1,7 @@
 // material-ui
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
 import JiraTable from './JiraTable';
@@ -42,20 +42,28 @@ const Jira = ({ title }) => {
     if (title === 'List of Open bugs') setData(jiraBugData);
     if (title === 'List of Open Defects') setData(jiraDefectData);
     if (title === 'List of Open Security Issues') setData(jiraSecurityData);
-  }, [jiraBugData, jiraDefectData, jiraSecurityData]);
+  }, [jiraBugData, jiraDefectData, jiraSecurityData, title]);
 
   return (
-    <MainCard title={title}>
-      <Grid container spacing={gridSpacing}>
-        <Grid item xs={12}>
+    <>
+      {isLoading || data?.issues?.length > 0 ? (
+        <MainCard title={title}>
           <Grid container spacing={gridSpacing}>
-            <Grid item xs={12} sm={12} md={12} lg={12}>
-              {isLoading ? <div>Loading...</div> : <JiraTable data={data.issues} />}
+            <Grid item xs={12}>
+              <Grid container spacing={gridSpacing}>
+                <Grid item xs={12} sm={12} md={12} lg={12}>
+                  {isLoading ? <div>Loading...</div> : <JiraTable data={data.issues} />}
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </Grid>
-    </MainCard>
+        </MainCard>
+      ) : (
+        <MainCard>
+          <Typography sx={{ textAlign: 'center' }}>No Data</Typography>
+        </MainCard>
+      )}
+    </>
   );
 };
 

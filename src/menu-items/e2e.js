@@ -9,7 +9,7 @@ import SupportIcon from '@mui/icons-material/Support';
 
 const e2e = {
   id: 'e2e',
-  title: 'E2E Test',
+  title: 'Product / Services',
   caption: 'List of Products/Services',
   type: 'group',
   children: [

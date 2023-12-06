@@ -1,11 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+import { Tooltip, Avatar, TableRow, TableHead, TableContainer, TableCell, TableBody, Table, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import * as moment from 'moment';
 
@@ -23,6 +18,7 @@ const JiraTable = ({ data }) => {
               <TableCell>Jira Number</TableCell>
               <TableCell>Summary</TableCell>
               <TableCell>Status</TableCell>
+              <TableCell>Assignee</TableCell>
               <TableCell>Created</TableCell>
               <TableCell>Last Updated</TableCell>
             </TableRow>
@@ -35,11 +31,26 @@ const JiraTable = ({ data }) => {
                 hover // Add hover property for hover effect
                 style={{ cursor: 'pointer' }} // Change cursor on hover
               >
-                <TableCell>{d.key}</TableCell>
+                <TableCell>
+                  <Typography sx={{ fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>{d.key}</Typography>
+                </TableCell>
                 <TableCell>{d.fields.summary}</TableCell>
                 <TableCell>{d.fields.status.name}</TableCell>
-                <TableCell>{moment(d.fields.created).format('MMMM DD, YYYY hh:mm:ss A')}</TableCell>
-                <TableCell>{moment(d.fields.updated).format('MMMM DD, YYYY hh:mm:ss A')}</TableCell>
+                <TableCell>
+                  <Tooltip title={d.fields?.assignee?.displayName || 'Not assigned'}>
+                    <Avatar alt={d.fields?.assignee?.displayName} src={d.fields?.assignee?.avatarUrls['48x48']} />
+                  </Tooltip>
+                </TableCell>
+                <TableCell>
+                  <Tooltip title={moment(d.fields.created).format('MMMM Do YYYY, h:mm:ss a')}>
+                    {moment(d.fields.created).startOf('hour').fromNow()}
+                  </Tooltip>
+                </TableCell>
+                <TableCell>
+                  <Tooltip title={moment(d.fields.updated).format('MMMM Do YYYY, h:mm:ss a')}>
+                    {moment(d.fields.updated).startOf('hour').fromNow()}
+                  </Tooltip>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

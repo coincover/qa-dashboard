@@ -80,7 +80,6 @@ const E2E = ({ title }) => {
                 subtitle="Code Scan"
                 result="90%"
                 icon={<FingerprintIcon fontSize="inherit" />}
-                backgroundColor="success"
               />
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12}>

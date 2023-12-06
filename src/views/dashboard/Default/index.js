@@ -11,14 +11,13 @@ import LargeCard from './LargeCard';
 import PopularCard from './E2ETestStatusCard';
 import TotalOrderLineChartCard from './TotalOrderLineChartCard';
 import SmallCard from './SmallCard';
-import TotalIncomeLightCard from './TotalIncomeLightCard';
 import TotalGrowthBarChart from './TotalGrowthBarChart';
 import { gridSpacing } from 'store/constant';
 import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
 import { getE2eTotalTest } from '../../../services/E2eGetTotalTest';
 import { getJiraBug, getJiraDefect, getJiraSecurity } from 'services/jira';
 import BajajAreaChartCard from './BajajAreaChartCard';
-
+import { getProjectStatusData } from '../../../services/sonarCloud';
 // ==============================|| DEFAULT DASHBOARD ||============================== //
 
 const Dashboard = () => {
@@ -26,6 +25,8 @@ const Dashboard = () => {
   const [jiraBugData, setJiraBugData] = useState([]);
   const [jiraDefectData, setJiraDefectData] = useState([]);
   const [jiraSecurityData, setJiraSecurityData] = useState([]);
+  const [b2b2cSonarCloudStatusData, setB2b2cSonarCloudStatusData] = useState([]);
+  const [txmSonarCloudStatusData, setTxmSonarCloudStatusData] = useState([]);
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(false);
@@ -35,10 +36,14 @@ const Dashboard = () => {
         const jiraBugTotal = await getJiraBug();
         const jiraDefectTotal = await getJiraDefect();
         const jiraSecurityTotal = await getJiraSecurity();
+        const b2b2cSonarCloudStatus = await getProjectStatusData('coincover_coincover-b2b2c');
+        const txmSonarCloudStatus = await getProjectStatusData('coincover_coincover-txm');
         setData(result);
         setJiraBugData(jiraBugTotal);
         setJiraDefectData(jiraDefectTotal);
         setJiraSecurityData(jiraSecurityTotal);
+        setB2b2cSonarCloudStatusData(b2b2cSonarCloudStatus);
+        setTxmSonarCloudStatusData(txmSonarCloudStatus);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -77,21 +82,19 @@ const Dashboard = () => {
               <Grid item sm={6} xs={12} md={6} lg={12}>
                 <SmallCard
                   isLoading={isLoading}
-                  title="Identity Service"
-                  subtitle="Code Coverage"
-                  result="90%"
+                  title="coincover-b2b2c"
+                  subtitle="SonarCloud"
+                  result={b2b2cSonarCloudStatusData.projectStatus?.status}
                   icon={<FingerprintIcon fontSize="inherit" />}
-                  backgroundColor="primary"
                 />
               </Grid>
               <Grid item sm={6} xs={12} md={6} lg={12}>
                 <SmallCard
                   isLoading={isLoading}
-                  title="Recovery as a service"
-                  subtitle="Code Coverage"
-                  result="78%"
+                  title="coincover-txm"
+                  subtitle="SonarCloud"
+                  result={txmSonarCloudStatusData.projectStatus?.status}
                   icon={<SupportIcon fontSize="inherit" />}
-                  backgroundColor="secondary"
                 />
               </Grid>
             </Grid>

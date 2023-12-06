@@ -15,6 +15,7 @@ const UtilsMaterialIcons = Loadable(lazy(() => import('views/utilities/MaterialI
 const UtilsTablerIcons = Loadable(lazy(() => import('views/utilities/TablerIcons')));
 const E2E = Loadable(lazy(() => import('views/pages/e2e/index')));
 const Jira = Loadable(lazy(() => import('views/pages/jira/index')));
+const SonarCloud = Loadable(lazy(() => import('views/pages/sonarCloud/index')));
 // sample page routing
 const SamplePage = Loadable(lazy(() => import('views/sample-page')));
 
@@ -142,6 +143,24 @@ const MainRoutes = {
         {
           path: 'security',
           element: <Jira title="List of Open Security Issues" />
+        }
+      ]
+    },
+    {
+      path: 'sonarCloud-pull-request',
+      children: [
+        {
+          path: 'coincover-b2b2c',
+          element: <SonarCloud title="List of Pull Request Results for coincover-b2b2c" />
+        }
+      ]
+    },
+    {
+      path: 'sonarCloud-pull-request',
+      children: [
+        {
+          path: 'coincover-txm',
+          element: <SonarCloud title="List of Pull Request Results for coincover-txm" />
         }
       ]
     }
