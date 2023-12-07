@@ -6,8 +6,8 @@ import { styled, useTheme } from '@mui/material/styles';
 import { Avatar, Box, Grid, Menu, MenuItem, Typography } from '@mui/material';
 
 // project imports
-import MainCard from 'ui-component/cards/MainCard';
-import SkeletonEarningCard from 'ui-component/cards/Skeleton/LargeCard';
+import MainCard from 'components/Cards/MainCard';
+import SkeletonEarningCard from 'components/Cards/Skeleton/LargeCard';
 
 // assets
 import EarningIcon from 'assets/images/icons/earning.svg';

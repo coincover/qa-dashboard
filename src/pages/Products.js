@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 import { Grid } from '@mui/material';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
 // project imports
-import MainCard from 'ui-component/cards/MainCard';
-import SmallCard from '../../dashboard/Default/SmallCard';
-import TestDataTable from './Table';
+import MainCard from 'components/Cards/MainCard';
+import SmallCard from '../components/Cards/SmallCard';
+import TestDataTable from '../components/Tables/TestDataTable';
 // project imports
-import { getE2EData } from '../../../services/E2eGetData';
+import { getE2EData } from '../services/E2eGetData';
 import { gridSpacing } from 'store/constant';
 
 // ==============================|| SAMPLE PAGE ||============================== //

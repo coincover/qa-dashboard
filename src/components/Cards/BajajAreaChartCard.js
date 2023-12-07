@@ -10,7 +10,7 @@ import ApexCharts from 'apexcharts';
 import Chart from 'react-apexcharts';
 
 // project imports
-import generateChartData from './chart-data/bajaj-area-chart';
+import generateChartData from '../../store/chart-data/bajaj-area-chart';
 
 // ===========================|| DASHBOARD DEFAULT - BAJAJ AREA CHART CARD ||=========================== //
 

@@ -1,22 +1,22 @@
 // material-ui
 import PropTypes from 'prop-types';
+import { useTheme } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
 import { Grid, Typography } from '@mui/material';
 // project imports
-import MainCard from 'ui-component/cards/MainCard';
-import JiraTable from './JiraTable';
+import MainCard from 'components/Cards/MainCard';
+import JiraTable from '../components/Tables/JiraTable';
 // project imports
-import { getJiraBug, getJiraDefect, getJiraSecurity } from '../../../services/jira';
+import { getJiraBug, getJiraDefect, getJiraSecurity } from '../services/jira';
 import { gridSpacing } from 'store/constant';
 
-// ==============================|| SAMPLE PAGE ||============================== //
-
-const Jira = ({ title }) => {
+const Products = ({ title }) => {
   const [isLoading, setLoading] = useState(true);
   const [jiraBugData, setJiraBugData] = useState([]);
   const [jiraDefectData, setJiraDefectData] = useState([]);
   const [jiraSecurityData, setJiraSecurityData] = useState([]);
   const [data, setData] = useState([]);
+  const theme = useTheme();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,7 +47,7 @@ const Jira = ({ title }) => {
   return (
     <>
       {isLoading || data?.issues?.length > 0 ? (
-        <MainCard title={title}>
+        <MainCard title={title} sx={{ boxShadow: theme.shadows[6] }}>
           <Grid container spacing={gridSpacing}>
             <Grid item xs={12}>
               <Grid container spacing={gridSpacing}>
@@ -59,7 +59,7 @@ const Jira = ({ title }) => {
           </Grid>
         </MainCard>
       ) : (
-        <MainCard>
+        <MainCard sx={{ boxShadow: theme.shadows[6] }}>
           <Typography sx={{ textAlign: 'center' }}>No Data</Typography>
         </MainCard>
       )}
@@ -67,8 +67,8 @@ const Jira = ({ title }) => {
   );
 };
 
-Jira.propTypes = {
+Products.propTypes = {
   title: PropTypes.string
 };
 
-export default Jira;
+export default Products;

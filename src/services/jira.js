@@ -7,6 +7,7 @@ export async function getJiraBug() {
     const req = await axios(`${host}/rest/api/2/search?jql=project=PRODENG AND type=bug AND status not in (Done)`, {
       method: 'GET'
     });
+    console.log(req);
     return req.data;
   } catch (error) {
     return generateErrorReturn(error);

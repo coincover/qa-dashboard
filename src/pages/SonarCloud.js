@@ -1,12 +1,13 @@
 // material-ui
 import PropTypes from 'prop-types';
+import { useTheme } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
 import { Grid } from '@mui/material';
 // project imports
-import MainCard from 'ui-component/cards/MainCard';
-import SonarCloudTable from './sonarCloudTable';
+import MainCard from 'components/Cards/MainCard';
+import SonarCloudTable from '../components/Tables/SonarCloudTable';
 // project imports
-import { getPullRequestData } from '../../../services/sonarCloud';
+import { getPullRequestData } from '../services/sonarCloud';
 import { gridSpacing } from 'store/constant';
 
 // ==============================|| SAMPLE PAGE ||============================== //
@@ -14,6 +15,7 @@ import { gridSpacing } from 'store/constant';
 const SonarCloud = ({ title }) => {
   const [isLoading, setLoading] = useState(true);
   const [sonarCloudPullRequest, setSonarCloudPullRequest] = useState([]);
+  const theme = useTheme();
 
   const projectToValue = (value) => {
     switch (value) {
@@ -43,7 +45,7 @@ const SonarCloud = ({ title }) => {
   }, [title]);
 
   return (
-    <MainCard title={title}>
+    <MainCard title={title} sx={{ boxShadow: theme.shadows[6] }}>
       <Grid container spacing={gridSpacing}>
         <Grid item xs={12}>
           <Grid container spacing={gridSpacing}>

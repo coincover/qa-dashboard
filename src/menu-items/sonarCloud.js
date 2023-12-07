@@ -1,6 +1,4 @@
-// assets
-import { IconGitPullRequest, IconHeadphones, IconShieldLock } from '@tabler/icons';
-// ==============================|| UTILITIES MENU ITEMS ||============================== //
+import { IconGitPullRequest } from '@tabler/icons';
 
 const sonarCloud = {
   id: 'sonarCloud',

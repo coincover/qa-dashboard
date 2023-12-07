@@ -11,12 +11,12 @@ import ApexCharts from 'apexcharts';
 import Chart from 'react-apexcharts';
 
 // project imports
-import SkeletonTotalGrowthBarChart from 'ui-component/cards/Skeleton/TotalGrowthBarChart';
-import MainCard from 'ui-component/cards/MainCard';
+import SkeletonTotalGrowthBarChart from 'components/Cards/Skeleton/TotalGrowthBarChart';
+import MainCard from 'components/Cards/MainCard';
 import { gridSpacing } from 'store/constant';
 
 // chart data
-import chartData from './chart-data/total-growth-bar-chart';
+import chartData from '../../store/chart-data/total-growth-bar-chart';
 
 const status = [
   {

@@ -1,24 +1,21 @@
 import { useEffect, useState } from 'react';
 
-// material-ui
 import { Grid } from '@mui/material';
 import { IconBug, IconHeadphones, IconShieldLock, IconTicket } from '@tabler/icons';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import SupportIcon from '@mui/icons-material/Support';
 
-// project imports
-import LargeCard from './LargeCard';
-import PopularCard from './E2ETestStatusCard';
-import TotalOrderLineChartCard from './TotalOrderLineChartCard';
-import SmallCard from './SmallCard';
-import TotalGrowthBarChart from './TotalGrowthBarChart';
+import LargeCard from '../components/Cards/LargeCard';
+import PopularCard from '../components/Cards/E2ETestStatusCard';
+import TotalOrderLineChartCard from '../components/Cards/TotalOrderLineChartCard';
+import SmallCard from '../components/Cards/SmallCard';
+import TotalGrowthBarChart from '../components/Cards/TotalGrowthBarChart';
 import { gridSpacing } from 'store/constant';
 import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
-import { getE2eTotalTest } from '../../../services/E2eGetTotalTest';
+import { getE2eTotalTest } from '../services/E2eGetTotalTest';
 import { getJiraBug, getJiraDefect, getJiraSecurity } from 'services/jira';
-import BajajAreaChartCard from './BajajAreaChartCard';
-import { getProjectStatusData } from '../../../services/sonarCloud';
-// ==============================|| DEFAULT DASHBOARD ||============================== //
+import BajajAreaChartCard from '../components/Cards/BajajAreaChartCard';
+import { getProjectStatusData } from '../services/sonarCloud';
 
 const Dashboard = () => {
   const [data, setData] = useState([]);
