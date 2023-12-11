@@ -49,12 +49,12 @@ function Row(props) {
         >
           {row.pull_request}
         </TableCell>
-        <TableCell align="right">
+        <TableCell>
           <Tooltip title={lastResult.author || 'Not assigned'}>
             <Avatar alt={lastResult.author} src={`https://ui-avatars.com/api/?name=${lastResult.author}`} />
           </Tooltip>
         </TableCell>
-        <TableCell align="right">{lastResult.commit}</TableCell>
+        <TableCell>{lastResult.commit}</TableCell>
         <TableCell align="right">{lastResult.percentage}%</TableCell>
       </TableRow>
       <TableRow>
@@ -137,8 +137,8 @@ const UnitTestDataTable = ({ isLoading, data }) => {
                 <TableCell />
                 <TableCell>Date</TableCell>
                 <TableCell align="right">Pull Request</TableCell>
-                <TableCell align="right">Author</TableCell>
-                <TableCell align="right">Commit</TableCell>
+                <TableCell>Author</TableCell>
+                <TableCell>Commit</TableCell>
                 <TableCell align="right">Overall Coverage</TableCell>
               </TableRow>
             </TableHead>
