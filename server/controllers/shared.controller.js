@@ -26,21 +26,22 @@ const getAllDataFromTable = async (req, res) => {
             statement_coverage: item.statement_coverage,
             function_coverage: item.function_coverage,
             branch_coverage: item.branch_coverage,
+            line_coverage: item.line_coverage,
             author: item.author
           });
         } else {
           acc.push({
             id: item.id,
-            commit: item.commit,
             pull_request: item.pull_request,
             result: [
               {
                 date: item.date,
+                commit: item.commit,
                 percentage: item.percentage,
                 statement_coverage: item.statement_coverage,
                 function_coverage: item.function_coverage,
                 branch_coverage: item.branch_coverage,
-                line_coverage: req.body.line_coverage,
+                line_coverage: item.line_coverage,
                 author: item.author
               }
             ]
