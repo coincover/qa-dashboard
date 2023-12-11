@@ -27,22 +27,6 @@ const sonarCloud = {
         }
       ]
     }
-    // {
-    //   id: 'jira-defect',
-    //   title: 'Defects',
-    //   type: 'item',
-    //   url: '/jira/defect',
-    //   icon: IconHeadphones,
-    //   breadcrumbs: false
-    // },
-    // {
-    //   id: 'jira-security',
-    //   title: 'Securitys',
-    //   type: 'item',
-    //   url: '/jira/security',
-    //   icon: IconShieldLock,
-    //   breadcrumbs: false
-    // }
   ]
 };
 

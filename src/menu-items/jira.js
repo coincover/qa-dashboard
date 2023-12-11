@@ -1,6 +1,4 @@
-// assets
 import { IconBug, IconHeadphones, IconShieldLock } from '@tabler/icons';
-// ==============================|| UTILITIES MENU ITEMS ||============================== //
 
 const unit = {
   id: 'jira',

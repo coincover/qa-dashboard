@@ -1,7 +1,4 @@
-// assets
 import { IconPalette, IconShieldCheck, IconLifebuoy, IconIdBadge2 } from '@tabler/icons';
-
-// ==============================|| UTILITIES MENU ITEMS ||============================== //
 
 const unit = {
   id: 'units',

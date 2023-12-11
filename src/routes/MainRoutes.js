@@ -5,7 +5,8 @@ import MainLayout from 'layout/MainLayout';
 import Loadable from 'components/Loadable';
 // pages
 const Dashboard = Loadable(lazy(() => import('pages/Dashboard')));
-const Products = Loadable(lazy(() => import('pages/Products')));
+const Products = Loadable(lazy(() => import('pages/E2E')));
+const Unit = Loadable(lazy(() => import('pages/Unit')));
 const Jira = Loadable(lazy(() => import('pages/Jira')));
 const SonarCloud = Loadable(lazy(() => import('pages/SonarCloud')));
 
@@ -14,7 +15,7 @@ const MainRoutes = {
   element: <MainLayout />,
   children: [
     {
-      path: '/',
+      path: '',
       element: <Dashboard />
     },
     {
@@ -27,107 +28,85 @@ const MainRoutes = {
       ]
     },
     {
-      path: 'e2e',
+      path: 'identity-service',
       children: [
         {
-          path: 'identity-service',
+          path: '',
           element: <Products title="Identity Service" />
+        },
+        {
+          path: 'e2e-test',
+          element: <Products title="Identity Service" />
+        },
+        {
+          path: 'unit-test',
+          element: <Unit title="Identity Service" />
         }
       ]
     },
     {
-      path: 'e2e',
+      path: 'recovery-as-a-service',
       children: [
         {
-          path: 'recovery-as-a-service',
+          path: 'e2e-test',
           element: <Products title="Recovery As A Service" />
+        },
+        {
+          path: 'unit-test',
+          element: <Unit title="Recovery As A Service" />
         }
       ]
     },
     {
-      path: 'e2e',
+      path: 'transaction-protection',
       children: [
         {
-          path: 'transaction-protection',
+          path: 'e2e-test',
           element: <Products title="Transaction Protection" />
+        },
+        {
+          path: 'unit-test',
+          element: <Unit title="Transaction Protection" />
         }
       ]
     },
     {
-      path: 'e2e',
+      path: 'disaster-recovery',
       children: [
         {
-          path: 'disaster-recovery',
+          path: 'e2e-test',
           element: <Products title="Disaster Recovery" />
+        },
+        {
+          path: 'unit-test',
+          element: <Unit title="Disaster Recovery" />
         }
       ]
     },
     {
-      path: 'e2e',
+      path: 'ledger_support_tool',
       children: [
         {
-          path: 'ledger_support_tool',
+          path: 'e2e-test',
           element: <Products title="Ledger Support Tool" />
+        },
+        {
+          path: 'unit-test',
+          element: <Unit title="Ledger Support Tool" />
         }
       ]
     },
-    // {
-    //   path: 'unit',
-    //   children: [
-    //     {
-    //       path: 'identity-service',
-    //       element: <UtilsTablerIcons />
-    //     }
-    //   ]
-    // },
-    // {
-    //   path: 'unit',
-    //   children: [
-    //     {
-    //       path: 'recovery-as-a-service',
-    //       element: <UtilsMaterialIcons />
-    //     }
-    //   ]
-    // },
-    // {
-    //   path: 'unit',
-    //   children: [
-    //     {
-    //       path: 'transaction-protection',
-    //       element: <SamplePage />
-    //     }
-    //   ]
-    // },
-    // {
-    //   path: 'unit',
-    //   children: [
-    //     {
-    //       path: 'disaster-recovery',
-    //       element: <UtilsShadow />
-    //     }
-    //   ]
-    // },
     {
       path: 'jira',
       children: [
         {
           path: 'bug',
           element: <Jira title="List of Open bugs" />
-        }
-      ]
-    },
-    {
-      path: 'jira',
-      children: [
+        },
         {
           path: 'defect',
           element: <Jira title="List of Open Defects" />
-        }
-      ]
-    },
-    {
-      path: 'jira',
-      children: [
+        },
         {
           path: 'security',
           element: <Jira title="List of Open Security Issues" />
@@ -140,12 +119,7 @@ const MainRoutes = {
         {
           path: 'coincover-b2b2c',
           element: <SonarCloud title="List of Pull Request Results for coincover-b2b2c" />
-        }
-      ]
-    },
-    {
-      path: 'sonarCloud-pull-request',
-      children: [
+        },
         {
           path: 'coincover-txm',
           element: <SonarCloud title="List of Pull Request Results for coincover-txm" />
