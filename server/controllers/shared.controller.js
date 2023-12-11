@@ -12,7 +12,47 @@ const getAllDataFromTable = async (req, res) => {
       return res.status(400).json({ error: 'Invalid type or product' });
     }
 
-    const data = await getTable(tableName);
+    const rawData = await getTable(tableName);
+
+    let data;
+
+    if (type === 'unit') {
+      data = rawData.reduce((acc, item) => {
+        const existingItem = acc.find((groupedItem) => groupedItem.pull_request === item.pull_request);
+
+        if (existingItem) {
+          existingItem.result.push({
+            date: item.date,
+            statement_coverage: item.statement_coverage,
+            function_coverage: item.function_coverage,
+            branch_coverage: item.branch_coverage,
+            author: item.author
+          });
+        } else {
+          acc.push({
+            id: item.id,
+            date: item.date,
+            percentage: item.percentage,
+            commit: item.commit,
+            pull_request: item.pull_request,
+            result: [
+              {
+                date: item.date,
+                statement_coverage: item.statement_coverage,
+                function_coverage: item.function_coverage,
+                branch_coverage: item.branch_coverage,
+                author: item.author
+              }
+            ]
+          });
+        }
+
+        return acc;
+      }, []);
+    } else {
+      data = rawData;
+    }
+
     res.json(data);
   } catch (err) {
     console.error(err);
@@ -42,7 +82,15 @@ const createData = async (req, res) => {
       );
     } else if (type === 'unit') {
       dataToInsert = createUnitSchema.validateSync(
-        { date: req.body.date, percentage: req.body.percentage, commit: req.body.commit, pull_request: req.body.pull_request },
+        {
+          date: req.body.date,
+          pull_request: req.body.pull_request,
+          commit: req.body.commit,
+          statement_coverage: req.body.statement_coverage,
+          function_coverage: req.body.function_coverage,
+          branch_coverage: req.body.branch_coverage,
+          author: req.body.author
+        },
         {
           abortEarly: false,
           stripUnknown: true
@@ -55,7 +103,6 @@ const createData = async (req, res) => {
   } catch (err) {
     console.error(err);
     if (err.name === 'ValidationError') {
-      // Yup validation error
       return res.status(400).json({ error: err.errors });
     }
     res.status(500).json({ error: 'Internal Server Error' });

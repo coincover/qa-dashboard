@@ -1,4 +1,4 @@
-const db = require('./db');
+const db = require('./connection');
 
 (async () => {
   try {
@@ -31,6 +31,10 @@ const db = require('./db');
       table.integer('percentage');
       table.string('commit');
       table.string('pull_request');
+      table.string('statement_coverage');
+      table.string('function_coverage');
+      table.string('branch_coverage');
+      table.string('author');
     });
 
     // Create e2e_identity_service table
@@ -49,6 +53,10 @@ const db = require('./db');
       table.integer('percentage');
       table.string('commit');
       table.string('pull_request');
+      table.string('statement_coverage');
+      table.string('function_coverage');
+      table.string('branch_coverage');
+      table.string('author');
     });
 
     // Create e2e_ledger_support_tool table
@@ -67,6 +75,10 @@ const db = require('./db');
       table.integer('percentage');
       table.string('commit');
       table.string('pull_request');
+      table.string('statement_coverage');
+      table.string('function_coverage');
+      table.string('branch_coverage');
+      table.string('author');
     });
 
     // Create e2e_recovery_as_a_service table
@@ -85,6 +97,10 @@ const db = require('./db');
       table.integer('percentage');
       table.string('commit');
       table.string('pull_request');
+      table.string('statement_coverage');
+      table.string('function_coverage');
+      table.string('branch_coverage');
+      table.string('author');
     });
 
     // Create e2e_transaction_protection table
@@ -103,6 +119,10 @@ const db = require('./db');
       table.integer('percentage');
       table.string('commit');
       table.string('pull_request');
+      table.string('statement_coverage');
+      table.string('function_coverage');
+      table.string('branch_coverage');
+      table.string('author');
     });
 
     // Create e2e_status table
