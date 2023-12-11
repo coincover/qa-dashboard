@@ -31,16 +31,16 @@ const getAllDataFromTable = async (req, res) => {
         } else {
           acc.push({
             id: item.id,
-            date: item.date,
-            percentage: item.percentage,
             commit: item.commit,
             pull_request: item.pull_request,
             result: [
               {
                 date: item.date,
+                percentage: item.percentage,
                 statement_coverage: item.statement_coverage,
                 function_coverage: item.function_coverage,
                 branch_coverage: item.branch_coverage,
+                line_coverage: req.body.line_coverage,
                 author: item.author
               }
             ]
@@ -84,11 +84,13 @@ const createData = async (req, res) => {
       dataToInsert = createUnitSchema.validateSync(
         {
           date: req.body.date,
+          percentage: req.body.percentage,
           pull_request: req.body.pull_request,
           commit: req.body.commit,
           statement_coverage: req.body.statement_coverage,
           function_coverage: req.body.function_coverage,
           branch_coverage: req.body.branch_coverage,
+          line_coverage: req.body.line_coverage,
           author: req.body.author
         },
         {

@@ -28,12 +28,13 @@ const db = require('./connection');
     await db.schema.createTable('unit_disaster_recovery', (table) => {
       table.increments('id').primary();
       table.date('date');
-      table.integer('percentage');
+      table.string('percentage');
       table.string('commit');
       table.string('pull_request');
       table.string('statement_coverage');
       table.string('function_coverage');
       table.string('branch_coverage');
+      table.string('line_coverage');
       table.string('author');
     });
 
@@ -50,12 +51,13 @@ const db = require('./connection');
     await db.schema.createTable('unit_identity_service', (table) => {
       table.increments('id').primary();
       table.date('date');
-      table.integer('percentage');
+      table.string('percentage');
       table.string('commit');
       table.string('pull_request');
       table.string('statement_coverage');
       table.string('function_coverage');
       table.string('branch_coverage');
+      table.string('line_coverage');
       table.string('author');
     });
 
@@ -72,12 +74,13 @@ const db = require('./connection');
     await db.schema.createTable('unit_ledger_support_tool', (table) => {
       table.increments('id').primary();
       table.date('date');
-      table.integer('percentage');
+      table.string('percentage');
       table.string('commit');
       table.string('pull_request');
       table.string('statement_coverage');
       table.string('function_coverage');
       table.string('branch_coverage');
+      table.string('line_coverage');
       table.string('author');
     });
 
@@ -94,12 +97,13 @@ const db = require('./connection');
     await db.schema.createTable('unit_recovery_as_a_service', (table) => {
       table.increments('id').primary();
       table.date('date');
-      table.integer('percentage');
+      table.string('percentage');
       table.string('commit');
       table.string('pull_request');
       table.string('statement_coverage');
       table.string('function_coverage');
       table.string('branch_coverage');
+      table.string('line_coverage');
       table.string('author');
     });
 
@@ -116,12 +120,13 @@ const db = require('./connection');
     await db.schema.createTable('unit_transaction_protection', (table) => {
       table.increments('id').primary();
       table.date('date');
-      table.integer('percentage');
+      table.string('percentage');
       table.string('commit');
       table.string('pull_request');
       table.string('statement_coverage');
       table.string('function_coverage');
       table.string('branch_coverage');
+      table.string('line_coverage');
       table.string('author');
     });
 
