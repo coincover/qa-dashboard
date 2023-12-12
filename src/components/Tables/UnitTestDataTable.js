@@ -14,18 +14,58 @@ import {
   Typography,
   Paper,
   Tooltip,
-  Avatar
+  Avatar,
+  Chip
 } from '@mui/material';
 import MainCard from 'components/Cards/MainCard';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import NorthEastIcon from '@mui/icons-material/NorthEast';
+import SouthEastIcon from '@mui/icons-material/SouthEast';
+import MinimizeIcon from '@mui/icons-material/Minimize';
 import * as moment from 'moment';
 
 function Row(props) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
   const lastResult = row.result[row.result.length - 1];
+  const fillColour = (value) => {
+    const numericValue = parseFloat(value);
+    if (numericValue >= 90 && numericValue <= 100) {
+      return 'success';
+    } else if (numericValue >= 80 && numericValue < 90) {
+      return 'warning';
+    } else {
+      return 'error';
+    }
+  };
+  function getStatusChange(data) {
+    if (!data.result || data.result.length < 2) {
+      return <MinimizeIcon />;
+    }
 
+    const lastResult = data.result[data.result.length - 1];
+    const secondLastResult = data.result[data.result.length - 2];
+
+    if (!lastResult || !secondLastResult) {
+      return 'Result data missing';
+    }
+
+    const lastPercentage = parseFloat(lastResult.percentage);
+    const secondLastPercentage = parseFloat(secondLastResult.percentage);
+
+    if (isNaN(lastPercentage) || isNaN(secondLastPercentage)) {
+      return <MinimizeIcon />;
+    }
+
+    if (lastPercentage > secondLastPercentage) {
+      return <NorthEastIcon />;
+    } else if (lastPercentage < secondLastPercentage) {
+      return <SouthEastIcon />;
+    } else {
+      return <MinimizeIcon />;
+    }
+  }
   const handleRowClick = (rowData, selected) => {
     window.open(`https://github.com/coincover/coincover-b2b2c/pull/${selected}`, '_blank');
   };
@@ -51,11 +91,14 @@ function Row(props) {
         </TableCell>
         <TableCell>
           <Tooltip title={lastResult.author || 'Not assigned'}>
-            <Avatar alt={lastResult.author} src={`https://ui-avatars.com/api/?name=${lastResult.author}`} />
+            <Avatar alt={lastResult.author} src={`https://ui-avatars.com/api/?name=${lastResult.author}&background=random&?bold=true`} />
           </Tooltip>
         </TableCell>
         <TableCell>{lastResult.commit}</TableCell>
-        <TableCell align="right">{lastResult.percentage}%</TableCell>
+        <TableCell align="right">
+          <Chip label={`${lastResult.percentage}%`} color={fillColour(lastResult.percentage)} variant="filled" />
+          {getStatusChange(row)}
+        </TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -89,10 +132,26 @@ function Row(props) {
                       </TableCell>
                       <TableCell>{historyRow.author}</TableCell>
                       <TableCell align="right">{historyRow.commit}</TableCell>
-                      <TableCell align="right">{historyRow.function_coverage}%</TableCell>
-                      <TableCell align="right">{historyRow.line_coverage}%</TableCell>
-                      <TableCell align="right">{historyRow.statement_coverage}%</TableCell>
-                      <TableCell align="right">{historyRow.percentage}%</TableCell>
+                      <TableCell align="right">
+                        <Chip
+                          label={`${historyRow.function_coverage}%`}
+                          color={fillColour(historyRow.function_coverage)}
+                          variant="filled"
+                        />
+                      </TableCell>
+                      <TableCell align="right">
+                        <Chip label={`${historyRow.line_coverage}%`} color={fillColour(historyRow.line_coverage)} variant="filled" />
+                      </TableCell>
+                      <TableCell align="right">
+                        <Chip
+                          label={`${historyRow.statement_coverage}%`}
+                          color={fillColour(historyRow.statement_coverage)}
+                          variant="filled"
+                        />
+                      </TableCell>
+                      <TableCell align="right">
+                        <Chip label={`${historyRow.percentage}%`} color={fillColour(historyRow.percentage)} variant="filled" />
+                      </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
