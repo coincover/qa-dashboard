@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/qa-dashboard/static/css/main.df3b6d63.css",
-    "main.js": "/qa-dashboard/static/js/main.d7fbb5a1.js",
+    "main.js": "/qa-dashboard/static/js/main.9043fff8.js",
     "static/js/647.9657c513.chunk.js": "/qa-dashboard/static/js/647.9657c513.chunk.js",
     "static/js/110.07a0ae74.chunk.js": "/qa-dashboard/static/js/110.07a0ae74.chunk.js",
-    "static/js/534.d75098e6.chunk.js": "/qa-dashboard/static/js/534.d75098e6.chunk.js",
+    "static/js/534.81b73ff4.chunk.js": "/qa-dashboard/static/js/534.81b73ff4.chunk.js",
     "static/js/799.134474e7.chunk.js": "/qa-dashboard/static/js/799.134474e7.chunk.js",
     "static/js/47.d87d520d.chunk.js": "/qa-dashboard/static/js/47.d87d520d.chunk.js",
     "static/js/874.9f2364bb.chunk.js": "/qa-dashboard/static/js/874.9f2364bb.chunk.js",
@@ -23,6 +23,6 @@
   },
   "entrypoints": [
     "static/css/main.df3b6d63.css",
-    "static/js/main.d7fbb5a1.js"
+    "static/js/main.9043fff8.js"
   ]
 }
