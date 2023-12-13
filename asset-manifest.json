@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/qa-dashboard/static/css/main.df3b6d63.css",
-    "main.js": "/qa-dashboard/static/js/main.9043fff8.js",
-    "static/js/647.9657c513.chunk.js": "/qa-dashboard/static/js/647.9657c513.chunk.js",
+    "main.js": "/qa-dashboard/static/js/main.becb7ddd.js",
+    "static/js/647.8f950c08.chunk.js": "/qa-dashboard/static/js/647.8f950c08.chunk.js",
     "static/js/110.07a0ae74.chunk.js": "/qa-dashboard/static/js/110.07a0ae74.chunk.js",
     "static/js/534.81b73ff4.chunk.js": "/qa-dashboard/static/js/534.81b73ff4.chunk.js",
-    "static/js/799.134474e7.chunk.js": "/qa-dashboard/static/js/799.134474e7.chunk.js",
+    "static/js/799.66a1b6f0.chunk.js": "/qa-dashboard/static/js/799.66a1b6f0.chunk.js",
     "static/js/47.d87d520d.chunk.js": "/qa-dashboard/static/js/47.d87d520d.chunk.js",
     "static/js/874.9f2364bb.chunk.js": "/qa-dashboard/static/js/874.9f2364bb.chunk.js",
     "static/js/884.1f8326c4.chunk.js": "/qa-dashboard/static/js/884.1f8326c4.chunk.js",
@@ -13,16 +13,18 @@
     "static/js/57.2dbf7e4c.chunk.js": "/qa-dashboard/static/js/57.2dbf7e4c.chunk.js",
     "static/js/829.5cb50723.chunk.js": "/qa-dashboard/static/js/829.5cb50723.chunk.js",
     "static/js/496.7a96bcd5.chunk.js": "/qa-dashboard/static/js/496.7a96bcd5.chunk.js",
-    "static/js/135.4d298201.chunk.js": "/qa-dashboard/static/js/135.4d298201.chunk.js",
+    "static/js/135.3556305d.chunk.js": "/qa-dashboard/static/js/135.3556305d.chunk.js",
+    "static/js/861.ef30b92c.chunk.js": "/qa-dashboard/static/js/861.ef30b92c.chunk.js",
     "static/js/802.0076e27d.chunk.js": "/qa-dashboard/static/js/802.0076e27d.chunk.js",
     "static/js/744.76e7db59.chunk.js": "/qa-dashboard/static/js/744.76e7db59.chunk.js",
     "static/media/user-round.svg": "/qa-dashboard/static/media/user-round.13b5a31bebd2cc6016d6db2cac8e92d1.svg",
+    "static/media/redux.cjs": "/qa-dashboard/static/media/redux.f6cd7db3b857b93d3bca.cjs",
     "static/media/social-google.svg": "/qa-dashboard/static/media/social-google.9887eb8eb43729cb99f402cfa0de3c44.svg",
     "static/media/earning.svg": "/qa-dashboard/static/media/earning.b019e86a7ee117bd6bb2e8cab90c0db5.svg",
     "index.html": "/qa-dashboard/index.html"
   },
   "entrypoints": [
     "static/css/main.df3b6d63.css",
-    "static/js/main.9043fff8.js"
+    "static/js/main.becb7ddd.js"
   ]
 }
