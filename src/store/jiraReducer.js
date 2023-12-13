@@ -2,7 +2,8 @@ import { GET_JIRA } from './actions';
 
 const initialState = {
   bugData: [],
-  defectData: []
+  defectData: [],
+  securityData: []
 };
 
 function jiraReducer(state = initialState, action) {
