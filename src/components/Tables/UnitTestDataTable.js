@@ -96,7 +96,12 @@ function Row(props) {
         </TableCell>
         <TableCell>{lastResult.commit}</TableCell>
         <TableCell align="right">
-          <Chip label={`${lastResult.percentage}%`} color={fillColour(lastResult.percentage)} variant="filled" />
+          <Chip
+            label={`${lastResult.percentage}%`}
+            color={fillColour(lastResult.percentage)}
+            variant="combined"
+            sx={{ borderRadius: '5px', width: '100%' }}
+          />
           {getStatusChange(row)}
         </TableCell>
       </TableRow>
@@ -136,21 +141,33 @@ function Row(props) {
                         <Chip
                           label={`${historyRow.function_coverage}%`}
                           color={fillColour(historyRow.function_coverage)}
-                          variant="filled"
+                          variant="combined"
+                          sx={{ borderRadius: '5px', width: '100%' }}
                         />
                       </TableCell>
                       <TableCell align="right">
-                        <Chip label={`${historyRow.line_coverage}%`} color={fillColour(historyRow.line_coverage)} variant="filled" />
+                        <Chip
+                          label={`${historyRow.line_coverage}%`}
+                          color={fillColour(historyRow.line_coverage)}
+                          variant="combined"
+                          sx={{ borderRadius: '5px', width: '100%' }}
+                        />
                       </TableCell>
                       <TableCell align="right">
                         <Chip
                           label={`${historyRow.statement_coverage}%`}
                           color={fillColour(historyRow.statement_coverage)}
-                          variant="filled"
+                          variant="combined"
+                          sx={{ borderRadius: '5px', width: '100%' }}
                         />
                       </TableCell>
                       <TableCell align="right">
-                        <Chip label={`${historyRow.percentage}%`} color={fillColour(historyRow.percentage)} variant="filled" />
+                        <Chip
+                          label={`${historyRow.percentage}%`}
+                          color={fillColour(historyRow.percentage)}
+                          variant="combined"
+                          sx={{ borderRadius: '5px', width: '100%' }}
+                        />
                       </TableCell>
                     </TableRow>
                   ))}

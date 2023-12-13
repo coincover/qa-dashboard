@@ -7,7 +7,7 @@ import { Grid } from '@mui/material';
 import MainCard from 'components/Cards/MainCard';
 import SonarCloudTable from '../components/Tables/SonarCloudTable';
 // project imports
-import { getPullRequestData } from '../services/sonarCloud';
+import { getPullRequestData } from '../api/sonarCloud';
 import { gridSpacing } from 'store/constant';
 
 // ==============================|| SAMPLE PAGE ||============================== //

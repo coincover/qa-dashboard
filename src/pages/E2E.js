@@ -9,7 +9,7 @@ import MainCard from 'components/Cards/MainCard';
 import SmallCard from '../components/Cards/SmallCard';
 import TestDataTable from '../components/Tables/TestDataTable';
 // project imports
-import { getE2EData } from '../services/E2eGetData';
+import { getE2EData } from '../api/E2eGetData';
 import { gridSpacing } from 'store/constant';
 
 const E2E = ({ title }) => {

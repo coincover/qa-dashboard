@@ -9,7 +9,7 @@ import Row from 'components/Row';
 import MainCard from 'components/Cards/MainCard';
 import SkeletonPopularCard from 'components/Cards/Skeleton/PopularCard';
 import { gridSpacing } from 'store/constant';
-import { getStatus } from '../../services/E2eStatus';
+import { getStatus } from '../../api/E2eStatus';
 // ==============================|| DASHBOARD DEFAULT - POPULAR CARD ||============================== //
 
 const E2ETestStatusCard = ({ isLoading }) => {

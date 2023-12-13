@@ -9,7 +9,7 @@ import MainCard from 'components/Cards/MainCard';
 import SmallCard from '../components/Cards/SmallCard';
 import UnitTestDataTable from '../components/Tables/UnitTestDataTable';
 // project imports
-import { getUnitData } from '../services/UnitGetData';
+import { getUnitData } from '../api/UnitGetData';
 import { gridSpacing } from 'store/constant';
 
 const UNIT = ({ title }) => {

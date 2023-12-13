@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Tooltip, Avatar, TableRow, TableHead, TableContainer, TableCell, TableBody, Table, Typography } from '@mui/material';
+import { Tooltip, Avatar, TableRow, TableHead, TableContainer, TableCell, TableBody, Table, Typography, Chip } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import * as moment from 'moment';
 
@@ -35,7 +35,15 @@ const JiraTable = ({ data }) => {
                   <Typography sx={{ fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>{d.key}</Typography>
                 </TableCell>
                 <TableCell>{d.fields.summary}</TableCell>
-                <TableCell>{d.fields.status.name}</TableCell>
+                <TableCell>
+                  <Chip
+                    variant="combined"
+                    color="secondary"
+                    label={d.fields.status.name}
+                    sx={{ borderRadius: '5px', width: '100%' }}
+                    size="large"
+                  />
+                </TableCell>
                 <TableCell>
                   <Tooltip title={d.fields?.assignee?.displayName || 'Not assigned'}>
                     <Avatar alt={d.fields?.assignee?.displayName} src={d.fields?.assignee?.avatarUrls['48x48']} />

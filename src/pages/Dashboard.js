@@ -6,18 +6,16 @@ import { Grid } from '@mui/material';
 import { IconBug, IconHeadphones, IconShieldLock, IconTicket } from '@tabler/icons';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import SupportIcon from '@mui/icons-material/Support';
-
+import { OverviewTraffic } from 'components/Charts/PieChat';
 import LargeCard from '../components/Cards/LargeCard';
 import PopularCard from '../components/Cards/E2ETestStatusCard';
 import TotalOrderLineChartCard from '../components/Cards/TotalOrderLineChartCard';
 import SmallCard from '../components/Cards/SmallCard';
 import TotalGrowthBarChart from '../components/Cards/TotalGrowthBarChart';
 import { gridSpacing } from 'store/constant';
-import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
-import { getE2eTotalTest } from '../services/E2eGetTotalTest';
-import { getJiraBug, getJiraDefect, getJiraSecurity } from 'services/jira';
+import { getE2eTotalTest } from '../api/E2eGetTotalTest';
 import BajajAreaChartCard from '../components/Cards/BajajAreaChartCard';
-import { getProjectStatusData } from '../services/sonarCloud';
+import { getProjectStatusData } from '../api/sonarCloud';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -73,71 +71,77 @@ const Dashboard = () => {
   return (
     <Grid container spacing={gridSpacing}>
       <Grid item xs={12}>
-        <Grid container spacing={gridSpacing}>
-          <Grid item lg={4} md={6} sm={6} xs={12}>
-            <LargeCard
-              isLoading={isLoading}
-              title={data.totalTests}
-              subtitle="Total E2E Tests"
-              icon={IconTicket}
-              backgroundColor="primary"
-            />
-          </Grid>
-          <Grid item lg={4} md={6} sm={6} xs={12}>
-            <LargeCard
-              isLoading={isLoading}
-              title={`${bug?.total} Bugs`}
-              subtitle="Total Number of open Defects"
-              icon={IconBug}
-              backgroundColor="secondary"
-            />
-          </Grid>
-          <Grid item lg={4} md={12} sm={12} xs={12}>
-            <Grid container spacing={gridSpacing}>
-              <Grid item sm={6} xs={12} md={6} lg={12}>
-                <SmallCard
-                  isLoading={isLoading}
-                  title="coincover-b2b2c"
-                  subtitle="SonarCloud"
-                  result={b2b2cSonarCloudStatusData.projectStatus?.status}
-                  icon={<FingerprintIcon fontSize="inherit" />}
-                />
-              </Grid>
-              <Grid item sm={6} xs={12} md={6} lg={12}>
-                <SmallCard
-                  isLoading={isLoading}
-                  title="coincover-txm"
-                  subtitle="SonarCloud"
-                  result={txmSonarCloudStatusData.projectStatus?.status}
-                  icon={<SupportIcon fontSize="inherit" />}
-                />
-              </Grid>
+        <Grid container>
+          <Grid item lg={4} md={6} sm={12} xs={12}>
+            <Grid sx={{ padding: '8px' }}>
+              <LargeCard
+                isLoading={isLoading}
+                title={data.totalTests}
+                subtitle="Total E2E Tests"
+                icon={IconTicket}
+                backgroundColor="primary"
+              />
+            </Grid>
+            <Grid sx={{ padding: '8px' }}>
+              <LargeCard
+                isLoading={isLoading}
+                title={`${bug?.total} Bugs`}
+                subtitle="Total Number of open Defects"
+                icon={IconBug}
+                backgroundColor="secondary"
+              />
             </Grid>
           </Grid>
-        </Grid>
-      </Grid>
-      <Grid item xs={12}>
-        <Grid container spacing={gridSpacing}>
-          <Grid item lg={4} md={6} sm={6} xs={12}>
-            <LargeCard
-              isLoading={isLoading}
-              title={`${defect?.total} Defects`}
-              subtitle="Total Number of open Defect"
-              icon={IconHeadphones}
-              backgroundColor="secondary"
-            />
+          <Grid item lg={4} md={6} sm={12} xs={12}>
+            <Grid sx={{ padding: '8px' }}>
+              <LargeCard
+                isLoading={isLoading}
+                title={`${defect?.total} Defects`}
+                subtitle="Total Number of open Defect"
+                icon={IconHeadphones}
+                backgroundColor="secondary"
+              />
+            </Grid>
+            <Grid sx={{ padding: '8px' }}>
+              <LargeCard
+                isLoading={isLoading}
+                title={`${security?.total} Security Issue`}
+                subtitle="Total Number of open Security Issues"
+                icon={IconShieldLock}
+                backgroundColor="primary"
+              />
+            </Grid>
           </Grid>
-          <Grid item lg={4} md={6} sm={6} xs={12}>
-            <LargeCard
-              isLoading={isLoading}
-              title={`${security?.total} Security Issue`}
-              subtitle="Total Number of open Security Issues"
-              icon={IconShieldLock}
-              backgroundColor="primary"
-            />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <PopularCard isLoading={isLoading} />
+          <Grid item lg={4} md={6} sm={12} xs={12}>
+            {/* <Grid sx={{ padding: '8px' }}>
+              <OverviewTraffic
+                chartSeries={[bug?.total, defect?.total, security?.total]}
+                labels={['Bugs', 'Defects', 'Security']}
+                sx={{ height: '100%' }}
+              />
+            </Grid> */}
+
+            <Grid sx={{ padding: '8px' }}>
+              <SmallCard
+                isLoading={isLoading}
+                title="coincover-b2b2c"
+                subtitle="SonarCloud"
+                result={b2b2cSonarCloudStatusData.projectStatus?.status}
+                icon={<FingerprintIcon fontSize="inherit" />}
+              />
+            </Grid>
+            <Grid sx={{ padding: '8px' }}>
+              <SmallCard
+                isLoading={isLoading}
+                title="coincover-txm"
+                subtitle="SonarCloud"
+                result={txmSonarCloudStatusData.projectStatus?.status}
+                icon={<SupportIcon fontSize="inherit" />}
+              />
+            </Grid>
+            <Grid sx={{ padding: '8px' }}>
+              <PopularCard isLoading={isLoading} />
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
