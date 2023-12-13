@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/qa-dashboard/static/css/main.df3b6d63.css",
-    "main.js": "/qa-dashboard/static/js/main.becb7ddd.js",
+    "main.js": "/qa-dashboard/static/js/main.55e9aa1a.js",
     "static/js/647.8f950c08.chunk.js": "/qa-dashboard/static/js/647.8f950c08.chunk.js",
     "static/js/110.07a0ae74.chunk.js": "/qa-dashboard/static/js/110.07a0ae74.chunk.js",
     "static/js/534.81b73ff4.chunk.js": "/qa-dashboard/static/js/534.81b73ff4.chunk.js",
@@ -18,13 +18,12 @@
     "static/js/802.0076e27d.chunk.js": "/qa-dashboard/static/js/802.0076e27d.chunk.js",
     "static/js/744.76e7db59.chunk.js": "/qa-dashboard/static/js/744.76e7db59.chunk.js",
     "static/media/user-round.svg": "/qa-dashboard/static/media/user-round.13b5a31bebd2cc6016d6db2cac8e92d1.svg",
-    "static/media/redux.cjs": "/qa-dashboard/static/media/redux.f6cd7db3b857b93d3bca.cjs",
     "static/media/social-google.svg": "/qa-dashboard/static/media/social-google.9887eb8eb43729cb99f402cfa0de3c44.svg",
     "static/media/earning.svg": "/qa-dashboard/static/media/earning.b019e86a7ee117bd6bb2e8cab90c0db5.svg",
     "index.html": "/qa-dashboard/index.html"
   },
   "entrypoints": [
     "static/css/main.df3b6d63.css",
-    "static/js/main.becb7ddd.js"
+    "static/js/main.55e9aa1a.js"
   ]
 }
