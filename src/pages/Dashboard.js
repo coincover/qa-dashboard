@@ -40,14 +40,15 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const result = await getE2eTotalTest();
-        if (!jiraBugData) {
+
+        if (!jiraBugData || jiraBugData.length === 0) {
           setBug(await dispatch(retrieveJiraData('bug')));
         }
-        if (!jiraDefectData) {
+        if (!jiraDefectData || jiraDefectData.length === 0) {
           setDefect(await dispatch(retrieveJiraData('customer defect')));
         }
 
-        if (!jiraSecurityData) {
+        if (!jiraSecurityData || jiraSecurityData.length === 0) {
           setSecurity(await dispatch(retrieveJiraData('security issue')));
         }
 

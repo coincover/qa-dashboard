@@ -31,14 +31,14 @@ const Products = ({ title }) => {
       try {
         setLoading(true);
 
-        if (!jiraBugData) {
+        if (!jiraBugData || jiraBugData.length === 0) {
           setBug(await dispatch(retrieveJiraData('bug')));
         }
-        if (!jiraDefectData) {
+        if (!jiraDefectData || jiraDefectData.length === 0) {
           setDefect(await dispatch(retrieveJiraData('customer defect')));
         }
 
-        if (!jiraSecurityData) {
+        if (!jiraSecurityData || jiraSecurityData.length === 0) {
           setSecurity(await dispatch(retrieveJiraData('security issue')));
         }
       } catch (error) {
@@ -59,7 +59,7 @@ const Products = ({ title }) => {
 
   return (
     <>
-      {!isLoading || data?.issues?.length > 0 ? (
+      {data?.issues?.length > 0 ? (
         <MainCard title={title} sx={{ boxShadow: theme.shadows[6] }}>
           <Grid container spacing={gridSpacing}>
             <Grid item xs={12}>
