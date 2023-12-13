@@ -18,7 +18,7 @@ const db = require('./connection');
     // Create e2e_disaster_recovery table
     await db.schema.createTable('e2e_disaster_recovery', (table) => {
       table.increments('id').primary();
-      table.date('date');
+      table.timestamp('timestamp');
       table.integer('pass');
       table.integer('fail');
       table.integer('skip');
@@ -27,7 +27,7 @@ const db = require('./connection');
     // Create unit_disaster_recovery table
     await db.schema.createTable('unit_disaster_recovery', (table) => {
       table.increments('id').primary();
-      table.date('date');
+      table.timestamp('date');
       table.string('percentage');
       table.string('commit');
       table.string('pull_request');
@@ -41,7 +41,7 @@ const db = require('./connection');
     // Create e2e_identity_service table
     await db.schema.createTable('e2e_identity_service', (table) => {
       table.increments('id').primary();
-      table.date('date');
+      table.timestamp('timestamp');
       table.integer('pass');
       table.integer('fail');
       table.integer('skip');
@@ -50,7 +50,7 @@ const db = require('./connection');
     // Create unit_identity_service table
     await db.schema.createTable('unit_identity_service', (table) => {
       table.increments('id').primary();
-      table.date('date');
+      table.timestamp('date');
       table.string('percentage');
       table.string('commit');
       table.string('pull_request');
@@ -64,7 +64,7 @@ const db = require('./connection');
     // Create e2e_ledger_support_tool table
     await db.schema.createTable('e2e_ledger_support_tool', (table) => {
       table.increments('id').primary();
-      table.date('date');
+      table.timestamp('timestamp');
       table.integer('pass');
       table.integer('fail');
       table.integer('skip');
@@ -73,7 +73,7 @@ const db = require('./connection');
     // Create unit_ledger_support_tool table
     await db.schema.createTable('unit_ledger_support_tool', (table) => {
       table.increments('id').primary();
-      table.date('date');
+      table.timestamp('date');
       table.string('percentage');
       table.string('commit');
       table.string('pull_request');
@@ -87,7 +87,7 @@ const db = require('./connection');
     // Create e2e_recovery_as_a_service table
     await db.schema.createTable('e2e_recovery_as_a_service', (table) => {
       table.increments('id').primary();
-      table.date('date');
+      table.timestamp('timestamp');
       table.integer('pass');
       table.integer('fail');
       table.integer('skip');
@@ -96,7 +96,7 @@ const db = require('./connection');
     // Create unit_recovery_as_a_service table
     await db.schema.createTable('unit_recovery_as_a_service', (table) => {
       table.increments('id').primary();
-      table.date('date');
+      table.timestamp('date');
       table.string('percentage');
       table.string('commit');
       table.string('pull_request');
@@ -110,7 +110,7 @@ const db = require('./connection');
     // Create e2e_transaction_protection table
     await db.schema.createTable('e2e_transaction_protection', (table) => {
       table.increments('id').primary();
-      table.date('date');
+      table.timestamp('timestamp');
       table.integer('pass');
       table.integer('fail');
       table.integer('skip');
@@ -119,7 +119,7 @@ const db = require('./connection');
     // Create unit_transaction_protection table
     await db.schema.createTable('unit_transaction_protection', (table) => {
       table.increments('id').primary();
-      table.date('date');
+      table.timestamp('date');
       table.string('percentage');
       table.string('commit');
       table.string('pull_request');

@@ -1939,6 +1939,14 @@
   "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz"
   "version" "2.11.8"
 
+"@redux-devtools/extension@^3.3.0":
+  "integrity" "sha512-X34S/rC8S/M1BIrkYD1mJ5f8vlH0BDqxXrs96cvxSBo4FhMdbhU+GUGsmNYov1xjSyLMHgo8NYrUG8bNX7525g=="
+  "resolved" "https://registry.npmjs.org/@redux-devtools/extension/-/extension-3.3.0.tgz"
+  "version" "3.3.0"
+  dependencies:
+    "@babel/runtime" "^7.23.2"
+    "immutable" "^4.3.4"
+
 "@rollup/plugin-babel@^5.2.0":
   "integrity" "sha512-WFfdLWU/xVWKeRQnKmIAQULUI7Il0gZnBIH/ZFO069wYIfPu+8zrfp/KMW0atmELoRDq8FbiP3VCss9MhCut7Q=="
   "resolved" "https://registry.npmjs.org/@rollup/plugin-babel/-/plugin-babel-5.3.1.tgz"
@@ -5714,7 +5722,7 @@
   "resolved" "https://registry.npmjs.org/immer/-/immer-9.0.21.tgz"
   "version" "9.0.21"
 
-"immutable@^4.0.0", "immutable@^4.3.0":
+"immutable@^4.0.0", "immutable@^4.3.0", "immutable@^4.3.4":
   "integrity" "sha512-fsXeu4J4i6WNWSikpI88v/PcVflZz+6kMhUfIwc5SY+poQRPnaf5V7qds6SUyUN3cVxEzuCab7QIoLOQ+DQ1wA=="
   "resolved" "https://registry.npmjs.org/immutable/-/immutable-4.3.4.tgz"
   "version" "4.3.4"
@@ -8661,7 +8669,7 @@
   "resolved" "https://registry.npmjs.org/redux-thunk/-/redux-thunk-3.1.0.tgz"
   "version" "3.1.0"
 
-"redux@^4 || ^5.0.0-beta.0", "redux@^5.0.0", "redux@>4.0.0":
+"redux@^3.1.0 || ^4.0.0 || ^5.0.0", "redux@^4 || ^5.0.0-beta.0", "redux@^5.0.0", "redux@>4.0.0":
   "integrity" "sha512-blLIYmYetpZMET6Q6uCY7Jtl/Im5OBldy+vNPauA8vvsdqyt66oep4EUpAMWNHauTC6xa9JuRPhRB72rY82QGA=="
   "resolved" "https://registry.npmjs.org/redux/-/redux-5.0.0.tgz"
   "version" "5.0.0"
