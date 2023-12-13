@@ -3,18 +3,26 @@ import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
 import { Grid, Typography } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { getJiraBugData, getJiraDefectData, getJiraSecurityData } from '../store/selectors';
+import { retrieveJiraData } from '../store/jira';
 // project imports
 import MainCard from 'components/Cards/MainCard';
 import JiraTable from '../components/Tables/JiraTable';
-// project imports
-import { getJiraBug, getJiraDefect, getJiraSecurity } from '../services/jira';
 import { gridSpacing } from 'store/constant';
 
 const Products = ({ title }) => {
+  const jiraBugData = useSelector(getJiraBugData);
+  const jiraDefectData = useSelector(getJiraDefectData);
+  const jiraSecurityData = useSelector(getJiraSecurityData);
+
+  const [bug, setBug] = useState(jiraBugData);
+  const [defect, setDefect] = useState(jiraDefectData);
+  const [security, setSecurity] = useState(jiraSecurityData);
+
+  const dispatch = useDispatch();
   const [isLoading, setLoading] = useState(true);
-  const [jiraBugData, setJiraBugData] = useState([]);
-  const [jiraDefectData, setJiraDefectData] = useState([]);
-  const [jiraSecurityData, setJiraSecurityData] = useState([]);
+
   const [data, setData] = useState([]);
   const theme = useTheme();
 
@@ -22,12 +30,17 @@ const Products = ({ title }) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const jiraBug = await getJiraBug();
-        const jiraDefect = await getJiraDefect();
-        const jiraSecurity = await getJiraSecurity();
-        setJiraBugData(jiraBug);
-        setJiraDefectData(jiraDefect);
-        setJiraSecurityData(jiraSecurity);
+
+        if (!jiraBugData) {
+          setBug(await dispatch(retrieveJiraData('bug')));
+        }
+        if (!jiraDefectData) {
+          setDefect(await dispatch(retrieveJiraData('customer defect')));
+        }
+
+        if (!jiraSecurityData) {
+          setSecurity(await dispatch(retrieveJiraData('security issue')));
+        }
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -36,17 +49,17 @@ const Products = ({ title }) => {
     };
 
     fetchData();
-  }, [title]);
+  }, [dispatch]);
 
   useEffect(() => {
-    if (title === 'List of Open bugs') setData(jiraBugData);
-    if (title === 'List of Open Defects') setData(jiraDefectData);
-    if (title === 'List of Open Security Issues') setData(jiraSecurityData);
-  }, [jiraBugData, jiraDefectData, jiraSecurityData, title]);
+    if (title === 'List of Open bugs') setData(bug || []);
+    if (title === 'List of Open Defects') setData(defect || []);
+    if (title === 'List of Open Security Issues') setData(security || []);
+  }, [bug, defect, security, title]);
 
   return (
     <>
-      {isLoading || data?.issues?.length > 0 ? (
+      {!isLoading || data?.issues?.length > 0 ? (
         <MainCard title={title} sx={{ boxShadow: theme.shadows[6] }}>
           <Grid container spacing={gridSpacing}>
             <Grid item xs={12}>

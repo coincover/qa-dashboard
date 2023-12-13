@@ -1,8 +1,21 @@
-import { createStore } from 'redux';
-import reducer from './reducer';
+import { createStore, applyMiddleware } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import storage from 'redux-persist/lib/storage';
+import { thunk } from 'redux-thunk';
+import rootReducer from './reducer';
 
-// ==============================|| REDUX - MAIN STORE ||============================== //
+const initialState = {};
+const persistConfig = {
+  key: 'root',
+  storage
+};
+const middleware = [thunk];
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const store = createStore(reducer);
+const composeEnhancers = process.env.NODE_ENV !== 'production' ? composeWithDevTools : compose;
 
-export { store };
+const store = createStore(persistedReducer, initialState, composeEnhancers(applyMiddleware(...middleware)));
+const persistor = persistStore(store);
+
+export { store, persistor };

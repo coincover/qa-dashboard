@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { getJiraBugData, getJiraDefectData, getJiraSecurityData } from '../store/selectors';
+import { retrieveJiraData } from '../store/jira';
 import { Grid } from '@mui/material';
 import { IconBug, IconHeadphones, IconShieldLock, IconTicket } from '@tabler/icons';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
@@ -18,27 +20,42 @@ import BajajAreaChartCard from '../components/Cards/BajajAreaChartCard';
 import { getProjectStatusData } from '../services/sonarCloud';
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
+
+  const jiraBugData = useSelector(getJiraBugData);
+  const jiraDefectData = useSelector(getJiraDefectData);
+  const jiraSecurityData = useSelector(getJiraSecurityData);
+
+  const [bug, setBug] = useState(jiraBugData);
+  const [defect, setDefect] = useState(jiraDefectData);
+  const [security, setSecurity] = useState(jiraSecurityData);
+
   const [data, setData] = useState([]);
-  const [jiraBugData, setJiraBugData] = useState([]);
-  const [jiraDefectData, setJiraDefectData] = useState([]);
-  const [jiraSecurityData, setJiraSecurityData] = useState([]);
   const [b2b2cSonarCloudStatusData, setB2b2cSonarCloudStatusData] = useState([]);
   const [txmSonarCloudStatusData, setTxmSonarCloudStatusData] = useState([]);
   const [isLoading, setLoading] = useState(true);
+
   useEffect(() => {
     setLoading(false);
     const fetchData = async () => {
       try {
         const result = await getE2eTotalTest();
-        const jiraBugTotal = await getJiraBug();
-        const jiraDefectTotal = await getJiraDefect();
-        const jiraSecurityTotal = await getJiraSecurity();
+        if (!jiraBugData) {
+          setBug(await dispatch(retrieveJiraData('bug')));
+        }
+        if (!jiraDefectData) {
+          setDefect(await dispatch(retrieveJiraData('customer defect')));
+        }
+
+        if (!jiraSecurityData) {
+          setSecurity(await dispatch(retrieveJiraData('security issue')));
+        }
+
         const b2b2cSonarCloudStatus = await getProjectStatusData('coincover_coincover-b2b2c');
         const txmSonarCloudStatus = await getProjectStatusData('coincover_coincover-txm');
+
         setData(result);
-        setJiraBugData(jiraBugTotal);
-        setJiraDefectData(jiraDefectTotal);
-        setJiraSecurityData(jiraSecurityTotal);
+
         setB2b2cSonarCloudStatusData(b2b2cSonarCloudStatus);
         setTxmSonarCloudStatusData(txmSonarCloudStatus);
         setLoading(false);
@@ -50,7 +67,7 @@ const Dashboard = () => {
     };
 
     fetchData();
-  }, []);
+  }, [dispatch]);
 
   return (
     <Grid container spacing={gridSpacing}>
@@ -68,7 +85,7 @@ const Dashboard = () => {
           <Grid item lg={4} md={6} sm={6} xs={12}>
             <LargeCard
               isLoading={isLoading}
-              title={`${jiraBugData.total} Bugs`}
+              title={`${bug?.total} Bugs`}
               subtitle="Total Number of open Defects"
               icon={IconBug}
               backgroundColor="secondary"
@@ -103,7 +120,7 @@ const Dashboard = () => {
           <Grid item lg={4} md={6} sm={6} xs={12}>
             <LargeCard
               isLoading={isLoading}
-              title={`${jiraDefectData.total} Defects`}
+              title={`${defect?.total} Defects`}
               subtitle="Total Number of open Defect"
               icon={IconHeadphones}
               backgroundColor="secondary"
@@ -112,7 +129,7 @@ const Dashboard = () => {
           <Grid item lg={4} md={6} sm={6} xs={12}>
             <LargeCard
               isLoading={isLoading}
-              title={`${jiraSecurityData.total} Security Issue`}
+              title={`${security?.total} Security Issue`}
               subtitle="Total Number of open Security Issues"
               icon={IconShieldLock}
               backgroundColor="primary"
