@@ -1,10 +1,8 @@
-import axios from 'axios';
-const host = 'https://qa-dashboard-4gfp.onrender.com';
+import commonAxios from './Common';
+
 export async function getUnitData(endpoint) {
   try {
-    const req = await axios(`${host}/unit/${endpoint}`, {
-      method: 'GET'
-    });
+    const req = await commonAxios.get(`/unit/${endpoint}`);
     return req.data;
   } catch (error) {
     return generateErrorReturn(error);

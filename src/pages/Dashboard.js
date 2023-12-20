@@ -15,7 +15,7 @@ import TotalGrowthBarChart from '../components/Cards/TotalGrowthBarChart';
 import { gridSpacing } from 'store/constant';
 import { getE2eTotalTest } from '../api/E2eGetTotalTest';
 import BajajAreaChartCard from '../components/Cards/BajajAreaChartCard';
-import { getProjectStatusData } from '../api/sonarCloud';
+import { getProjectStatusData } from '../api/SonarCloudAPI';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
