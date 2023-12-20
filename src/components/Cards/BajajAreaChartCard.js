@@ -1,18 +1,10 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
-// material-ui
 import { useTheme } from '@mui/material/styles';
 import { Card, Grid, Typography } from '@mui/material';
-
-// third-party
 import ApexCharts from 'apexcharts';
 import Chart from 'react-apexcharts';
-
-// project imports
 import generateChartData from '../../store/chart-data/bajaj-area-chart';
-
-// ===========================|| DASHBOARD DEFAULT - BAJAJ AREA CHART CARD ||=========================== //
 
 const BajajAreaChartCard = ({ testResults }) => {
   const theme = useTheme();

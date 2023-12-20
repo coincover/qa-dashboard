@@ -1,14 +1,9 @@
 import PropTypes from 'prop-types';
-
-// material-ui
 import { styled, useTheme } from '@mui/material/styles';
 import { Avatar, Box, List, ListItem, ListItemAvatar, ListItemText, Typography } from '@mui/material';
-
-// project imports
 import MainCard from 'components/Cards/MainCard';
 import TotalIncomeCard from 'components/Cards/Skeleton/TotalIncomeCard';
 
-// styles
 const CardWrapper = styled(MainCard)(({ theme, backgroundColor }) => ({
   backgroundColor: backgroundColor && theme.palette[backgroundColor]?.dark,
   color: backgroundColor && theme.palette[backgroundColor]?.light,
@@ -40,20 +35,17 @@ const CardWrapper = styled(MainCard)(({ theme, backgroundColor }) => ({
   }
 }));
 
-// ==============================|| DASHBOARD - TOTAL INCOME DARK CARD ||============================== //
-
 const SmallCard = ({ isLoading, title, subtitle, result, icon, backgroundColor }) => {
   const theme = useTheme();
   const resultColor = (backgroundColor, result) => {
-    let color;
     if (result === 'OK') {
-      return (color = theme.palette.success.main);
+      return theme.palette.success.main;
     } else if (result === 'ERROR') {
-      return (color = theme.palette.orange.dark);
+      return theme.palette.orange.dark;
     } else if (backgroundColor) {
-      return (color = '#fff');
+      return '#fff';
     } else {
-      return (color = 'black');
+      return 'black';
     }
   };
   return (

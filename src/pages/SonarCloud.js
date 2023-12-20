@@ -1,16 +1,11 @@
-// material-ui
 import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
 import { Grid } from '@mui/material';
-// project imports
 import MainCard from 'components/Cards/MainCard';
 import SonarCloudTable from '../components/Tables/SonarCloudTable';
-// project imports
 import { getPullRequestData } from '../api/SonarCloudAPI';
 import { gridSpacing } from 'store/constant';
-
-// ==============================|| SAMPLE PAGE ||============================== //
 
 const SonarCloud = ({ title }) => {
   const [isLoading, setLoading] = useState(true);

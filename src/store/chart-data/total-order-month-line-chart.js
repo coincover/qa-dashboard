@@ -1,5 +1,3 @@
-// ===========================|| DASHBOARD - TOTAL ORDER MONTH CHART ||=========================== //
-
 const chartData = {
   type: 'line',
   height: 90,

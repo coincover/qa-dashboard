@@ -1,9 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
-// material-ui
 import { useTheme } from '@mui/material/styles';
 import {
   Avatar,
@@ -26,19 +23,11 @@ import {
   Switch,
   Typography
 } from '@mui/material';
-
-// third-party
 import PerfectScrollbar from 'react-perfect-scrollbar';
-
-// project imports
 import MainCard from 'components/Cards/MainCard';
 import Transitions from 'components/extended/Transitions';
 import User1 from 'assets/images/users/user-round.svg';
-
-// assets
 import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons';
-
-// ==============================|| PROFILE MENU ||============================== //
 
 const ProfileSection = () => {
   const theme = useTheme();

@@ -5,12 +5,12 @@
     "es2021": true
   },
   "extends": [
-    "prettier"
-    // "plugin:react/jsx-runtime",
-    // "plugin:jsx-a11y/recommended",
-    // "plugin:react-hooks/recommended",
-    // "eslint:recommended",
-    // "plugin:react/recommended"
+    "prettier",
+    "plugin:react/jsx-runtime",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended",
+    "eslint:recommended",
+    "plugin:react/recommended"
   ],
   "settings": {
     "react": {
@@ -41,7 +41,7 @@
   "plugins": ["prettier", "react", "react-hooks"],
   "rules": {
     "react/jsx-uses-react": "error",
-    // "react/jsx-uses-vars": "error",
+    "react/jsx-uses-vars": "error",
     "react/react-in-jsx-scope": "off",
     "no-undef": "off",
     "react/display-name": "off",
@@ -67,12 +67,12 @@
         "patterns": ["@mui/*/*/*", "!@mui/material/test-utils/*"]
       }
     ],
-    // "no-unused-vars": [
-    //   "error",
-    //   {
-    //     "ignoreRestSiblings": true
-    //   }
-    // ],
+    "no-unused-vars": [
+      "error",
+      {
+        "ignoreRestSiblings": true
+      }
+    ],
     "prettier/prettier": [
       "warn",
       {

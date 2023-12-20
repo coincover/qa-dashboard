@@ -1,14 +1,11 @@
-// material-ui
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { Grid } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import FingerprintIcon from '@mui/icons-material/Fingerprint';
-// project imports
+// import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import MainCard from 'components/Cards/MainCard';
-import SmallCard from '../components/Cards/SmallCard';
+// import SmallCard from '../components/Cards/SmallCard';
 import UnitTestDataTable from '../components/Tables/UnitTestDataTable';
-// project imports
 import { getUnitData } from '../api/UnitGetData';
 import { gridSpacing } from 'store/constant';
 

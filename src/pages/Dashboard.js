@@ -6,15 +6,15 @@ import { Grid } from '@mui/material';
 import { IconBug, IconHeadphones, IconShieldLock, IconTicket } from '@tabler/icons';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import SupportIcon from '@mui/icons-material/Support';
-import { OverviewTraffic } from 'components/Charts/PieChat';
+// import { OverviewTraffic } from 'components/Charts/PieChat';
 import LargeCard from '../components/Cards/LargeCard';
 import PopularCard from '../components/Cards/E2ETestStatusCard';
-import TotalOrderLineChartCard from '../components/Cards/TotalOrderLineChartCard';
+// import TotalOrderLineChartCard from '../components/Cards/TotalOrderLineChartCard';
 import SmallCard from '../components/Cards/SmallCard';
-import TotalGrowthBarChart from '../components/Cards/TotalGrowthBarChart';
+// import TotalGrowthBarChart from '../components/Cards/TotalGrowthBarChart';
 import { gridSpacing } from 'store/constant';
 import { getE2eTotalTest } from '../api/E2eGetTotalTest';
-import BajajAreaChartCard from '../components/Cards/BajajAreaChartCard';
+// import BajajAreaChartCard from '../components/Cards/BajajAreaChartCard';
 import { getProjectStatusData } from '../api/SonarCloudAPI';
 
 const Dashboard = () => {

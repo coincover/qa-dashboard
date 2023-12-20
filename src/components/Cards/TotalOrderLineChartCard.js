@@ -1,21 +1,12 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-
-// material-ui
 import { useTheme, styled } from '@mui/material/styles';
 import { Avatar, Box, Button, Grid, Typography } from '@mui/material';
-
-// third-party
 import Chart from 'react-apexcharts';
-
-// project imports
 import MainCard from 'components/Cards/MainCard';
 import SkeletonTotalOrderCard from 'components/Cards/Skeleton/LargeCard';
-
 import ChartDataMonth from '../../store/chart-data/total-order-month-line-chart';
 import ChartDataYear from '../../store/chart-data/total-order-year-line-chart';
-
-// assets
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
@@ -60,8 +51,6 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
     }
   }
 }));
-
-// ==============================|| DASHBOARD - TOTAL ORDER LINE CHART CARD ||============================== //
 
 const TotalOrderLineChartCard = ({ isLoading }) => {
   const theme = useTheme();

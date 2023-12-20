@@ -25,7 +25,7 @@ const style = {
   boxShadow: 24,
   p: 4
 };
-const TestDataTable = ({ isLoading, data }) => {
+const TestDataTable = ({ data }) => {
   const [selectedRowData, setSelectedRowData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const titleToValue = (value) => {
@@ -105,7 +105,6 @@ const TestDataTable = ({ isLoading, data }) => {
 };
 
 TestDataTable.propTypes = {
-  isLoading: PropTypes.bool,
   data: PropTypes.array
 };
 

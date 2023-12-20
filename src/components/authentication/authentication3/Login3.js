@@ -1,19 +1,11 @@
 import { Link } from 'react-router-dom';
-
-// material-ui
 import { useTheme } from '@mui/material/styles';
 import { Divider, Grid, Stack, Typography, useMediaQuery } from '@mui/material';
-
-// project imports
 import AuthWrapper1 from '../AuthWrapper1';
 import AuthCardWrapper from '../AuthCardWrapper';
 import AuthLogin from '../auth-forms/AuthLogin';
 import Logo from 'components/Logo';
 import AuthFooter from 'components/Cards/AuthFooter';
-
-// assets
-
-// ================================|| AUTH3 - LOGIN ||================================ //
 
 const Login = () => {
   const theme = useTheme();

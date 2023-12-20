@@ -1,5 +1,3 @@
-// ===========================|| DASHBOARD - BAJAJ AREA CHART ||=========================== //
-
 const generateChartData = (testResults) => {
   return {
     type: 'area',
