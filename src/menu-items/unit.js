@@ -1,4 +1,4 @@
-import { IconPalette, IconShieldCheck, IconLifebuoy, IconIdBadge2 } from '@tabler/icons';
+import { IconIdBadge2, IconLifebuoy, IconPalette, IconShieldCheck } from '@tabler/icons';
 
 const unit = {
   id: 'units',

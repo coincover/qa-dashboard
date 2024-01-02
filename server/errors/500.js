@@ -1,4 +1,4 @@
-module.exports = error500 = async (error, req, res, next) => {
+module.exports = error500 = async (error, res) => {
   res.status(error.status || 500);
   res.json({
     error: {

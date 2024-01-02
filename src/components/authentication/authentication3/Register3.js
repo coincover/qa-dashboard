@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom';
-import { useTheme } from '@mui/material/styles';
 import { Divider, Grid, Stack, Typography, useMediaQuery } from '@mui/material';
-import AuthWrapper1 from '../AuthWrapper1';
-import AuthCardWrapper from '../AuthCardWrapper';
-import Logo from 'components/Logo';
-import AuthRegister from '../auth-forms/AuthRegister';
+import { useTheme } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
+
 import AuthFooter from 'components/Cards/AuthFooter';
+import Logo from 'components/Logo';
+
+import AuthRegister from '../auth-forms/AuthRegister';
+import AuthCardWrapper from '../AuthCardWrapper';
+import AuthWrapper1 from '../AuthWrapper1';
 
 const Register = () => {
   const theme = useTheme();

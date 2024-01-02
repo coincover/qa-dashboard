@@ -1,11 +1,14 @@
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
 import { Box, Drawer, Stack, useMediaQuery } from '@mui/material';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+import { useTheme } from '@mui/material/styles';
+import PropTypes from 'prop-types';
 import { BrowserView, MobileView } from 'react-device-detect';
-import MenuList from './MenuList';
-import LogoSection from '../LogoSection';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+
 import { drawerWidth } from 'store/constant';
+
+import MenuList from './MenuList';
+
+import LogoSection from '../LogoSection';
 
 const Sidebar = ({ drawerOpen, drawerToggle, window }) => {
   const theme = useTheme();

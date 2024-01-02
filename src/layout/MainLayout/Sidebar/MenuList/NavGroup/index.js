@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
 import { Divider, List, Typography } from '@mui/material';
-import NavItem from '../NavItem';
+import { useTheme } from '@mui/material/styles';
+import PropTypes from 'prop-types';
+
 import NavCollapse from '../NavCollapse';
+import NavItem from '../NavItem';
 
 const NavGroup = ({ item }) => {
   const theme = useTheme();

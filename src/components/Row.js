@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
-import { Avatar, Typography, Grid } from '@mui/material';
-import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import { Avatar, Grid, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import PropTypes from 'prop-types';
 const Row = ({ title, data }) => {
   const theme = useTheme();
 

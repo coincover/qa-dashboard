@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
 import MuiAvatar from '@mui/material/Avatar';
+import { useTheme } from '@mui/material/styles';
+import PropTypes from 'prop-types';
 
 const Avatar = ({ color, outline, size, sx, ...others }) => {
   const theme = useTheme();

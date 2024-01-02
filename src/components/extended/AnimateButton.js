@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
+
 import { motion, useCycle } from 'framer-motion';
+import PropTypes from 'prop-types';
 
 const AnimateButton = forwardRef(({ children, type, direction, offset, scale }, ref) => {
   let offset1;

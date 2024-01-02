@@ -1,11 +1,14 @@
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
+
 import { Grid } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import PropTypes from 'prop-types';
+
 import MainCard from 'components/Cards/MainCard';
-import SonarCloudTable from '../components/Tables/SonarCloudTable';
-import { getPullRequestData } from '../api/SonarCloudAPI';
 import { gridSpacing } from 'store/constant';
+
+import { getPullRequestData } from '../api/SonarCloudAPI';
+import SonarCloudTable from '../components/Tables/SonarCloudTable';
 
 const SonarCloud = ({ title }) => {
   const [isLoading, setLoading] = useState(true);

@@ -1,13 +1,16 @@
-import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useTheme } from '@mui/material/styles';
+import { useEffect, useState } from 'react';
+
 import { Grid, MenuItem, TextField, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import ApexCharts from 'apexcharts';
+import PropTypes from 'prop-types';
 import Chart from 'react-apexcharts';
-import SkeletonTotalGrowthBarChart from 'components/Cards/Skeleton/TotalGrowthBarChart';
+import { useSelector } from 'react-redux';
+
 import MainCard from 'components/Cards/MainCard';
+import SkeletonTotalGrowthBarChart from 'components/Cards/Skeleton/TotalGrowthBarChart';
 import { gridSpacing } from 'store/constant';
+
 import chartData from '../../store/chart-data/total-growth-bar-chart';
 
 const status = [

@@ -1,15 +1,18 @@
 // material-ui
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
+
 import { Grid, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { getJiraBugData, getJiraDefectData, getJiraSecurityData } from '../store/selectors';
-import { retrieveJiraData } from '../store/jira';
+
 // project imports
 import MainCard from 'components/Cards/MainCard';
-import JiraTable from '../components/Tables/JiraTable';
 import { gridSpacing } from 'store/constant';
+
+import JiraTable from '../components/Tables/JiraTable';
+import { retrieveJiraData } from '../store/jira';
+import { getJiraBugData, getJiraDefectData, getJiraSecurityData } from '../store/selectors';
 
 const Products = ({ title }) => {
   const jiraBugData = useSelector(getJiraBugData);

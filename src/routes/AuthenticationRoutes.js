@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+
 import Loadable from 'components/Loadable';
 
 const AuthLogin3 = Loadable(lazy(() => import('components/authentication/authentication3/Login3')));

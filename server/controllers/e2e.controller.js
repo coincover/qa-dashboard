@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 const { getTableName } = require('../utils/getTableName');
 const { getLastResult } = require('../models/e2e.model');
 const products = require('../utils/constant').products;

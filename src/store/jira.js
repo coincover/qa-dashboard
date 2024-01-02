@@ -1,5 +1,6 @@
-import { GET_JIRA } from './actions';
 import { getJira } from 'api/JiraAPI';
+
+import { GET_JIRA } from './actions';
 
 export const retrieveJiraData = (issueType) => async (dispatch, getState) => {
   const jiraData = getState().jiraReducer[issueType];

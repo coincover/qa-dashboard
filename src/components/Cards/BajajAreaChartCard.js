@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useTheme } from '@mui/material/styles';
+
 import { Card, Grid, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import ApexCharts from 'apexcharts';
 import Chart from 'react-apexcharts';
+import { useSelector } from 'react-redux';
+
 import generateChartData from '../../store/chart-data/bajaj-area-chart';
 
 const BajajAreaChartCard = ({ testResults }) => {

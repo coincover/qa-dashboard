@@ -1,10 +1,12 @@
 import { createRoot } from 'react-dom/client';
-import { PersistGate } from 'redux-persist/integration/react';
-import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import * as serviceWorker from 'serviceWorker';
+import { BrowserRouter } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
+
 import App from 'App';
-import { store, persistor } from 'store';
+import * as serviceWorker from 'serviceWorker';
+import { persistor, store } from 'store';
+
 import 'assets/scss/style.scss';
 import config from './config';
 

@@ -1,5 +1,5 @@
 // material-ui
-import { Link, Typography, Stack } from '@mui/material';
+import { Link, Stack, Typography } from '@mui/material';
 
 const AuthFooter = () => (
   <Stack direction="row" justifyContent="space-between">

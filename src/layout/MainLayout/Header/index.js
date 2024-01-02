@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
 import { Avatar, Box, ButtonBase } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { IconMenu2 } from '@tabler/icons';
+import PropTypes from 'prop-types';
+
 import LogoSection from '../LogoSection';
 // import ProfileSection from './ProfileSection';
-
-import { IconMenu2 } from '@tabler/icons';
 
 const Header = ({ handleLeftDrawerToggle }) => {
   const theme = useTheme();

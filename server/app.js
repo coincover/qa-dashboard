@@ -1,17 +1,17 @@
+// eslint-disable-next-line import/order
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, './../.env.local') });
-const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const express = require('express');
 const helmet = require('helmet');
 const app = express();
 
+const error404 = require('./errors/404');
+const error500 = require('./errors/500');
 const e2e = require('./routes/e2e.routes');
 const proxy = require('./routes/proxy.routes');
 const shared = require('./routes/shared.routes');
-
-const error404 = require('./errors/404');
-const error500 = require('./errors/500');
 const PORT = process.env.PORT || 5001;
 
 app.use(helmet());

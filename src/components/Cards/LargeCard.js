@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types';
-import { styled, useTheme } from '@mui/material/styles';
 import { Avatar, Box, Grid, Typography } from '@mui/material';
+import { styled, useTheme } from '@mui/material/styles';
+import PropTypes from 'prop-types';
+
 import MainCard from 'components/Cards/MainCard';
 import SkeletonEarningCard from 'components/Cards/Skeleton/LargeCard';
 // import EarningIcon from 'assets/images/icons/earning.svg';

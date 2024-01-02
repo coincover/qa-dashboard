@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types';
 import { Box } from '@mui/material';
+import PropTypes from 'prop-types';
+
 import MainCard from 'components/Cards/MainCard';
 
 const AuthCardWrapper = ({ children, ...other }) => (

@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types';
-import { styled, useTheme } from '@mui/material/styles';
 import { Avatar, Box, List, ListItem, ListItemAvatar, ListItemText, Typography } from '@mui/material';
+import { styled, useTheme } from '@mui/material/styles';
+import PropTypes from 'prop-types';
+
 import MainCard from 'components/Cards/MainCard';
 import TotalIncomeCard from 'components/Cards/Skeleton/TotalIncomeCard';
 

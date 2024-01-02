@@ -1,29 +1,31 @@
 import React from 'react';
-import { useTheme } from '@mui/material/styles';
-import PropTypes from 'prop-types';
+
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import MinimizeIcon from '@mui/icons-material/Minimize';
+import NorthEastIcon from '@mui/icons-material/NorthEast';
+import SouthEastIcon from '@mui/icons-material/SouthEast';
 import {
+  Avatar,
   Box,
+  Chip,
   Collapse,
   IconButton,
+  Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Typography,
-  Paper,
   Tooltip,
-  Avatar,
-  Chip
+  Typography
 } from '@mui/material';
-import MainCard from 'components/Cards/MainCard';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import NorthEastIcon from '@mui/icons-material/NorthEast';
-import SouthEastIcon from '@mui/icons-material/SouthEast';
-import MinimizeIcon from '@mui/icons-material/Minimize';
+import { useTheme } from '@mui/material/styles';
 import * as moment from 'moment';
+import PropTypes from 'prop-types';
+
+import MainCard from 'components/Cards/MainCard';
 
 function Row(props) {
   const { row } = props;

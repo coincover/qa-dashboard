@@ -1,11 +1,14 @@
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+
 import { CardContent, Divider, Grid, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import Row from 'components/Row';
+import PropTypes from 'prop-types';
+
 import MainCard from 'components/Cards/MainCard';
 import SkeletonPopularCard from 'components/Cards/Skeleton/PopularCard';
+import Row from 'components/Row';
 import { gridSpacing } from 'store/constant';
+
 import { getStatus } from '../../api/E2eStatus';
 
 const E2ETestStatusCard = ({ isLoading }) => {

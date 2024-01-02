@@ -1,12 +1,14 @@
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import { Collapse, List, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { IconChevronDown, IconChevronUp } from '@tabler/icons';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router';
-import { useTheme } from '@mui/material/styles';
-import { Collapse, List, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
+
 import NavItem from '../NavItem';
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import { IconChevronDown, IconChevronUp } from '@tabler/icons';
 
 const NavCollapse = ({ menu, level }) => {
   const theme = useTheme();

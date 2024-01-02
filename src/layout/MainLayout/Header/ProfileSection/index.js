@@ -1,7 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useTheme } from '@mui/material/styles';
+import { useEffect, useRef, useState } from 'react';
+
 import {
   Avatar,
   Box,
@@ -23,11 +21,15 @@ import {
   Switch,
   Typography
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons';
 import PerfectScrollbar from 'react-perfect-scrollbar';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+import User1 from 'assets/images/users/user-round.svg';
 import MainCard from 'components/Cards/MainCard';
 import Transitions from 'components/extended/Transitions';
-import User1 from 'assets/images/users/user-round.svg';
-import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons';
 
 const ProfileSection = () => {
   const theme = useTheme();

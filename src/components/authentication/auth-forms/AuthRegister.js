@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useTheme } from '@mui/material/styles';
+import { useEffect, useState } from 'react';
+
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import {
   Box,
   Button,
@@ -19,14 +19,16 @@ import {
   Typography,
   useMediaQuery
 } from '@mui/material';
-import * as Yup from 'yup';
+import { useTheme } from '@mui/material/styles';
 import { Formik } from 'formik';
-import useScriptRef from 'hooks/useScriptRef';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
+
 import Google from 'assets/images/icons/social-google.svg';
 import AnimateButton from 'components/extended/AnimateButton';
+import useScriptRef from 'hooks/useScriptRef';
 import { strengthColor, strengthIndicator } from 'utils/password-strength';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 const FirebaseRegister = ({ ...others }) => {
   const theme = useTheme();

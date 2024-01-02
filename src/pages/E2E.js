@@ -1,16 +1,19 @@
 // material-ui
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { useTheme } from '@mui/material/styles';
-import { Grid } from '@mui/material';
+
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
+import { Grid } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import PropTypes from 'prop-types';
+
 // project imports
 import MainCard from 'components/Cards/MainCard';
+import { gridSpacing } from 'store/constant';
+
+import { getE2EData } from '../api/E2eGetData';
 import SmallCard from '../components/Cards/SmallCard';
 import TestDataTable from '../components/Tables/TestDataTable';
 // project imports
-import { getE2EData } from '../api/E2eGetData';
-import { gridSpacing } from 'store/constant';
 
 const E2E = ({ title }) => {
   const [isLoading, setLoading] = useState(true);

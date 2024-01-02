@@ -1,5 +1,5 @@
-const { getTableName } = require('../utils/getTableName');
 const { getTable, insertData, deleteData } = require('../models/e2e.model');
+const { getTableName } = require('../utils/getTableName');
 const createE2eSchema = require('../validators/create-e2e-schema');
 const createUnitSchema = require('../validators/create-unit-schema');
 

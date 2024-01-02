@@ -1,8 +1,8 @@
-import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import PaidIcon from '@mui/icons-material/Paid';
 import SosIcon from '@mui/icons-material/Sos';
 import SupportIcon from '@mui/icons-material/Support';
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 
 const product = {
   id: 'product',

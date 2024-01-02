@@ -5,7 +5,7 @@ module.exports = {
     target: require('../utils/constant').jira_instance,
     changeOrigin: true,
     logLevel: 'debug',
-    onProxyReq: (proxyReq, req, res) => {
+    onProxyReq: (proxyReq) => {
       proxyReq.setHeader('Accept', 'application/json');
       proxyReq.setHeader('X-Atlassian-Token', 'no-check');
       proxyReq.setHeader('cookie', '');
@@ -15,7 +15,7 @@ module.exports = {
         'Basic ' + Buffer.from(`${process.env.REACT_APP_USERNAME}:${process.env.REACT_APP_PASSWORD}`).toString('base64')
       );
     },
-    onProxyRes: function (proxyRes, req, res) {
+    onProxyRes: function (proxyRes) {
       proxyRes.headers['Access-Control-Allow-Origin'] = '*';
       proxyRes.headers['Access-Control-Allow-Headers'] = '*';
       proxyRes.headers['Access-Control-Max-Age'] = '600';

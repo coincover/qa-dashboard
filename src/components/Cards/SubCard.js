@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
-import { useTheme } from '@mui/material/styles';
+
 import { Card, CardContent, CardHeader, Divider, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import PropTypes from 'prop-types';
 
 const SubCard = forwardRef(({ children, content, contentClass, darkTitle, secondary, sx = {}, contentSX = {}, title, ...others }, ref) => {
   const theme = useTheme();

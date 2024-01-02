@@ -1,8 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Tooltip, Avatar, TableRow, TableHead, TableContainer, TableCell, TableBody, Table, Typography, Chip } from '@mui/material';
+
+import { Avatar, Chip, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Tooltip, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import * as moment from 'moment';
+import PropTypes from 'prop-types';
 
 const JiraTable = ({ data }) => {
   const handleRowClick = (rowData) => {

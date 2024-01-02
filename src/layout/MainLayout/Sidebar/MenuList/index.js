@@ -1,6 +1,8 @@
 import { Typography } from '@mui/material';
-import NavGroup from './NavGroup';
+
 import menuItem from 'menu-items';
+
+import NavGroup from './NavGroup';
 
 const MenuList = () => {
   const navItems = menuItem.items.map((item) => {

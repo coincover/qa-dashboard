@@ -1,4 +1,5 @@
 import { CardContent, Grid, Skeleton, Stack } from '@mui/material';
+
 import MainCard from '../MainCard';
 
 const ProductPlaceholder = () => (

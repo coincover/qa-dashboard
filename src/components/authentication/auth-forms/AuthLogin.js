@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useTheme } from '@mui/material/styles';
+
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import {
   Box,
   Button,
@@ -18,14 +19,14 @@ import {
   Typography,
   useMediaQuery
 } from '@mui/material';
-import * as Yup from 'yup';
+import { useTheme } from '@mui/material/styles';
 import { Formik } from 'formik';
-import useScriptRef from 'hooks/useScriptRef';
-import AnimateButton from 'components/extended/AnimateButton';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { useSelector } from 'react-redux';
+import * as Yup from 'yup';
 
 import Google from 'assets/images/icons/social-google.svg';
+import AnimateButton from 'components/extended/AnimateButton';
+import useScriptRef from 'hooks/useScriptRef';
 
 const FirebaseLogin = ({ ...others }) => {
   const theme = useTheme();

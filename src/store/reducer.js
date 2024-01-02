@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+
 import customizationReducer from './customizationReducer';
 import jiraReducer from './jiraReducer';
 
