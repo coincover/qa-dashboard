@@ -4,8 +4,8 @@ import { GET_JIRA } from './actions';
 
 export const retrieveJiraData = (issueType) => async (dispatch, getState) => {
   const jiraData = getState().jiraReducer[issueType];
-  console.log(jiraData);
-  if (!jiraData.issues || jiraData.issues.length === 0) {
+
+  if (!jiraData || jiraData.length === 0) {
     try {
       const res = await getJira(issueType);
       dispatch({
