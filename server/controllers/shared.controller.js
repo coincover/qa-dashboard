@@ -24,6 +24,7 @@ const getAllDataFromTable = async (req, res) => {
           existingItem.result.push({
             date: item.date,
             commit: item.commit,
+            percentage: item.percentage,
             statement_coverage: item.statement_coverage,
             function_coverage: item.function_coverage,
             branch_coverage: item.branch_coverage,
