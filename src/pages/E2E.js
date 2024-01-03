@@ -11,6 +11,7 @@ import MainCard from 'components/Cards/MainCard';
 import { gridSpacing } from 'store/constant';
 
 import { getE2EData } from '../api/E2eGetData';
+import { getUnitData } from '../api/UnitGetData';
 import SmallCard from '../components/Cards/SmallCard';
 import TestDataTable from '../components/Tables/TestDataTable';
 // project imports
@@ -18,13 +19,14 @@ import TestDataTable from '../components/Tables/TestDataTable';
 const E2E = ({ title }) => {
   const [isLoading, setLoading] = useState(true);
   const [e2eIdentityService, setE2eIdentityService] = useState([]);
+  const [unit, setUnit] = useState([]);
   const [data, setData] = useState([]);
   const theme = useTheme();
 
   const getTestPercentage = (pass, fail, skip) => {
     const totalTests = pass + fail + skip;
     const passPercentage = (((pass + skip) / totalTests) * 100).toFixed(0);
-    const overallResult = `${passPercentage}% test pass`;
+    const overallResult = isNaN(passPercentage) ? 'No Data' : `${passPercentage}% test pass`;
     return overallResult;
   };
   const lastItem = data[data.length - 1];
@@ -35,7 +37,9 @@ const E2E = ({ title }) => {
       try {
         setLoading(true);
         const result = await getE2EData(title.toLowerCase().replace(/\s/g, '_'));
+        const unitResult = await getUnitData(title.toLowerCase().replace(/\s/g, '_'));
         setE2eIdentityService(result);
+        setUnit(unitResult);
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -48,6 +52,7 @@ const E2E = ({ title }) => {
 
   useEffect(() => {
     const modifiedData = e2eIdentityService.map((item) => ({ ...item, title }));
+    modifiedData.sort((a, b) => new Date(b.date) - new Date(a.date));
     setData(modifiedData);
   }, [e2eIdentityService, title]);
 
@@ -71,7 +76,7 @@ const E2E = ({ title }) => {
                 isLoading={isLoading}
                 title="Latest Unit Test Run"
                 subtitle="Code Coverage"
-                result="90%"
+                result={unit[0]?.result[0].percentage || 'No Data'}
                 icon={<FingerprintIcon fontSize="inherit" />}
                 backgroundColor="secondary"
               />
@@ -79,9 +84,9 @@ const E2E = ({ title }) => {
             <Grid item sm={6} xs={12} md={6} lg={4}>
               <SmallCard
                 isLoading={isLoading}
-                title="Latest SonarQube Run"
-                subtitle="Code Scan"
-                result="90%"
+                title="Latest E2E Test Coverage Report"
+                subtitle="Test Coverage"
+                result="No Data"
                 icon={<FingerprintIcon fontSize="inherit" />}
               />
             </Grid>
