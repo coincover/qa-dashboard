@@ -1,3 +1,4 @@
+import React from 'react';
 import { lazy } from 'react';
 
 // project imports
@@ -9,6 +10,44 @@ const Products = Loadable(lazy(() => import('pages/E2E')));
 const Unit = Loadable(lazy(() => import('pages/Unit')));
 const Jira = Loadable(lazy(() => import('pages/Jira')));
 const SonarCloud = Loadable(lazy(() => import('pages/SonarCloud')));
+
+import jiraData from '../menu-items/jira';
+import productData from '../menu-items/product';
+
+const componentsMap = {
+  Products: Products,
+  Unit: Unit,
+  Jira: Jira
+};
+
+function transformProductData(data) {
+  return data.map((item) => ({
+    path: item.id,
+    children: [
+      {
+        path: '',
+        element: React.createElement(componentsMap['Products'], { title: item.title })
+      },
+      ...item.children.map((child) => {
+        const Component = componentsMap[child.id.includes('unit') ? 'Unit' : 'Products'];
+        return {
+          path: child.url.split('/').pop(),
+          element: React.createElement(Component, { title: item.title })
+        };
+      })
+    ]
+  }));
+}
+
+function transformJiraData(data) {
+  return data.children.map((child) => ({
+    path: child.url.split('/').pop(),
+    element: React.createElement(Jira, { title: child.title })
+  }));
+}
+
+const transformedProductData = transformProductData(productData.children);
+const transformedJiraData = transformJiraData(jiraData);
 
 const MainRoutes = {
   path: '/',
@@ -27,91 +66,10 @@ const MainRoutes = {
         }
       ]
     },
-    {
-      path: 'identity-service',
-      children: [
-        {
-          path: '',
-          element: <Products title="Identity Service" />
-        },
-        {
-          path: 'e2e-test',
-          element: <Products title="Identity Service" />
-        },
-        {
-          path: 'unit-test',
-          element: <Unit title="Identity Service" />
-        }
-      ]
-    },
-    {
-      path: 'recovery-as-a-service',
-      children: [
-        {
-          path: 'e2e-test',
-          element: <Products title="Recovery As A Service" />
-        },
-        {
-          path: 'unit-test',
-          element: <Unit title="Recovery As A Service" />
-        }
-      ]
-    },
-    {
-      path: 'transaction-protection',
-      children: [
-        {
-          path: 'e2e-test',
-          element: <Products title="Transaction Protection" />
-        },
-        {
-          path: 'unit-test',
-          element: <Unit title="Transaction Protection" />
-        }
-      ]
-    },
-    {
-      path: 'disaster-recovery',
-      children: [
-        {
-          path: 'e2e-test',
-          element: <Products title="Disaster Recovery" />
-        },
-        {
-          path: 'unit-test',
-          element: <Unit title="Disaster Recovery" />
-        }
-      ]
-    },
-    {
-      path: 'ledger_support_tool',
-      children: [
-        {
-          path: 'e2e-test',
-          element: <Products title="Ledger Support Tool" />
-        },
-        {
-          path: 'unit-test',
-          element: <Unit title="Ledger Support Tool" />
-        }
-      ]
-    },
+    ...transformedProductData,
     {
       path: 'jira',
-      children: [
-        {
-          path: 'bug',
-          element: <Jira title="List of Open bugs" />
-        },
-        {
-          path: 'defect',
-          element: <Jira title="List of Open Defects" />
-        },
-        {
-          path: 'security',
-          element: <Jira title="List of Open Security Issues" />
-        }
-      ]
+      children: transformedJiraData
     },
     {
       path: 'sonarCloud-pull-request',

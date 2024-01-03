@@ -1,5 +1,6 @@
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import PaidIcon from '@mui/icons-material/Paid';
+import ShieldIcon from '@mui/icons-material/Shield';
 import SosIcon from '@mui/icons-material/Sos';
 import SupportIcon from '@mui/icons-material/Support';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
@@ -119,6 +120,28 @@ const product = {
           title: 'Unit test',
           type: 'item',
           url: '/ledger_support_tool/unit-test',
+          breadcrumbs: false
+        }
+      ]
+    },
+    {
+      id: 'secure-data-service',
+      title: 'Secure Data Service',
+      type: 'collapse',
+      icon: ShieldIcon,
+      children: [
+        {
+          id: 'secure-data-service-e2e',
+          title: 'E2E test',
+          type: 'item',
+          url: '/secure-data-service/e2e-test',
+          breadcrumbs: false
+        },
+        {
+          id: 'secure-data-service-unit',
+          title: 'Unit test',
+          type: 'item',
+          url: '/secure-data-service/unit-test',
           breadcrumbs: false
         }
       ]

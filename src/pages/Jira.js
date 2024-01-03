@@ -55,15 +55,15 @@ const Products = ({ title }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (title === 'List of Open bugs') setData(bug || []);
-    if (title === 'List of Open Defects') setData(defect || []);
-    if (title === 'List of Open Security Issues') setData(security || []);
+    if (title === 'Bugs') setData(bug || []);
+    if (title === 'Defects') setData(defect || []);
+    if (title === 'Securitys') setData(security || []);
   }, [bug, defect, security, title]);
 
   return (
     <>
       {data?.issues?.length > 0 ? (
-        <MainCard title={title} sx={{ boxShadow: theme.shadows[6] }}>
+        <MainCard title={`List of Open ${title} issues`} sx={{ boxShadow: theme.shadows[6] }}>
           <Grid container spacing={gridSpacing}>
             <Grid item xs={12}>
               <Grid container spacing={gridSpacing}>

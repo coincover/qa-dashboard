@@ -36,6 +36,14 @@ const unit = {
       url: '/unit/disaster-recovery',
       icon: IconLifebuoy,
       breadcrumbs: false
+    },
+    {
+      id: 'unit-secure-data-service',
+      title: 'Secure Data Service',
+      type: 'item',
+      url: '/unit/secure-data-service',
+      icon: IconLifebuoy,
+      breadcrumbs: false
     }
   ]
 };
