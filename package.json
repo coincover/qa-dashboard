@@ -10,7 +10,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "db": "nodemon server/app.js"
+    "db": "nodemon server/app.js",
+    "db:migration": "node server/database/migrate.js"
   },
   "dependencies": {
     "@emotion/cache": "^11.9.3",
