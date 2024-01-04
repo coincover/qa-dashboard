@@ -1,30 +1,33 @@
-/* eslint-disable import/order */
 import { useEffect, useState } from 'react';
 
 import { Grid } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import PropTypes from 'prop-types';
-
-import MainCard from 'components/Cards/MainCard';
+import { useDispatch, useSelector } from 'react-redux';
 
 // import SmallCard from '../components/Cards/SmallCard';
+import MainCard from 'components/Cards/MainCard';
 import { gridSpacing } from 'store/constant';
 
-import { getUnitData } from '../api/UnitGetData';
 import UnitTestDataTable from '../components/Tables/UnitTestDataTable';
+import { retrieveUnitData } from '../store/product';
+import { getProductUnitData } from '../store/selectors';
 
 const UNIT = ({ title }) => {
-  const [isLoading, setLoading] = useState(true);
-  const [unitTestData, setUnitTestData] = useState([]);
-  const [data, setData] = useState([]);
+  const dispatch = useDispatch();
   const theme = useTheme();
+
+  const [isLoading, setLoading] = useState(true);
+
+  const unitData = useSelector(getProductUnitData(title.toLowerCase().replace(/\s/g, '_')));
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const result = await getUnitData(title.toLowerCase().replace(/\s/g, '_'));
-        setUnitTestData(result);
+        if (!unitData || unitData.length === 0) {
+          dispatch(retrieveUnitData(title.toLowerCase().replace(/\s/g, '_')));
+        }
         setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -34,11 +37,7 @@ const UNIT = ({ title }) => {
     };
 
     fetchData();
-  }, [title]);
-
-  useEffect(() => {
-    setData(unitTestData);
-  }, [unitTestData, title]);
+  }, [dispatch, title, unitData]);
 
   return (
     <MainCard title={title} sx={{ boxShadow: theme.shadows[6] }}>
@@ -75,7 +74,7 @@ const UNIT = ({ title }) => {
               />
             </Grid> */}
             <Grid item xs={12} sm={12} md={12} lg={12}>
-              {isLoading ? <div>Loading...</div> : <UnitTestDataTable data={data} />}
+              {isLoading ? <div>Loading...</div> : <UnitTestDataTable data={unitData} />}
             </Grid>
           </Grid>
         </Grid>

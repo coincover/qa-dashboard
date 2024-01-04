@@ -5,23 +5,28 @@ import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import { Grid } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 
 // project imports
 import MainCard from 'components/Cards/MainCard';
 import { gridSpacing } from 'store/constant';
 
-import { getE2EData } from '../api/E2eGetData';
-import { getUnitData } from '../api/UnitGetData';
 import SmallCard from '../components/Cards/SmallCard';
 import TestDataTable from '../components/Tables/TestDataTable';
 // project imports
+import { retrieveE2EData, retrieveUnitData } from '../store/product';
+import { getProductE2EData, getProductUnitData } from '../store/selectors';
 
 const E2E = ({ title }) => {
-  const [isLoading, setLoading] = useState(true);
-  const [e2eIdentityService, setE2eIdentityService] = useState([]);
-  const [unit, setUnit] = useState([]);
-  const [data, setData] = useState([]);
+  const dispatch = useDispatch();
   const theme = useTheme();
+
+  const [isLoading, setLoading] = useState(true);
+
+  const unitData = useSelector(getProductUnitData(title.toLowerCase().replace(/\s/g, '_')));
+  const e2eData = useSelector(getProductE2EData(title.toLowerCase().replace(/\s/g, '_')));
+
+  const [data, setData] = useState([]);
 
   const getTestPercentage = (pass, fail, skip) => {
     const totalTests = pass + fail + skip;
@@ -36,10 +41,13 @@ const E2E = ({ title }) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const result = await getE2EData(title.toLowerCase().replace(/\s/g, '_'));
-        const unitResult = await getUnitData(title.toLowerCase().replace(/\s/g, '_'));
-        setE2eIdentityService(result);
-        setUnit(unitResult);
+
+        if (!unitData) {
+          dispatch(retrieveUnitData(title.toLowerCase().replace(/\s/g, '_')));
+        }
+        if (!e2eData) {
+          dispatch(retrieveE2EData(title.toLowerCase().replace(/\s/g, '_')));
+        }
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -48,13 +56,13 @@ const E2E = ({ title }) => {
     };
 
     fetchData();
-  }, [title]);
+  }, [dispatch, e2eData, title, unitData]);
 
   useEffect(() => {
-    const modifiedData = e2eIdentityService.map((item) => ({ ...item, title }));
+    const modifiedData = e2eData.map((item) => ({ ...item, title }));
     modifiedData.sort((a, b) => new Date(b.date) - new Date(a.date));
     setData(modifiedData);
-  }, [e2eIdentityService, title]);
+  }, [e2eData, title]);
 
   return (
     <MainCard title={title} sx={{ boxShadow: theme.shadows[6] }}>
@@ -76,7 +84,7 @@ const E2E = ({ title }) => {
                 isLoading={isLoading}
                 title="Latest Unit Test Run"
                 subtitle="Code Coverage"
-                result={unit[0]?.result[0].percentage || 'No Data'}
+                result={unitData[0]?.result[0].percentage || 'No Data'}
                 icon={<FingerprintIcon fontSize="inherit" />}
                 backgroundColor="secondary"
               />
