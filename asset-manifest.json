@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/qa-dashboard/static/css/main.df3b6d63.css",
-    "main.js": "/qa-dashboard/static/js/main.d8e62ec7.js",
+    "main.js": "/qa-dashboard/static/js/main.474d6670.js",
     "static/js/874.6877eaad.chunk.js": "/qa-dashboard/static/js/874.6877eaad.chunk.js",
     "static/js/884.91ee6307.chunk.js": "/qa-dashboard/static/js/884.91ee6307.chunk.js",
-    "static/js/593.ca4973f7.chunk.js": "/qa-dashboard/static/js/593.ca4973f7.chunk.js",
-    "static/js/909.8cdcb39b.chunk.js": "/qa-dashboard/static/js/909.8cdcb39b.chunk.js",
-    "static/js/274.6ce30008.chunk.js": "/qa-dashboard/static/js/274.6ce30008.chunk.js",
-    "static/js/799.eb29ae48.chunk.js": "/qa-dashboard/static/js/799.eb29ae48.chunk.js",
+    "static/js/593.2a2abdfe.chunk.js": "/qa-dashboard/static/js/593.2a2abdfe.chunk.js",
+    "static/js/332.829e7df4.chunk.js": "/qa-dashboard/static/js/332.829e7df4.chunk.js",
+    "static/js/274.11ec8525.chunk.js": "/qa-dashboard/static/js/274.11ec8525.chunk.js",
+    "static/js/799.80a6c501.chunk.js": "/qa-dashboard/static/js/799.80a6c501.chunk.js",
     "static/js/47.3f0e1d7f.chunk.js": "/qa-dashboard/static/js/47.3f0e1d7f.chunk.js",
     "static/js/528.3f52eeb0.chunk.js": "/qa-dashboard/static/js/528.3f52eeb0.chunk.js",
     "static/js/57.2dbf7e4c.chunk.js": "/qa-dashboard/static/js/57.2dbf7e4c.chunk.js",
+    "static/js/861.ef30b92c.chunk.js": "/qa-dashboard/static/js/861.ef30b92c.chunk.js",
     "static/js/829.f2f74169.chunk.js": "/qa-dashboard/static/js/829.f2f74169.chunk.js",
     "static/js/742.148104f5.chunk.js": "/qa-dashboard/static/js/742.148104f5.chunk.js",
     "static/js/496.7a96bcd5.chunk.js": "/qa-dashboard/static/js/496.7a96bcd5.chunk.js",
-    "static/js/861.ef30b92c.chunk.js": "/qa-dashboard/static/js/861.ef30b92c.chunk.js",
     "static/js/802.48686ca5.chunk.js": "/qa-dashboard/static/js/802.48686ca5.chunk.js",
     "static/media/social-google.svg": "/qa-dashboard/static/media/social-google.9887eb8eb43729cb99f402cfa0de3c44.svg",
     "index.html": "/qa-dashboard/index.html"
   },
   "entrypoints": [
     "static/css/main.df3b6d63.css",
-    "static/js/main.d8e62ec7.js"
+    "static/js/main.474d6670.js"
   ]
 }
