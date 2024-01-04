@@ -21,10 +21,10 @@ const E2E = ({ title }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
 
-  const [isLoading, setLoading] = useState(true);
-
   const unitData = useSelector(getProductUnitData(title.toLowerCase().replace(/\s/g, '_')));
   const e2eData = useSelector(getProductE2EData(title.toLowerCase().replace(/\s/g, '_')));
+
+  const [isLoading, setLoading] = useState(true);
 
   const [data, setData] = useState([]);
 
@@ -42,11 +42,11 @@ const E2E = ({ title }) => {
       try {
         setLoading(true);
 
-        if (!unitData) {
-          dispatch(retrieveUnitData(title.toLowerCase().replace(/\s/g, '_')));
+        if (!unitData || unitData.length === 0) {
+          await dispatch(retrieveUnitData(title.toLowerCase().replace(/\s/g, '_')));
         }
-        if (!e2eData) {
-          dispatch(retrieveE2EData(title.toLowerCase().replace(/\s/g, '_')));
+        if (!e2eData || e2eData.length === 0) {
+          await dispatch(retrieveE2EData(title.toLowerCase().replace(/\s/g, '_')));
         }
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -84,7 +84,7 @@ const E2E = ({ title }) => {
                 isLoading={isLoading}
                 title="Latest Unit Test Run"
                 subtitle="Code Coverage"
-                result={unitData[0]?.result[0].percentage || 'No Data'}
+                result={unitData[0]?.result[0]?.percentage || 'No Data'}
                 icon={<FingerprintIcon fontSize="inherit" />}
                 backgroundColor="secondary"
               />
