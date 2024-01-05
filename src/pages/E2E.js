@@ -45,7 +45,7 @@ const E2E = ({ title }) => {
         if (!unitData) {
           await dispatch(retrieveUnitData(title.toLowerCase().replace(/\s/g, '_')));
         }
-        if (!e2eData || e2eData.length === 0) {
+        if (!e2eData) {
           await dispatch(retrieveE2EData(title.toLowerCase().replace(/\s/g, '_')));
         }
       } catch (error) {

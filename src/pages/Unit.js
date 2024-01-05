@@ -17,18 +17,17 @@ const UNIT = ({ title }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
 
-  const [isLoading, setLoading] = useState(true);
-
   const unitData = useSelector(getProductUnitData(title.toLowerCase().replace(/\s/g, '_')));
+
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        if (!unitData || unitData.length === 0) {
+        if (!unitData) {
           dispatch(retrieveUnitData(title.toLowerCase().replace(/\s/g, '_')));
         }
-        setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -37,7 +36,7 @@ const UNIT = ({ title }) => {
     };
 
     fetchData();
-  }, [dispatch, title, unitData]);
+  }, [dispatch, unitData, title]);
 
   return (
     <MainCard title={title} sx={{ boxShadow: theme.shadows[6] }}>
