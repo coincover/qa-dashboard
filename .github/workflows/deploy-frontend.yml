@@ -24,9 +24,20 @@ jobs:
       - name: Build Frontend
         run: npm run build
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy Frontend
         uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
           branch: gh-pages
           folder: build
           token: ${{ secrets.GIT_HUB_DEPLOYMENT_TOKEN }}
+
+      - name: Deploy Backend - Trigger
+        id: Request
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://api.render.com/deploy/srv-cll4qnsjtl8s73f7ouf0?key=G7G-cgw6lk8'
+          method: 'POST'
+
+      - name: Show Response
+        run: |
+          echo ${{ steps.Request.outputs.response }}

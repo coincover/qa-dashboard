@@ -8,11 +8,11 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
+import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import * as moment from 'moment';
 import PropTypes from 'prop-types';
-
 const style = {
   position: 'absolute',
   top: '50%',
@@ -29,6 +29,9 @@ const style = {
 const TestDataTable = ({ data }) => {
   const [selectedRowData, setSelectedRowData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
   const titleToValue = (value) => {
     switch (value) {
       case 'Identity Service':
@@ -54,6 +57,15 @@ const TestDataTable = ({ data }) => {
     setIsModalOpen(false);
   };
 
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
   return (
     <div>
       <TableContainer component={Paper}>
@@ -67,13 +79,8 @@ const TestDataTable = ({ data }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((d) => (
-              <TableRow
-                key={d.id}
-                onClick={() => handleRowClick(d)}
-                hover // Add hover property for hover effect
-                style={{ cursor: 'pointer' }} // Change cursor on hover
-              >
+            {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((d) => (
+              <TableRow key={d.id} onClick={() => handleRowClick(d)} hover style={{ cursor: 'pointer' }}>
                 <TableCell>{moment(d.date).format('DD/MM/YY')}</TableCell>
                 <TableCell>{d.pass}</TableCell>
                 <TableCell>{d.fail}</TableCell>
@@ -83,7 +90,14 @@ const TestDataTable = ({ data }) => {
           </TableBody>
         </Table>
       </TableContainer>
-
+      <TablePagination
+        component="div"
+        count={data.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
       <Modal open={isModalOpen} onClose={handleModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h3" component="h2">

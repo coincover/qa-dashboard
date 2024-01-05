@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Avatar, Tooltip, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
@@ -7,12 +7,16 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
+import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { IconGitPullRequest, IconSquareCheck, IconSquareX } from '@tabler/icons';
 import * as moment from 'moment';
 import PropTypes from 'prop-types';
 
 const SonarCloudTable = ({ data }) => {
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
   function stringAvatar(name) {
     const words = name.split(' ');
 
@@ -30,6 +34,15 @@ const SonarCloudTable = ({ data }) => {
     window.open(rowData.url, '_blank');
   };
 
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
   return (
     <div>
       <TableContainer component={Paper}>
@@ -44,7 +57,7 @@ const SonarCloudTable = ({ data }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data?.map((d) => (
+            {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((d) => (
               <TableRow key={d.id} onClick={() => handleRowClick(d)} hover style={{ cursor: 'pointer' }}>
                 <TableCell>
                   <Typography sx={{ fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>
@@ -70,6 +83,14 @@ const SonarCloudTable = ({ data }) => {
           </TableBody>
         </Table>
       </TableContainer>
+      <TablePagination
+        component="div"
+        count={data.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
     </div>
   );
 };

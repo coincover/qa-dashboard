@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -17,6 +17,7 @@ import {
   TableCell,
   TableContainer,
   TableHead,
+  TablePagination,
   TableRow,
   Tooltip,
   Typography
@@ -30,6 +31,7 @@ import MainCard from 'components/Cards/MainCard';
 function Row(props) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
+
   const lastResult = row.result[row.result.length - 1];
   const fillColour = (value) => {
     const numericValue = parseFloat(value);
@@ -205,6 +207,17 @@ Row.propTypes = {
 const UnitTestDataTable = ({ isLoading, data }) => {
   const theme = useTheme();
 
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
   return (
     <>
       {!isLoading && data.length > 0 ? (
@@ -221,11 +234,19 @@ const UnitTestDataTable = ({ isLoading, data }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {data.map((row) => (
+              {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
                 <Row key={row.id} row={row} />
               ))}
             </TableBody>
           </Table>
+          <TablePagination
+            component="div"
+            count={data.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
         </TableContainer>
       ) : (
         <MainCard sx={{ boxShadow: theme.shadows[6] }}>
