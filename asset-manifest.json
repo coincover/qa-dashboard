@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/qa-dashboard/static/css/main.a66e4805.css",
-    "main.js": "/qa-dashboard/static/js/main.aa28d484.js",
+    "main.js": "/qa-dashboard/static/js/main.eeb4a8c2.js",
     "static/js/945.61bad246.chunk.js": "/qa-dashboard/static/js/945.61bad246.chunk.js",
     "static/js/526.eaf6f5f8.chunk.js": "/qa-dashboard/static/js/526.eaf6f5f8.chunk.js",
-    "static/js/971.375b7d42.chunk.js": "/qa-dashboard/static/js/971.375b7d42.chunk.js",
+    "static/js/971.919a6bd7.chunk.js": "/qa-dashboard/static/js/971.919a6bd7.chunk.js",
     "static/js/548.a61d6652.chunk.js": "/qa-dashboard/static/js/548.a61d6652.chunk.js",
     "static/js/979.7d63a50c.chunk.js": "/qa-dashboard/static/js/979.7d63a50c.chunk.js",
     "static/js/385.c692a4c8.chunk.js": "/qa-dashboard/static/js/385.c692a4c8.chunk.js",
@@ -19,10 +19,10 @@
     "static/media/social-google.svg": "/qa-dashboard/static/media/social-google.9887eb8eb43729cb99f402cfa0de3c44.svg",
     "index.html": "/qa-dashboard/index.html",
     "main.a66e4805.css.map": "/qa-dashboard/static/css/main.a66e4805.css.map",
-    "main.aa28d484.js.map": "/qa-dashboard/static/js/main.aa28d484.js.map",
+    "main.eeb4a8c2.js.map": "/qa-dashboard/static/js/main.eeb4a8c2.js.map",
     "945.61bad246.chunk.js.map": "/qa-dashboard/static/js/945.61bad246.chunk.js.map",
     "526.eaf6f5f8.chunk.js.map": "/qa-dashboard/static/js/526.eaf6f5f8.chunk.js.map",
-    "971.375b7d42.chunk.js.map": "/qa-dashboard/static/js/971.375b7d42.chunk.js.map",
+    "971.919a6bd7.chunk.js.map": "/qa-dashboard/static/js/971.919a6bd7.chunk.js.map",
     "548.a61d6652.chunk.js.map": "/qa-dashboard/static/js/548.a61d6652.chunk.js.map",
     "979.7d63a50c.chunk.js.map": "/qa-dashboard/static/js/979.7d63a50c.chunk.js.map",
     "385.c692a4c8.chunk.js.map": "/qa-dashboard/static/js/385.c692a4c8.chunk.js.map",
@@ -37,6 +37,6 @@
   },
   "entrypoints": [
     "static/css/main.a66e4805.css",
-    "static/js/main.aa28d484.js"
+    "static/js/main.eeb4a8c2.js"
   ]
 }
