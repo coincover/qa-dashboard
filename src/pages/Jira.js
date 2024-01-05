@@ -52,7 +52,7 @@ const Products = ({ title }) => {
     };
 
     fetchData();
-  }, [dispatch]);
+  }, [dispatch, jiraBugData, jiraDefectData, jiraSecurityData]);
 
   useEffect(() => {
     if (title === 'Bugs') setData(bug || []);

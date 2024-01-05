@@ -69,7 +69,7 @@ const Dashboard = () => {
     };
 
     fetchData();
-  }, [dispatch]);
+  }, [dispatch, jiraBugData, jiraDefectData, jiraSecurityData]);
 
   return (
     <Grid container spacing={gridSpacing}>
