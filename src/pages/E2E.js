@@ -38,16 +38,16 @@ const E2E = ({ title }) => {
   const percentageData = getTestPercentage(lastItem?.pass, lastItem?.fail, lastItem?.skip);
 
   useEffect(() => {
-    setLoading(false);
     const fetchData = async () => {
       try {
+        setLoading(true);
+
         if (!unitData) {
           await dispatch(retrieveUnitData(title.toLowerCase().replace(/\s/g, '_')));
         }
-        if (!e2eData) {
+        if (!e2eData || e2eData.length === 0) {
           await dispatch(retrieveE2EData(title.toLowerCase().replace(/\s/g, '_')));
         }
-        setLoading(true);
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
