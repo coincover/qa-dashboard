@@ -94,13 +94,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pirasanthan-jesugeevegan/qa-dashboard.git"
+    "url": "git+https://github.com/coincover/qa-dashboard.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pirasanthan-jesugeevegan/qa-dashboard/issues"
+    "url": "https://github.com/coincover/qa-dashboard/issues"
   },
-  "homepage": "https://pirasanthan-jesugeevegan.github.io/qa-dashboard"
+  "homepage": "https://coincover.github.io/qa-dashboard"
 }
