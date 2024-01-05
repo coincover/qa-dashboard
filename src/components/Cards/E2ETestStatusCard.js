@@ -58,6 +58,8 @@ const E2ETestStatusCard = ({ isLoading }) => {
                 <Divider sx={{ my: 1.5 }} />
                 {data.transaction_protection !== null && <Row title="Transaction Protection" data={data.transaction_protection} />}
                 <Divider sx={{ my: 1.5 }} />
+                {data.transaction_protection !== null && <Row title="Secure Data Service" data={data.secure_data_service} />}
+                <Divider sx={{ my: 1.5 }} />
               </Grid>
             </Grid>
           </CardContent>
