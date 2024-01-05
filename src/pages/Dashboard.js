@@ -6,7 +6,7 @@ import { Grid } from '@mui/material';
 import { IconBug, IconHeadphones, IconShieldLock, IconTicket } from '@tabler/icons';
 import { useDispatch, useSelector } from 'react-redux';
 
-// import { OverviewTraffic } from 'components/Charts/PieChat';
+import { OverviewTraffic } from 'components/Charts/PieChat';
 // import TotalOrderLineChartCard from '../components/Cards/TotalOrderLineChartCard';
 // import TotalGrowthBarChart from '../components/Cards/TotalGrowthBarChart';
 import { gridSpacing } from 'store/constant';
@@ -116,13 +116,13 @@ const Dashboard = () => {
             </Grid>
           </Grid>
           <Grid item lg={4} md={6} sm={12} xs={12}>
-            {/* <Grid sx={{ padding: '8px' }}>
+            <Grid sx={{ padding: '8px' }}>
               <OverviewTraffic
                 chartSeries={[bug?.total, defect?.total, security?.total]}
                 labels={['Bugs', 'Defects', 'Security']}
                 sx={{ height: '100%' }}
               />
-            </Grid> */}
+            </Grid>
 
             <Grid sx={{ padding: '8px' }}>
               <SmallCard

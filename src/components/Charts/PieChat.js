@@ -59,7 +59,7 @@ export const OverviewTraffic = (props) => {
   };
   return (
     <>
-      {chartSeries && chartSeries.every((value) => value.value === undefined) ? (
+      {chartSeries && chartSeries.every((value) => value?.value === undefined) ? (
         <JiraTicketSummaryCardSkeleton />
       ) : (
         <Card sx={{ ...sx, height: '100%', boxShadow: theme.shadows[10] }}>
