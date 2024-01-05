@@ -27,6 +27,8 @@ const E2E = ({ title }) => {
   const [isLoading, setLoading] = useState(true);
 
   const [data, setData] = useState([]);
+  const [isUnitDataFetched, setUnitDataFetched] = useState(false);
+  const [isE2EDataFetched, setE2EDataFetched] = useState(false);
 
   const getTestPercentage = (pass, fail, skip) => {
     const totalTests = pass + fail + skip;
@@ -42,12 +44,15 @@ const E2E = ({ title }) => {
       try {
         setLoading(true);
 
-        if (!unitData) {
+        if (!isUnitDataFetched) {
           await dispatch(retrieveUnitData(title.toLowerCase().replace(/\s/g, '_')));
+          setUnitDataFetched(true);
         }
-        if (!e2eData) {
+        if (!isE2EDataFetched) {
           await dispatch(retrieveE2EData(title.toLowerCase().replace(/\s/g, '_')));
+          setE2EDataFetched(true);
         }
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -56,7 +61,7 @@ const E2E = ({ title }) => {
     };
 
     fetchData();
-  }, [dispatch, e2eData, title, unitData]);
+  }, [dispatch, e2eData, isE2EDataFetched, isUnitDataFetched, title, unitData]);
 
   useEffect(() => {
     const modifiedData = e2eData.map((item) => ({ ...item, title }));
