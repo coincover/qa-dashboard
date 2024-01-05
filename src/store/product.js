@@ -4,9 +4,9 @@ import { getUnitData } from 'api/UnitGetData';
 import { GET_E2E, GET_UNIT } from './actions';
 
 export const retrieveUnitData = (issueType) => async (dispatch, getState) => {
-  const productData = getState().unitReducer[issueType];
+  const unitData = getState().unitReducer[issueType];
 
-  if (!productData) {
+  if (!unitData || unitData.length === 0) {
     try {
       const res = await getUnitData(issueType);
       dispatch({
@@ -23,13 +23,13 @@ export const retrieveUnitData = (issueType) => async (dispatch, getState) => {
     }
   }
 
-  return productData;
+  return unitData;
 };
 
 export const retrieveE2EData = (issueType) => async (dispatch, getState) => {
-  const productData = getState().e2eReducer[issueType];
+  const e2eData = getState().e2eReducer[issueType];
 
-  if (!productData || productData.length === 0) {
+  if (!e2eData || e2eData.length === 0) {
     try {
       const res = await getE2EData(issueType);
       dispatch({
@@ -46,5 +46,5 @@ export const retrieveE2EData = (issueType) => async (dispatch, getState) => {
     }
   }
 
-  return productData;
+  return e2eData;
 };
