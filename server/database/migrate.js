@@ -8,7 +8,7 @@ const products = require('../utils/constant').products;
       // Create e2e table
       await db.schema.createTableIfNotExists(`e2e_${product}`, (table) => {
         table.increments('id').primary();
-        table.timestamp('timestamp');
+        table.date('date');
         table.integer('pass');
         table.integer('fail');
         table.integer('skip');
