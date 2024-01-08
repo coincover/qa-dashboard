@@ -1,6 +1,6 @@
 const error401 = require('../errors/401.js');
 
-const API_KEY = process.env.REACT_API_KEY;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 const apiKeyCheck = (req, res, next) => {
   const userApiKey = req.header('API-Key');
