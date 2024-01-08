@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/qa-dashboard/static/css/main.a66e4805.css",
-    "main.js": "/qa-dashboard/static/js/main.3438d492.js",
+    "main.js": "/qa-dashboard/static/js/main.cbf1a25c.js",
     "static/js/945.b03788d0.chunk.js": "/qa-dashboard/static/js/945.b03788d0.chunk.js",
     "static/js/317.d1a71f0f.chunk.js": "/qa-dashboard/static/js/317.d1a71f0f.chunk.js",
     "static/js/971.c9efedb2.chunk.js": "/qa-dashboard/static/js/971.c9efedb2.chunk.js",
-    "static/js/548.f89b2039.chunk.js": "/qa-dashboard/static/js/548.f89b2039.chunk.js",
+    "static/js/548.f0a21a93.chunk.js": "/qa-dashboard/static/js/548.f0a21a93.chunk.js",
     "static/js/979.fd3e34f3.chunk.js": "/qa-dashboard/static/js/979.fd3e34f3.chunk.js",
     "static/js/385.00fcddb3.chunk.js": "/qa-dashboard/static/js/385.00fcddb3.chunk.js",
     "static/js/469.c246ed76.chunk.js": "/qa-dashboard/static/js/469.c246ed76.chunk.js",
@@ -21,11 +21,11 @@
     "static/media/social-google.svg": "/qa-dashboard/static/media/social-google.9887eb8eb43729cb99f402cfa0de3c44.svg",
     "index.html": "/qa-dashboard/index.html",
     "main.a66e4805.css.map": "/qa-dashboard/static/css/main.a66e4805.css.map",
-    "main.3438d492.js.map": "/qa-dashboard/static/js/main.3438d492.js.map",
+    "main.cbf1a25c.js.map": "/qa-dashboard/static/js/main.cbf1a25c.js.map",
     "945.b03788d0.chunk.js.map": "/qa-dashboard/static/js/945.b03788d0.chunk.js.map",
     "317.d1a71f0f.chunk.js.map": "/qa-dashboard/static/js/317.d1a71f0f.chunk.js.map",
     "971.c9efedb2.chunk.js.map": "/qa-dashboard/static/js/971.c9efedb2.chunk.js.map",
-    "548.f89b2039.chunk.js.map": "/qa-dashboard/static/js/548.f89b2039.chunk.js.map",
+    "548.f0a21a93.chunk.js.map": "/qa-dashboard/static/js/548.f0a21a93.chunk.js.map",
     "979.fd3e34f3.chunk.js.map": "/qa-dashboard/static/js/979.fd3e34f3.chunk.js.map",
     "385.00fcddb3.chunk.js.map": "/qa-dashboard/static/js/385.00fcddb3.chunk.js.map",
     "469.c246ed76.chunk.js.map": "/qa-dashboard/static/js/469.c246ed76.chunk.js.map",
@@ -41,6 +41,6 @@
   },
   "entrypoints": [
     "static/css/main.a66e4805.css",
-    "static/js/main.3438d492.js"
+    "static/js/main.cbf1a25c.js"
   ]
 }
