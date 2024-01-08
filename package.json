@@ -1,5 +1,5 @@
 {
-  "name": "qa-dashboard",
+  "name": "falcon-eye-dashboard",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -94,13 +94,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/coincover/qa-dashboard.git"
+    "url": "git+https://github.com/coincover/falcon-eye-dashboard.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/coincover/qa-dashboard/issues"
+    "url": "https://github.com/coincover/falcon-eye-dashboard/issues"
   },
-  "homepage": "https://coincover.github.io/qa-dashboard"
+  "homepage": "https://coincover.github.io/falcon-eye-dashboard"
 }
