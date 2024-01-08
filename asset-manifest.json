@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/falcon-eye-dashboard/static/css/main.a66e4805.css",
-    "main.js": "/falcon-eye-dashboard/static/js/main.73a0fc41.js",
+    "main.js": "/falcon-eye-dashboard/static/js/main.81bceb5b.js",
     "static/js/945.9ff1aa57.chunk.js": "/falcon-eye-dashboard/static/js/945.9ff1aa57.chunk.js",
     "static/js/317.5a6a540b.chunk.js": "/falcon-eye-dashboard/static/js/317.5a6a540b.chunk.js",
     "static/js/971.b37fa7c2.chunk.js": "/falcon-eye-dashboard/static/js/971.b37fa7c2.chunk.js",
-    "static/js/548.412a3686.chunk.js": "/falcon-eye-dashboard/static/js/548.412a3686.chunk.js",
+    "static/js/548.863ce979.chunk.js": "/falcon-eye-dashboard/static/js/548.863ce979.chunk.js",
     "static/js/979.8a24b374.chunk.js": "/falcon-eye-dashboard/static/js/979.8a24b374.chunk.js",
     "static/js/385.083b63b0.chunk.js": "/falcon-eye-dashboard/static/js/385.083b63b0.chunk.js",
     "static/js/469.65b0f3b3.chunk.js": "/falcon-eye-dashboard/static/js/469.65b0f3b3.chunk.js",
@@ -21,11 +21,11 @@
     "static/media/social-google.svg": "/falcon-eye-dashboard/static/media/social-google.9887eb8eb43729cb99f402cfa0de3c44.svg",
     "index.html": "/falcon-eye-dashboard/index.html",
     "main.a66e4805.css.map": "/falcon-eye-dashboard/static/css/main.a66e4805.css.map",
-    "main.73a0fc41.js.map": "/falcon-eye-dashboard/static/js/main.73a0fc41.js.map",
+    "main.81bceb5b.js.map": "/falcon-eye-dashboard/static/js/main.81bceb5b.js.map",
     "945.9ff1aa57.chunk.js.map": "/falcon-eye-dashboard/static/js/945.9ff1aa57.chunk.js.map",
     "317.5a6a540b.chunk.js.map": "/falcon-eye-dashboard/static/js/317.5a6a540b.chunk.js.map",
     "971.b37fa7c2.chunk.js.map": "/falcon-eye-dashboard/static/js/971.b37fa7c2.chunk.js.map",
-    "548.412a3686.chunk.js.map": "/falcon-eye-dashboard/static/js/548.412a3686.chunk.js.map",
+    "548.863ce979.chunk.js.map": "/falcon-eye-dashboard/static/js/548.863ce979.chunk.js.map",
     "979.8a24b374.chunk.js.map": "/falcon-eye-dashboard/static/js/979.8a24b374.chunk.js.map",
     "385.083b63b0.chunk.js.map": "/falcon-eye-dashboard/static/js/385.083b63b0.chunk.js.map",
     "469.65b0f3b3.chunk.js.map": "/falcon-eye-dashboard/static/js/469.65b0f3b3.chunk.js.map",
@@ -41,6 +41,6 @@
   },
   "entrypoints": [
     "static/css/main.a66e4805.css",
-    "static/js/main.73a0fc41.js"
+    "static/js/main.81bceb5b.js"
   ]
 }
