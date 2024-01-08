@@ -23,6 +23,8 @@ jobs:
 
       - name: Build Frontend
         run: npm run build
+        env:
+          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
 
       - name: Deploy Frontend
         uses: JamesIves/github-pages-deploy-action@4.1.3
