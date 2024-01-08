@@ -27,8 +27,8 @@ const E2E = ({ title }) => {
   const [isLoading, setLoading] = useState(true);
 
   const [data, setData] = useState([]);
-  const [isUnitDataFetched, setUnitDataFetched] = useState(false);
-  const [isE2EDataFetched, setE2EDataFetched] = useState(false);
+  const [isUnitDataFetched, setUnitDataFetched] = useState('');
+  const [isE2EDataFetched, setE2EDataFetched] = useState('');
 
   const getTestPercentage = (pass, fail, skip) => {
     const totalTests = pass + fail + skip;
@@ -44,13 +44,13 @@ const E2E = ({ title }) => {
       try {
         setLoading(true);
 
-        if (!isUnitDataFetched) {
+        if (isUnitDataFetched !== title.toLowerCase().replace(/\s/g, '_')) {
           await dispatch(retrieveUnitData(title.toLowerCase().replace(/\s/g, '_')));
-          setUnitDataFetched(true);
+          setUnitDataFetched(title.toLowerCase().replace(/\s/g, '_'));
         }
-        if (!isE2EDataFetched) {
+        if (isE2EDataFetched !== title.toLowerCase().replace(/\s/g, '_')) {
           await dispatch(retrieveE2EData(title.toLowerCase().replace(/\s/g, '_')));
-          setE2EDataFetched(true);
+          setE2EDataFetched(title.toLowerCase().replace(/\s/g, '_'));
         }
         setLoading(false);
       } catch (error) {
@@ -61,7 +61,7 @@ const E2E = ({ title }) => {
     };
 
     fetchData();
-  }, [dispatch, e2eData, isE2EDataFetched, isUnitDataFetched, title, unitData]);
+  }, [dispatch, title, e2eData, isE2EDataFetched, isUnitDataFetched, unitData]);
 
   useEffect(() => {
     const modifiedData = e2eData.map((item) => ({ ...item, title }));
