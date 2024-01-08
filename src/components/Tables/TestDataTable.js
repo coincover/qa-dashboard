@@ -44,6 +44,8 @@ const TestDataTable = ({ data }) => {
         return 'transaction-protection';
       case 'Recovery As A Service':
         return 'recovery-as-a-service';
+      case 'Secure Data Service':
+        return 'secure-data-service';
       default:
         return value;
     }
@@ -65,7 +67,7 @@ const TestDataTable = ({ data }) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-
+  console.log(titleToValue(selectedRowData?.title));
   return (
     <div>
       <TableContainer component={Paper}>
