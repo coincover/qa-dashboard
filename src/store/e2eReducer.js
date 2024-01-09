@@ -1,13 +1,5 @@
 import { GET_E2E } from './actions';
-
-const initialState = {
-  transaction_protection: [],
-  disaster_recovery: [],
-  identity_service: [],
-  recovery_as_a_service: [],
-  secure_data_service: [],
-  ledger_support_tool: []
-};
+import { initialState } from './constant';
 
 function e2eReducer(state = initialState, action) {
   const { type, payload } = action;
@@ -16,7 +8,10 @@ function e2eReducer(state = initialState, action) {
     case GET_E2E:
       return {
         ...state,
-        [payload.issueType]: payload.data
+        [payload.issueType]: {
+          data: [...payload.data],
+          lastUpdated: payload.lastUpdated
+        }
       };
     default:
       return state;

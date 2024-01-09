@@ -12,12 +12,13 @@ import { gridSpacing } from 'store/constant';
 import UnitTestDataTable from '../components/Tables/UnitTestDataTable';
 import { retrieveUnitData } from '../store/product';
 import { getProductUnitData } from '../store/selectors';
+import { getApiByName } from '../utils/product-name-converter';
 
 const UNIT = ({ title }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
 
-  const unitData = useSelector(getProductUnitData(title.toLowerCase().replace(/\s/g, '_')));
+  const unitData = useSelector(getProductUnitData(getApiByName(title)));
 
   const [isLoading, setLoading] = useState(true);
 
@@ -26,7 +27,7 @@ const UNIT = ({ title }) => {
       try {
         setLoading(true);
         if (!unitData) {
-          dispatch(retrieveUnitData(title.toLowerCase().replace(/\s/g, '_')));
+          dispatch(retrieveUnitData(getApiByName(title)));
         }
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -39,7 +40,7 @@ const UNIT = ({ title }) => {
   }, [dispatch, unitData, title]);
 
   return (
-    <MainCard title={title} sx={{ boxShadow: theme.shadows[6] }}>
+    <MainCard title={`Unit Code Coverage: ${title}`} sx={{ boxShadow: theme.shadows[6] }}>
       <Grid container spacing={gridSpacing}>
         <Grid item xs={12}>
           <Grid container spacing={gridSpacing}>
@@ -73,7 +74,7 @@ const UNIT = ({ title }) => {
               />
             </Grid> */}
             <Grid item xs={12} sm={12} md={12} lg={12}>
-              {isLoading ? <div>Loading...</div> : <UnitTestDataTable data={unitData} />}
+              {isLoading ? <div>Loading...</div> : <UnitTestDataTable data={unitData.data} />}
             </Grid>
           </Grid>
         </Grid>

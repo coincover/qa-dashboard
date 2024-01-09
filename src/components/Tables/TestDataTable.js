@@ -13,6 +13,9 @@ import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import * as moment from 'moment';
 import PropTypes from 'prop-types';
+
+import { getSlugByName } from '../../utils/product-name-converter';
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -32,24 +35,6 @@ const TestDataTable = ({ data }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
-  const titleToValue = (value) => {
-    switch (value) {
-      case 'Identity Service':
-        return 'identity-service';
-      case 'Disaster Recovery':
-        return 'disaster-recovery';
-      case 'Ledger Support Tool':
-        return 'ledger';
-      case 'Transaction Protection':
-        return 'transaction-protection';
-      case 'Recovery as a service':
-        return 'recovery-as-a-service';
-      case 'Secure Data Service':
-        return 'secure-data-service';
-      default:
-        return value;
-    }
-  };
   const handleRowClick = (rowData) => {
     setSelectedRowData(rowData);
     setIsModalOpen(true);
@@ -107,7 +92,7 @@ const TestDataTable = ({ data }) => {
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             <iframe
-              src={`https://coincover.github.io/coincover-amt/${titleToValue(selectedRowData?.title)}/functional/${moment(
+              src={`https://coincover.github.io/coincover-amt/${getSlugByName(selectedRowData?.title)}/functional/${moment(
                 selectedRowData?.date
               ).format('YYYY-MM-DD')}/index.html`}
               title="Modal Iframe"

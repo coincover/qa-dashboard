@@ -13,16 +13,16 @@ import { gridSpacing } from 'store/constant';
 
 import SmallCard from '../components/Cards/SmallCard';
 import TestDataTable from '../components/Tables/TestDataTable';
-// project imports
 import { retrieveE2EData, retrieveUnitData } from '../store/product';
 import { getProductE2EData, getProductUnitData } from '../store/selectors';
+import { getApiByName } from '../utils/product-name-converter';
 
 const E2E = ({ title }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
 
-  const unitData = useSelector(getProductUnitData(title.toLowerCase().replace(/\s/g, '_')));
-  const e2eData = useSelector(getProductE2EData(title.toLowerCase().replace(/\s/g, '_')));
+  const unitData = useSelector(getProductUnitData(getApiByName(title)));
+  const e2eData = useSelector(getProductE2EData(getApiByName(title)));
 
   const [isLoading, setLoading] = useState(true);
 
@@ -44,13 +44,13 @@ const E2E = ({ title }) => {
       try {
         setLoading(true);
 
-        if (isUnitDataFetched !== title.toLowerCase().replace(/\s/g, '_')) {
-          await dispatch(retrieveUnitData(title.toLowerCase().replace(/\s/g, '_')));
-          setUnitDataFetched(title.toLowerCase().replace(/\s/g, '_'));
+        if (isUnitDataFetched !== getApiByName(title)) {
+          await dispatch(retrieveUnitData(getApiByName(title)));
+          setUnitDataFetched(getApiByName(title));
         }
-        if (isE2EDataFetched !== title.toLowerCase().replace(/\s/g, '_')) {
-          await dispatch(retrieveE2EData(title.toLowerCase().replace(/\s/g, '_')));
-          setE2EDataFetched(title.toLowerCase().replace(/\s/g, '_'));
+        if (isE2EDataFetched !== getApiByName(title)) {
+          await dispatch(retrieveE2EData(getApiByName(title)));
+          setE2EDataFetched(getApiByName(title));
         }
         setLoading(false);
       } catch (error) {
@@ -64,13 +64,13 @@ const E2E = ({ title }) => {
   }, [dispatch, title, e2eData, isE2EDataFetched, isUnitDataFetched, unitData]);
 
   useEffect(() => {
-    const modifiedData = e2eData.map((item) => ({ ...item, title }));
+    const modifiedData = e2eData.data.map((item) => ({ ...item, title }));
     modifiedData.sort((a, b) => new Date(b.date) - new Date(a.date));
     setData(modifiedData);
   }, [e2eData, title]);
 
   return (
-    <MainCard title={title} sx={{ boxShadow: theme.shadows[6] }}>
+    <MainCard title={`E2E Test Result: ${title}`} sx={{ boxShadow: theme.shadows[6] }}>
       <Grid container spacing={gridSpacing}>
         <Grid item xs={12}>
           <Grid container spacing={gridSpacing}>
@@ -89,7 +89,7 @@ const E2E = ({ title }) => {
                 isLoading={isLoading}
                 title="Latest Unit Test Run"
                 subtitle="Code Coverage"
-                result={unitData[0]?.result[0]?.percentage || 'No Data'}
+                result={unitData.data[0]?.result[0]?.percentage || 'No Data'}
                 icon={<FingerprintIcon fontSize="inherit" />}
                 backgroundColor="secondary"
               />
